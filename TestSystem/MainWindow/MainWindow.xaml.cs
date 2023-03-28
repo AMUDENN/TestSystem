@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
+using TestSystem.Pages;
 
 namespace TestSystem
 {
@@ -11,11 +12,7 @@ namespace TestSystem
             InitializeComponent();
             Closing += ShowCloseMessage;
 
-            var timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.IsEnabled = true;
-            timer.Tick += (o, e) => { CurrentTime.Text = DateTime.Now.ToString(); };
-            timer.Start();
+            MainFrame.Content = new AuthorizationPage();
 
         }
         private void ShowCloseMessage(object sender, CancelEventArgs e)

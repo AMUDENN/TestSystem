@@ -1,0 +1,116 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="Green" Color="#A5C9CA"/>
+    <SolidColorBrush x:Key="LightGreen" Color="#E7F6F2"/>
+    <SolidColorBrush x:Key="DarkGreen" Color="#395B64"/>
+    <SolidColorBrush x:Key="DarkGray" Color="#2C3333"/>
+    <SolidColorBrush x:Key="LightGray" Color="#969999"/>
+    <SolidColorBrush x:Key="White" Color="#FFFFFF"/>
+    <Color x:Key="LightGreenColor" A="255" R="165" G="201" B="202"/>
+    <Color x:Key="DarkGreenColor" A="255" R="57" G="91" B="100"/>
+
+    <Style x:Key="RectangleStyle" TargetType="{x:Type Rectangle}">
+        <Setter Property="RadiusX" Value="20"/>
+        <Setter Property="RadiusY" Value="20"/>
+    </Style>
+    <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="20"/>
+    </Style>
+    <Style x:Key="BorderStyleWithStroke" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DarkGray}"/>
+    </Style>
+    <Style x:Key="BaseTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    <Style x:Key="HeadingTextBlockStyle" BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="64"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    <Style x:Key="UnderlineTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextDecorations" Value="Underline"/>
+    </Style>
+    <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="Background" Value="{StaticResource White}" />
+        <Setter Property="Foreground" Value="{StaticResource DarkGray}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border Style="{DynamicResource BorderStyleWithStroke}" >
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                        <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                           Visibility="Collapsed" Foreground="{StaticResource LightGray}" FontSize="36"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="36" />
+        <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
+        <Setter Property="Background" Value="{StaticResource Green}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="10"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" BorderBrush="Transparent" BorderThickness="5" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="LightGreenButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
+        <Setter Property="Background" Value="{StaticResource Green}"/>
+    </Style>
+    <Style x:Key="DarkGreenButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource White}"/>
+        <Setter Property="Background" Value="{StaticResource DarkGreen}"/>
+    </Style>
+</ResourceDictionary>
