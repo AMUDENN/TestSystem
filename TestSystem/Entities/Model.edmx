@@ -1,0 +1,1585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище TestSystemModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hint_id" Type="int" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="is_correct" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+          <Property Name="teacher_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChoiceAnswers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="album_id" Type="int" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" />
+          <Property Name="is_correct" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FirstSequences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="album_id" Type="int" />
+          <Property Name="correct_answer_id" Type="int" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Hints">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="album_id" Type="int" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Pictures">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="album_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="pathname" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="test_id" Type="int" Nullable="false" />
+          <Property Name="album_id" Type="int" />
+          <Property Name="title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="number" Type="int" Nullable="false" />
+          <Property Name="question_type_id" Type="int" Nullable="false" />
+          <Property Name="response_time" Type="time" Precision="0" />
+          <Property Name="scores" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuestionTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="test_id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="date_start" Type="datetime" Nullable="false" />
+          <Property Name="date_end" Type="datetime" Nullable="false" />
+          <Property Name="ip_adress" Type="nvarchar" MaxLength="14" />
+        </EntityType>
+        <EntityType Name="SecondSequences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="album_id" Type="int" />
+          <Property Name="text" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="StudentsChoices">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="result_id" Type="int" Nullable="false" />
+          <Property Name="choice_answer_id" Type="int" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentsMatches">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="result_id" Type="int" Nullable="false" />
+          <Property Name="answer_id" Type="int" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentsSequences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="result_id" Type="int" Nullable="false" />
+          <Property Name="first_id" Type="int" Nullable="false" />
+          <Property Name="second_id" Type="int" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentsTexts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="result_id" Type="int" Nullable="false" />
+          <Property Name="text_answer_id" Type="int" Nullable="false" />
+          <Property Name="text_answer" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_id" Type="int" />
+          <Property Name="teacher_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="date_start" Type="datetime" />
+          <Property Name="date_end" Type="datetime" />
+          <Property Name="is_ordered" Type="bit" Nullable="false" />
+          <Property Name="response_time" Type="time" Precision="0" />
+          <Property Name="percent_three" Type="int" />
+          <Property Name="percent_four" Type="int" />
+          <Property Name="percent_five" Type="int" />
+        </EntityType>
+        <EntityType Name="TextAnswers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="correct_answer" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="album_id" Type="int" />
+        </EntityType>
+        <Association Name="FK__Answers__hint_id__52593CB8">
+          <End Role="Hints" Type="Self.Hints" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hints">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="hint_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChoiceAns__album__4E88ABD4">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="ChoiceAnswers" Type="Self.ChoiceAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChoiceAnswers">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChoiceAns__quest__4D94879B">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="ChoiceAnswers" Type="Self.ChoiceAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChoiceAnswers">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FirstSequ__album__5441852A">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FirstSequences">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FirstSequ__corre__5535A963">
+          <End Role="SecondSequences" Type="Self.SecondSequences" Multiplicity="1" />
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecondSequences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FirstSequences">
+              <PropertyRef Name="correct_answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FirstSequ__quest__534D60F1">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FirstSequences">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hints__album_id__5165187F">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="Hints" Type="Self.Hints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hints">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hints__question___5070F446">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="Hints" Type="Self.Hints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hints">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pictures__album___628FA481">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+          <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pictures">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__quest__6FB49575">
+          <End Role="QuestionTypes" Type="Self.QuestionTypes" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="question_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__student__5812160E">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__test_id__571DF1D5">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="test_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SecondSeq__album__5629CD9C">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="SecondSequences" Type="Self.SecondSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SecondSequences">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsC__choic__59FA5E80">
+          <End Role="ChoiceAnswers" Type="Self.ChoiceAnswers" Multiplicity="1" />
+          <End Role="StudentsChoices" Type="Self.StudentsChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChoiceAnswers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsChoices">
+              <PropertyRef Name="choice_answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsC__resul__59063A47">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsChoices" Type="Self.StudentsChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsChoices">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsM__answe__5EBF139D">
+          <End Role="Answers" Type="Self.Answers" Multiplicity="1" />
+          <End Role="StudentsMatches" Type="Self.StudentsMatches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsMatches">
+              <PropertyRef Name="answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsM__resul__5CD6CB2B">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsMatches" Type="Self.StudentsMatches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsMatches">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsS__first__60A75C0F">
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="1" />
+          <End Role="StudentsSequences" Type="Self.StudentsSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FirstSequences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsSequences">
+              <PropertyRef Name="first_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsS__resul__5FB337D6">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsSequences" Type="Self.StudentsSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsSequences">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsS__secon__619B8048">
+          <End Role="SecondSequences" Type="Self.SecondSequences" Multiplicity="1" />
+          <End Role="StudentsSequences" Type="Self.StudentsSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecondSequences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsSequences">
+              <PropertyRef Name="second_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsT__resul__5AEE82B9">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsTexts" Type="Self.StudentsTexts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsTexts">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsT__text___5BE2A6F2">
+          <End Role="TextAnswers" Type="Self.TextAnswers" Multiplicity="1" />
+          <End Role="StudentsTexts" Type="Self.StudentsTexts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TextAnswers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsTexts">
+              <PropertyRef Name="text_answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tests__category___49C3F6B7">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tests">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tests__teacher_i__4AB81AF0">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tests">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TextAnswe__quest__4F7CD00D">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="TextAnswers" Type="Self.TextAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TextAnswers">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__album_id__46E78A0C">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Teachers">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище TestSystemModelContainer">
+          <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChoiceAnswers" EntityType="Self.ChoiceAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FirstSequences" EntityType="Self.FirstSequences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hints" EntityType="Self.Hints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionTypes" EntityType="Self.QuestionTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SecondSequences" EntityType="Self.SecondSequences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsChoices" EntityType="Self.StudentsChoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsMatches" EntityType="Self.StudentsMatches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsSequences" EntityType="Self.StudentsSequences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsTexts" EntityType="Self.StudentsTexts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tests" EntityType="Self.Tests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TextAnswers" EntityType="Self.TextAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Answers__hint_id__52593CB8" Association="Self.FK__Answers__hint_id__52593CB8">
+            <End Role="Hints" EntitySet="Hints" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChoiceAns__album__4E88ABD4" Association="Self.FK__ChoiceAns__album__4E88ABD4">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="ChoiceAnswers" EntitySet="ChoiceAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChoiceAns__quest__4D94879B" Association="Self.FK__ChoiceAns__quest__4D94879B">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="ChoiceAnswers" EntitySet="ChoiceAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FirstSequ__album__5441852A" Association="Self.FK__FirstSequ__album__5441852A">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FirstSequ__corre__5535A963" Association="Self.FK__FirstSequ__corre__5535A963">
+            <End Role="SecondSequences" EntitySet="SecondSequences" />
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FirstSequ__quest__534D60F1" Association="Self.FK__FirstSequ__quest__534D60F1">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hints__album_id__5165187F" Association="Self.FK__Hints__album_id__5165187F">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Hints" EntitySet="Hints" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hints__question___5070F446" Association="Self.FK__Hints__question___5070F446">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="Hints" EntitySet="Hints" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pictures__album___628FA481" Association="Self.FK__Pictures__album___628FA481">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Pictures" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__quest__6FB49575" Association="Self.FK__Questions__quest__6FB49575">
+            <End Role="QuestionTypes" EntitySet="QuestionTypes" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__student__5812160E" Association="Self.FK__Results__student__5812160E">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__test_id__571DF1D5" Association="Self.FK__Results__test_id__571DF1D5">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SecondSeq__album__5629CD9C" Association="Self.FK__SecondSeq__album__5629CD9C">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="SecondSequences" EntitySet="SecondSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsC__choic__59FA5E80" Association="Self.FK__StudentsC__choic__59FA5E80">
+            <End Role="ChoiceAnswers" EntitySet="ChoiceAnswers" />
+            <End Role="StudentsChoices" EntitySet="StudentsChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsC__resul__59063A47" Association="Self.FK__StudentsC__resul__59063A47">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsChoices" EntitySet="StudentsChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsM__answe__5EBF139D" Association="Self.FK__StudentsM__answe__5EBF139D">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="StudentsMatches" EntitySet="StudentsMatches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsM__resul__5CD6CB2B" Association="Self.FK__StudentsM__resul__5CD6CB2B">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsMatches" EntitySet="StudentsMatches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsS__first__60A75C0F" Association="Self.FK__StudentsS__first__60A75C0F">
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+            <End Role="StudentsSequences" EntitySet="StudentsSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsS__resul__5FB337D6" Association="Self.FK__StudentsS__resul__5FB337D6">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsSequences" EntitySet="StudentsSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsS__secon__619B8048" Association="Self.FK__StudentsS__secon__619B8048">
+            <End Role="SecondSequences" EntitySet="SecondSequences" />
+            <End Role="StudentsSequences" EntitySet="StudentsSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsT__resul__5AEE82B9" Association="Self.FK__StudentsT__resul__5AEE82B9">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsTexts" EntitySet="StudentsTexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsT__text___5BE2A6F2" Association="Self.FK__StudentsT__text___5BE2A6F2">
+            <End Role="TextAnswers" EntitySet="TextAnswers" />
+            <End Role="StudentsTexts" EntitySet="StudentsTexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tests__category___49C3F6B7" Association="Self.FK__Tests__category___49C3F6B7">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tests__teacher_i__4AB81AF0" Association="Self.FK__Tests__teacher_i__4AB81AF0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TextAnswe__quest__4F7CD00D" Association="Self.FK__TextAnswe__quest__4F7CD00D">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="TextAnswers" EntitySet="TextAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__album_id__46E78A0C" Association="Self.FK__Users__album_id__46E78A0C">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Teachers" Association="Self.FK_Categories_Teachers">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChoiceAnswers" Relationship="Self.FK__ChoiceAns__album__4E88ABD4" FromRole="Albums" ToRole="ChoiceAnswers" />
+          <NavigationProperty Name="FirstSequences" Relationship="Self.FK__FirstSequ__album__5441852A" FromRole="Albums" ToRole="FirstSequences" />
+          <NavigationProperty Name="Hints" Relationship="Self.FK__Hints__album_id__5165187F" FromRole="Albums" ToRole="Hints" />
+          <NavigationProperty Name="Pictures" Relationship="Self.FK__Pictures__album___628FA481" FromRole="Albums" ToRole="Pictures" />
+          <NavigationProperty Name="SecondSequences" Relationship="Self.FK__SecondSeq__album__5629CD9C" FromRole="Albums" ToRole="SecondSequences" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__album_id__46E78A0C" FromRole="Albums" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hint_id" Type="Int32" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="is_correct" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Hints" Relationship="Self.FK__Answers__hint_id__52593CB8" FromRole="Answers" ToRole="Hints" />
+          <NavigationProperty Name="StudentsMatches" Relationship="Self.FK__StudentsM__answe__5EBF139D" FromRole="Answers" ToRole="StudentsMatches" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tests" Relationship="Self.FK__Tests__category___49C3F6B7" FromRole="Categories" ToRole="Tests" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Categories_Teachers" FromRole="Categories" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ChoiceAnswers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question_id" Type="Int32" Nullable="false" />
+          <Property Name="album_id" Type="Int32" />
+          <Property Name="text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="is_correct" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK__ChoiceAns__album__4E88ABD4" FromRole="ChoiceAnswers" ToRole="Albums" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__ChoiceAns__quest__4D94879B" FromRole="ChoiceAnswers" ToRole="Questions" />
+          <NavigationProperty Name="StudentsChoices" Relationship="Self.FK__StudentsC__choic__59FA5E80" FromRole="ChoiceAnswers" ToRole="StudentsChoices" />
+        </EntityType>
+        <EntityType Name="FirstSequences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question_id" Type="Int32" Nullable="false" />
+          <Property Name="album_id" Type="Int32" />
+          <Property Name="correct_answer_id" Type="Int32" Nullable="false" />
+          <Property Name="text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK__FirstSequ__album__5441852A" FromRole="FirstSequences" ToRole="Albums" />
+          <NavigationProperty Name="SecondSequences" Relationship="Self.FK__FirstSequ__corre__5535A963" FromRole="FirstSequences" ToRole="SecondSequences" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__FirstSequ__quest__534D60F1" FromRole="FirstSequences" ToRole="Questions" />
+          <NavigationProperty Name="StudentsSequences" Relationship="Self.FK__StudentsS__first__60A75C0F" FromRole="FirstSequences" ToRole="StudentsSequences" />
+        </EntityType>
+        <EntityType Name="Hints">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question_id" Type="Int32" Nullable="false" />
+          <Property Name="album_id" Type="Int32" />
+          <Property Name="text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK__Hints__album_id__5165187F" FromRole="Hints" ToRole="Albums" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__Answers__hint_id__52593CB8" FromRole="Hints" ToRole="Answers" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Hints__question___5070F446" FromRole="Hints" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="Pictures">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="album_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pathname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK__Pictures__album___628FA481" FromRole="Pictures" ToRole="Albums" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="test_id" Type="Int32" Nullable="false" />
+          <Property Name="album_id" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <Property Name="question_type_id" Type="Int32" Nullable="false" />
+          <Property Name="response_time" Type="Time" Precision="0" />
+          <Property Name="scores" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ChoiceAnswers" Relationship="Self.FK__ChoiceAns__quest__4D94879B" FromRole="Questions" ToRole="ChoiceAnswers" />
+          <NavigationProperty Name="FirstSequences" Relationship="Self.FK__FirstSequ__quest__534D60F1" FromRole="Questions" ToRole="FirstSequences" />
+          <NavigationProperty Name="Hints" Relationship="Self.FK__Hints__question___5070F446" FromRole="Questions" ToRole="Hints" />
+          <NavigationProperty Name="QuestionTypes" Relationship="Self.FK__Questions__quest__6FB49575" FromRole="Questions" ToRole="QuestionTypes" />
+          <NavigationProperty Name="TextAnswers" Relationship="Self.FK__TextAnswe__quest__4F7CD00D" FromRole="Questions" ToRole="TextAnswers" />
+        </EntityType>
+        <EntityType Name="QuestionTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__quest__6FB49575" FromRole="QuestionTypes" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="test_id" Type="Int32" Nullable="false" />
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="date_start" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="date_end" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ip_adress" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Results__student__5812160E" FromRole="Results" ToRole="Users" />
+          <NavigationProperty Name="Tests" Relationship="Self.FK__Results__test_id__571DF1D5" FromRole="Results" ToRole="Tests" />
+          <NavigationProperty Name="StudentsChoices" Relationship="Self.FK__StudentsC__resul__59063A47" FromRole="Results" ToRole="StudentsChoices" />
+          <NavigationProperty Name="StudentsMatches" Relationship="Self.FK__StudentsM__resul__5CD6CB2B" FromRole="Results" ToRole="StudentsMatches" />
+          <NavigationProperty Name="StudentsSequences" Relationship="Self.FK__StudentsS__resul__5FB337D6" FromRole="Results" ToRole="StudentsSequences" />
+          <NavigationProperty Name="StudentsTexts" Relationship="Self.FK__StudentsT__resul__5AEE82B9" FromRole="Results" ToRole="StudentsTexts" />
+        </EntityType>
+        <EntityType Name="SecondSequences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="album_id" Type="Int32" />
+          <Property Name="text" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK__SecondSeq__album__5629CD9C" FromRole="SecondSequences" ToRole="Albums" />
+          <NavigationProperty Name="FirstSequences" Relationship="Self.FK__FirstSequ__corre__5535A963" FromRole="SecondSequences" ToRole="FirstSequences" />
+          <NavigationProperty Name="StudentsSequences" Relationship="Self.FK__StudentsS__secon__619B8048" FromRole="SecondSequences" ToRole="StudentsSequences" />
+        </EntityType>
+        <EntityType Name="StudentsChoices">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="result_id" Type="Int32" Nullable="false" />
+          <Property Name="choice_answer_id" Type="Int32" Nullable="false" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ChoiceAnswers" Relationship="Self.FK__StudentsC__choic__59FA5E80" FromRole="StudentsChoices" ToRole="ChoiceAnswers" />
+          <NavigationProperty Name="Results" Relationship="Self.FK__StudentsC__resul__59063A47" FromRole="StudentsChoices" ToRole="Results" />
+        </EntityType>
+        <EntityType Name="StudentsMatches">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="result_id" Type="Int32" Nullable="false" />
+          <Property Name="answer_id" Type="Int32" Nullable="false" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK__StudentsM__answe__5EBF139D" FromRole="StudentsMatches" ToRole="Answers" />
+          <NavigationProperty Name="Results" Relationship="Self.FK__StudentsM__resul__5CD6CB2B" FromRole="StudentsMatches" ToRole="Results" />
+        </EntityType>
+        <EntityType Name="StudentsSequences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="result_id" Type="Int32" Nullable="false" />
+          <Property Name="first_id" Type="Int32" Nullable="false" />
+          <Property Name="second_id" Type="Int32" Nullable="false" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FirstSequences" Relationship="Self.FK__StudentsS__first__60A75C0F" FromRole="StudentsSequences" ToRole="FirstSequences" />
+          <NavigationProperty Name="Results" Relationship="Self.FK__StudentsS__resul__5FB337D6" FromRole="StudentsSequences" ToRole="Results" />
+          <NavigationProperty Name="SecondSequences" Relationship="Self.FK__StudentsS__secon__619B8048" FromRole="StudentsSequences" ToRole="SecondSequences" />
+        </EntityType>
+        <EntityType Name="StudentsTexts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="result_id" Type="Int32" Nullable="false" />
+          <Property Name="text_answer_id" Type="Int32" Nullable="false" />
+          <Property Name="text_answer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="number" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Results" Relationship="Self.FK__StudentsT__resul__5AEE82B9" FromRole="StudentsTexts" ToRole="Results" />
+          <NavigationProperty Name="TextAnswers" Relationship="Self.FK__StudentsT__text___5BE2A6F2" FromRole="StudentsTexts" ToRole="TextAnswers" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_id" Type="Int32" />
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="date_start" Type="DateTime" Precision="3" />
+          <Property Name="date_end" Type="DateTime" Precision="3" />
+          <Property Name="is_ordered" Type="Boolean" Nullable="false" />
+          <Property Name="response_time" Type="Time" Precision="0" />
+          <Property Name="percent_three" Type="Int32" />
+          <Property Name="percent_four" Type="Int32" />
+          <Property Name="percent_five" Type="Int32" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK__Tests__category___49C3F6B7" FromRole="Tests" ToRole="Categories" />
+          <NavigationProperty Name="Results" Relationship="Self.FK__Results__test_id__571DF1D5" FromRole="Tests" ToRole="Results" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Tests__teacher_i__4AB81AF0" FromRole="Tests" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="TextAnswers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="question_id" Type="Int32" Nullable="false" />
+          <Property Name="correct_answer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__TextAnswe__quest__4F7CD00D" FromRole="TextAnswers" ToRole="Questions" />
+          <NavigationProperty Name="StudentsTexts" Relationship="Self.FK__StudentsT__text___5BE2A6F2" FromRole="TextAnswers" ToRole="StudentsTexts" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="album_id" Type="Int32" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK__Users__album_id__46E78A0C" FromRole="Users" ToRole="Albums" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_Teachers" FromRole="Users" ToRole="Categories" />
+          <NavigationProperty Name="Results" Relationship="Self.FK__Results__student__5812160E" FromRole="Users" ToRole="Results" />
+          <NavigationProperty Name="Tests" Relationship="Self.FK__Tests__teacher_i__4AB81AF0" FromRole="Users" ToRole="Tests" />
+        </EntityType>
+        <Association Name="FK__ChoiceAns__album__4E88ABD4">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="ChoiceAnswers" Type="Self.ChoiceAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChoiceAnswers">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FirstSequ__album__5441852A">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FirstSequences">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hints__album_id__5165187F">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="Hints" Type="Self.Hints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hints">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pictures__album___628FA481">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="1" />
+          <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pictures">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SecondSeq__album__5629CD9C">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="SecondSequences" Type="Self.SecondSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SecondSequences">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__album_id__46E78A0C">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Answers__hint_id__52593CB8">
+          <End Role="Hints" Type="Self.Hints" Multiplicity="1" />
+          <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hints">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Answers">
+              <PropertyRef Name="hint_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsM__answe__5EBF139D">
+          <End Role="Answers" Type="Self.Answers" Multiplicity="1" />
+          <End Role="StudentsMatches" Type="Self.StudentsMatches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsMatches">
+              <PropertyRef Name="answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tests__category___49C3F6B7">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tests">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Teachers">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChoiceAns__quest__4D94879B">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="ChoiceAnswers" Type="Self.ChoiceAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChoiceAnswers">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsC__choic__59FA5E80">
+          <End Role="ChoiceAnswers" Type="Self.ChoiceAnswers" Multiplicity="1" />
+          <End Role="StudentsChoices" Type="Self.StudentsChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChoiceAnswers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsChoices">
+              <PropertyRef Name="choice_answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FirstSequ__corre__5535A963">
+          <End Role="SecondSequences" Type="Self.SecondSequences" Multiplicity="1" />
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecondSequences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FirstSequences">
+              <PropertyRef Name="correct_answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FirstSequ__quest__534D60F1">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FirstSequences">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsS__first__60A75C0F">
+          <End Role="FirstSequences" Type="Self.FirstSequences" Multiplicity="1" />
+          <End Role="StudentsSequences" Type="Self.StudentsSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FirstSequences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsSequences">
+              <PropertyRef Name="first_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Hints__question___5070F446">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="Hints" Type="Self.Hints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hints">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__quest__6FB49575">
+          <End Role="QuestionTypes" Type="Self.QuestionTypes" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="question_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TextAnswe__quest__4F7CD00D">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="TextAnswers" Type="Self.TextAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TextAnswers">
+              <PropertyRef Name="question_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__student__5812160E">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__test_id__571DF1D5">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="test_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsC__resul__59063A47">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsChoices" Type="Self.StudentsChoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsChoices">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsM__resul__5CD6CB2B">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsMatches" Type="Self.StudentsMatches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsMatches">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsS__resul__5FB337D6">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsSequences" Type="Self.StudentsSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsSequences">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsT__resul__5AEE82B9">
+          <End Role="Results" Type="Self.Results" Multiplicity="1" />
+          <End Role="StudentsTexts" Type="Self.StudentsTexts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Results">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsTexts">
+              <PropertyRef Name="result_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsS__secon__619B8048">
+          <End Role="SecondSequences" Type="Self.SecondSequences" Multiplicity="1" />
+          <End Role="StudentsSequences" Type="Self.StudentsSequences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecondSequences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsSequences">
+              <PropertyRef Name="second_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentsT__text___5BE2A6F2">
+          <End Role="TextAnswers" Type="Self.TextAnswers" Multiplicity="1" />
+          <End Role="StudentsTexts" Type="Self.StudentsTexts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TextAnswers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="StudentsTexts">
+              <PropertyRef Name="text_answer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tests__teacher_i__4AB81AF0">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tests">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Albums" EntityType="Self.Albums" />
+          <EntitySet Name="Answers" EntityType="Self.Answers" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="ChoiceAnswers" EntityType="Self.ChoiceAnswers" />
+          <EntitySet Name="FirstSequences" EntityType="Self.FirstSequences" />
+          <EntitySet Name="Hints" EntityType="Self.Hints" />
+          <EntitySet Name="Pictures" EntityType="Self.Pictures" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" />
+          <EntitySet Name="QuestionTypes" EntityType="Self.QuestionTypes" />
+          <EntitySet Name="Results" EntityType="Self.Results" />
+          <EntitySet Name="SecondSequences" EntityType="Self.SecondSequences" />
+          <EntitySet Name="StudentsChoices" EntityType="Self.StudentsChoices" />
+          <EntitySet Name="StudentsMatches" EntityType="Self.StudentsMatches" />
+          <EntitySet Name="StudentsSequences" EntityType="Self.StudentsSequences" />
+          <EntitySet Name="StudentsTexts" EntityType="Self.StudentsTexts" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tests" EntityType="Self.Tests" />
+          <EntitySet Name="TextAnswers" EntityType="Self.TextAnswers" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__ChoiceAns__album__4E88ABD4" Association="Self.FK__ChoiceAns__album__4E88ABD4">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="ChoiceAnswers" EntitySet="ChoiceAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FirstSequ__album__5441852A" Association="Self.FK__FirstSequ__album__5441852A">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hints__album_id__5165187F" Association="Self.FK__Hints__album_id__5165187F">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Hints" EntitySet="Hints" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pictures__album___628FA481" Association="Self.FK__Pictures__album___628FA481">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Pictures" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SecondSeq__album__5629CD9C" Association="Self.FK__SecondSeq__album__5629CD9C">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="SecondSequences" EntitySet="SecondSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__album_id__46E78A0C" Association="Self.FK__Users__album_id__46E78A0C">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Answers__hint_id__52593CB8" Association="Self.FK__Answers__hint_id__52593CB8">
+            <End Role="Hints" EntitySet="Hints" />
+            <End Role="Answers" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsM__answe__5EBF139D" Association="Self.FK__StudentsM__answe__5EBF139D">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="StudentsMatches" EntitySet="StudentsMatches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tests__category___49C3F6B7" Association="Self.FK__Tests__category___49C3F6B7">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Teachers" Association="Self.FK_Categories_Teachers">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChoiceAns__quest__4D94879B" Association="Self.FK__ChoiceAns__quest__4D94879B">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="ChoiceAnswers" EntitySet="ChoiceAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsC__choic__59FA5E80" Association="Self.FK__StudentsC__choic__59FA5E80">
+            <End Role="ChoiceAnswers" EntitySet="ChoiceAnswers" />
+            <End Role="StudentsChoices" EntitySet="StudentsChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FirstSequ__corre__5535A963" Association="Self.FK__FirstSequ__corre__5535A963">
+            <End Role="SecondSequences" EntitySet="SecondSequences" />
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FirstSequ__quest__534D60F1" Association="Self.FK__FirstSequ__quest__534D60F1">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsS__first__60A75C0F" Association="Self.FK__StudentsS__first__60A75C0F">
+            <End Role="FirstSequences" EntitySet="FirstSequences" />
+            <End Role="StudentsSequences" EntitySet="StudentsSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Hints__question___5070F446" Association="Self.FK__Hints__question___5070F446">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="Hints" EntitySet="Hints" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Questions__quest__6FB49575" Association="Self.FK__Questions__quest__6FB49575">
+            <End Role="QuestionTypes" EntitySet="QuestionTypes" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TextAnswe__quest__4F7CD00D" Association="Self.FK__TextAnswe__quest__4F7CD00D">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="TextAnswers" EntitySet="TextAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__student__5812160E" Association="Self.FK__Results__student__5812160E">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__test_id__571DF1D5" Association="Self.FK__Results__test_id__571DF1D5">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsC__resul__59063A47" Association="Self.FK__StudentsC__resul__59063A47">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsChoices" EntitySet="StudentsChoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsM__resul__5CD6CB2B" Association="Self.FK__StudentsM__resul__5CD6CB2B">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsMatches" EntitySet="StudentsMatches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsS__resul__5FB337D6" Association="Self.FK__StudentsS__resul__5FB337D6">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsSequences" EntitySet="StudentsSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsT__resul__5AEE82B9" Association="Self.FK__StudentsT__resul__5AEE82B9">
+            <End Role="Results" EntitySet="Results" />
+            <End Role="StudentsTexts" EntitySet="StudentsTexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsS__secon__619B8048" Association="Self.FK__StudentsS__secon__619B8048">
+            <End Role="SecondSequences" EntitySet="SecondSequences" />
+            <End Role="StudentsSequences" EntitySet="StudentsSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentsT__text___5BE2A6F2" Association="Self.FK__StudentsT__text___5BE2A6F2">
+            <End Role="TextAnswers" EntitySet="TextAnswers" />
+            <End Role="StudentsTexts" EntitySet="StudentsTexts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tests__teacher_i__4AB81AF0" Association="Self.FK__Tests__teacher_i__4AB81AF0">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TestSystemModelContainer" CdmEntityContainer="TestSystemEntities">
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="TestSystemModel.Albums">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="TestSystemModel.Answers">
+              <MappingFragment StoreEntitySet="Answers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hint_id" ColumnName="hint_id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="is_correct" ColumnName="is_correct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="TestSystemModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChoiceAnswers">
+            <EntityTypeMapping TypeName="TestSystemModel.ChoiceAnswers">
+              <MappingFragment StoreEntitySet="ChoiceAnswers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="is_correct" ColumnName="is_correct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FirstSequences">
+            <EntityTypeMapping TypeName="TestSystemModel.FirstSequences">
+              <MappingFragment StoreEntitySet="FirstSequences">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="correct_answer_id" ColumnName="correct_answer_id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hints">
+            <EntityTypeMapping TypeName="TestSystemModel.Hints">
+              <MappingFragment StoreEntitySet="Hints">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pictures">
+            <EntityTypeMapping TypeName="TestSystemModel.Pictures">
+              <MappingFragment StoreEntitySet="Pictures">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="pathname" ColumnName="pathname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="TestSystemModel.Questions">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="test_id" ColumnName="test_id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="question_type_id" ColumnName="question_type_id" />
+                <ScalarProperty Name="response_time" ColumnName="response_time" />
+                <ScalarProperty Name="scores" ColumnName="scores" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionTypes">
+            <EntityTypeMapping TypeName="TestSystemModel.QuestionTypes">
+              <MappingFragment StoreEntitySet="QuestionTypes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="TestSystemModel.Results">
+              <MappingFragment StoreEntitySet="Results">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="test_id" ColumnName="test_id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="date_start" ColumnName="date_start" />
+                <ScalarProperty Name="date_end" ColumnName="date_end" />
+                <ScalarProperty Name="ip_adress" ColumnName="ip_adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecondSequences">
+            <EntityTypeMapping TypeName="TestSystemModel.SecondSequences">
+              <MappingFragment StoreEntitySet="SecondSequences">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="text" ColumnName="text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsChoices">
+            <EntityTypeMapping TypeName="TestSystemModel.StudentsChoices">
+              <MappingFragment StoreEntitySet="StudentsChoices">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="result_id" ColumnName="result_id" />
+                <ScalarProperty Name="choice_answer_id" ColumnName="choice_answer_id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsMatches">
+            <EntityTypeMapping TypeName="TestSystemModel.StudentsMatches">
+              <MappingFragment StoreEntitySet="StudentsMatches">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="result_id" ColumnName="result_id" />
+                <ScalarProperty Name="answer_id" ColumnName="answer_id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsSequences">
+            <EntityTypeMapping TypeName="TestSystemModel.StudentsSequences">
+              <MappingFragment StoreEntitySet="StudentsSequences">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="result_id" ColumnName="result_id" />
+                <ScalarProperty Name="first_id" ColumnName="first_id" />
+                <ScalarProperty Name="second_id" ColumnName="second_id" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsTexts">
+            <EntityTypeMapping TypeName="TestSystemModel.StudentsTexts">
+              <MappingFragment StoreEntitySet="StudentsTexts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="result_id" ColumnName="result_id" />
+                <ScalarProperty Name="text_answer_id" ColumnName="text_answer_id" />
+                <ScalarProperty Name="text_answer" ColumnName="text_answer" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TestSystemModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="TestSystemModel.Tests">
+              <MappingFragment StoreEntitySet="Tests">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="date_start" ColumnName="date_start" />
+                <ScalarProperty Name="date_end" ColumnName="date_end" />
+                <ScalarProperty Name="is_ordered" ColumnName="is_ordered" />
+                <ScalarProperty Name="response_time" ColumnName="response_time" />
+                <ScalarProperty Name="percent_three" ColumnName="percent_three" />
+                <ScalarProperty Name="percent_four" ColumnName="percent_four" />
+                <ScalarProperty Name="percent_five" ColumnName="percent_five" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TextAnswers">
+            <EntityTypeMapping TypeName="TestSystemModel.TextAnswers">
+              <MappingFragment StoreEntitySet="TextAnswers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="question_id" ColumnName="question_id" />
+                <ScalarProperty Name="correct_answer" ColumnName="correct_answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TestSystemModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

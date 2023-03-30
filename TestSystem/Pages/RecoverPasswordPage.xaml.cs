@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace TestSystem.Pages
 {
-    public partial class AuthorizationPage : Page
+    public partial class RecoverPasswordPage : Page
     {
-        public AuthorizationPage()
+        public RecoverPasswordPage()
         {
             InitializeComponent();
         }

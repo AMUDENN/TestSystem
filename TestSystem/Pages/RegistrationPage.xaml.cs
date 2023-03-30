@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace TestSystem.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для RegistrationPage.xaml
-    /// </summary>
     public partial class RegistrationPage : Page
     {
         public RegistrationPage()

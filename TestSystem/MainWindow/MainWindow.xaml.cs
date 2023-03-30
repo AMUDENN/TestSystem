@@ -13,6 +13,10 @@ namespace TestSystem
             Closing += ShowCloseMessage;
 
             MainFrame.Content = new AuthorizationPage();
+            //MainFrame.Content = new RegistrationPage();
+            //MainFrame.Content = new RecoverPasswordPage();
+            //MainFrame.Content = new EnterRecoverCodePage();
+            //MainFrame.Content = new ChangePasswordPage();
 
         }
         private void ShowCloseMessage(object sender, CancelEventArgs e)

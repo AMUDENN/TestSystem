@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.ColumnSpan="2" Grid.Column="1">
+            <Grid Style="{DynamicResource GridShadowStyle}" Grid.ColumnSpan="2" Grid.Column="1">
                 <Rectangle Style="{DynamicResource RectangleStyle}">
                     <Rectangle.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="2, 2">
@@ -34,7 +34,7 @@
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
-            <Grid Grid.ColumnSpan="2" Grid.Column="0" Margin="32">
+            <Grid Style="{DynamicResource GridShadowStyle}" Grid.ColumnSpan="2" Grid.Column="0" Margin="32">
                 <Border Style="{DynamicResource BorderStyle}" Background="{StaticResource White}">
                     <Grid Margin="65, 10, 65, 10">
                         <Grid.RowDefinitions>
@@ -55,10 +55,22 @@
                         <TextBlock Text="Авторизация" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
                         <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="2"/>
                         <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Пароль" Grid.Row="4"/>
-                        <CheckBox Content="Запомнить пароль" Grid.Row="6" />
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Style="{DynamicResource CheckBoxStyle}" Content="Запомнить пароль" Grid.Column="0"/>
+                        </Grid>
                         <Button Content="Войти" Style="{DynamicResource LightGreenButtonStyle}" Grid.Row="8"/>
                         <Button Content="Регистрация" Style="{DynamicResource DarkGreenButtonStyle}" Grid.Row="10"/>
-                        <TextBlock Text="Забыли пароль?" Style="{DynamicResource UnderlineTextBlockStyle}" Grid.Row="12"/>
+                        <Grid Grid.Row="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Забыли пароль?" Style="{DynamicResource UnderlineTransparentButtonStyle}" Grid.Column="0"/>
+                        </Grid>
                     </Grid>
                 </Border>
             </Grid>

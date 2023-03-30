@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d4bb022ef59f4d3199eeca2dbea763af" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="TestSystemModel.Albums" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Answers" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Categories" Width="1.5" PointX="5.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.ChoiceAnswers" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.FirstSequences" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Hints" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Pictures" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Questions" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.QuestionTypes" Width="1.5" PointX="1.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Results" Width="1.5" PointX="9.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.SecondSequences" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.StudentsChoices" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.StudentsMatches" Width="1.5" PointX="10.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.StudentsSequences" Width="1.5" PointX="7.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.StudentsTexts" Width="1.5" PointX="12" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.sysdiagrams" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Tests" Width="1.5" PointX="7.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.TextAnswers" Width="1.5" PointX="9.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestSystemModel.Users" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <AssociationConnector Association="TestSystemModel.FK__ChoiceAns__album__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__FirstSequ__album__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Hints__album_id__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Pictures__album___628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__SecondSeq__album__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Users__album_id__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Answers__hint_id__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsM__answe__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Tests__category___49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK_Categories_Teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__ChoiceAns__quest__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsC__choic__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__FirstSequ__corre__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__FirstSequ__quest__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsS__first__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Hints__question___5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Questions__quest__6FB49575" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__TextAnswe__quest__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Results__student__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Results__test_id__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsC__resul__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsM__resul__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsS__resul__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsT__resul__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsS__secon__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__StudentsT__text___5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Tests__teacher_i__4AB81AF0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
