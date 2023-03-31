@@ -8,6 +8,8 @@
     <SolidColorBrush x:Key="White" Color="#FFFFFF"/>
     <Color x:Key="LightGreenColor" A="255" R="165" G="201" B="202"/>
     <Color x:Key="DarkGreenColor" A="255" R="57" G="91" B="100"/>
+    <DropShadowEffect x:Key="dropShadow" BlurRadius="5" ShadowDepth="5" Opacity="0.5"/>
+    <DropShadowEffect x:Key="smallShadow" BlurRadius="3" ShadowDepth="3" Opacity="0.3"/>
     <Style x:Key="RectangleStyle" TargetType="{x:Type Rectangle}">
         <Setter Property="RadiusX" Value="20"/>
         <Setter Property="RadiusY" Value="20"/>
@@ -80,6 +82,7 @@
         <Setter Property="FontSize" Value="36" />
         <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
         <Setter Property="Background" Value="{StaticResource Green}"/>
+        <Setter Property="Effect" Value="{StaticResource smallShadow}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -268,7 +271,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <DropShadowEffect x:Key="dropShadow" BlurRadius="5" ShadowDepth="5" Opacity="0.5"/>
     <Style x:Key="GridShadowStyle" TargetType="{x:Type Grid}">
         <Setter Property="Effect" Value="{StaticResource dropShadow}"/>
     </Style>
