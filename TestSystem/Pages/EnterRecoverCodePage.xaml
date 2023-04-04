@@ -10,12 +10,12 @@
     <Grid Background="{StaticResource LightGreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="850"/>
+            <RowDefinition Height="567"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="1240"/>
+            <ColumnDefinition Width="827"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.Column="1">
@@ -38,29 +38,29 @@
                 <Border Style="{DynamicResource BorderStyle}" Background="{StaticResource White}">
                     <Grid Margin="65, 10, 65, 10">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="170"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="170*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="70*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Восстановление пароля" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
                         <TextBlock Text="Проверьте свою электронную почту на наличие кода для сброса пароля. Введите этот код в поле ниже. Если она не появится в течение нескольких минут, проверьте папку спама." Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="2"/>
                         <Grid Grid.Row="4">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="300"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Код" Grid.Column="0"/>
                         </Grid>
                         <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="300"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Button Content="Далее" Style="{DynamicResource LightGreenButtonStyle}" Grid.Column="0"/>
                         </Grid>

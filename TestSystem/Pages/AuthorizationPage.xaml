@@ -10,12 +10,12 @@
     <Grid Background="{StaticResource LightGreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="924"/>
+            <RowDefinition Height="616"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="1180"/>
+            <ColumnDefinition Width="787"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.Column="1">
@@ -38,23 +38,23 @@
                 <Border Style="{DynamicResource BorderStyle}" Background="{StaticResource White}">
                     <Grid Margin="65, 10, 65, 10">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="60"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="35"/>
-                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="60*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="100*"/>
+                            <RowDefinition Height="35*"/>
+                            <RowDefinition Height="70*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Авторизация" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
                         <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="2"/>
-                        <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Пароль" Grid.Row="4"/>
+                        <PasswordBox Style="{DynamicResource PasswordBoxStyle}" Tag="Пароль" Grid.Row="4"/>
                         <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
