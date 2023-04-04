@@ -58,7 +58,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
+                <ControlTemplate TargetType="{x:Type TextBox}">
                     <Grid>
                         <Border Style="{DynamicResource BorderStyleWithStroke}" Padding="5, 0, 0, 0">
                             <ScrollViewer x:Name="PART_ContentHost"/>
@@ -125,15 +125,15 @@
         <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
         <Setter Property="Background" Value="{StaticResource Green}"/>
     </Style>
-    <Style x:Key="DarkGreenButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button">
+    <Style x:Key="DarkGreenButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="{StaticResource White}"/>
         <Setter Property="Background" Value="{StaticResource DarkGreen}"/>
     </Style>
-    <Style x:Key="UnderlineTransparentButtonStyle" TargetType="Button">
+    <Style x:Key="UnderlineTransparentButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <TextBlock Text="{TemplateBinding Content}" Style="{StaticResource UnderlineTextBlockStyle}"/>
                 </ControlTemplate>
             </Setter.Value>
@@ -142,7 +142,7 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="Button">
+                        <ControlTemplate TargetType="{x:Type Button}">
                             <TextBlock Text="{TemplateBinding Content}" Style="{StaticResource UnderlineTextBlockStyle}">
                                 <TextBlock.TextDecorations>
                                     <TextDecorationCollection>
@@ -161,7 +161,7 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="Button">
+                        <ControlTemplate TargetType="{x:Type Button}">
                             <TextBlock Text="{TemplateBinding Content}" Style="{StaticResource UnderlineTextBlockStyle}"/>
                         </ControlTemplate>
                     </Setter.Value>
