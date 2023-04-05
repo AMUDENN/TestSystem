@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Style="{DynamicResource WindowStyle}"
         Icon="/Resources/Images/icon.ico"
-        Title="Автоматизированная тестовая система Демьянов" Height="1024" Width="1440">
+        Title="Автоматизированная тестовая система Демьянов" Height="1024" Width="1440"
+        Loaded="Window_Loaded">
     <Grid>
         <Frame x:Name="MainFrame"/>
     </Grid>

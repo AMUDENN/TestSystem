@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="1024" d:DesignWidth="1440"
       Title="Авторизация">
-    <Grid Background="{StaticResource LightGreen}">
+    <Grid Style="{DynamicResource GridBackGroundStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="560"/>
@@ -28,14 +28,14 @@
                 <Rectangle Style="{DynamicResource RectangleStyle}">
                     <Rectangle.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="2, 2">
-                            <GradientStop Color="{StaticResource DarkGreenColor}" Offset="0" />
-                            <GradientStop Color="{StaticResource LightGreenColor}" Offset="0.5" />
+                            <GradientStop Color="{DynamicResource SecondGradientColor}" Offset="0" />
+                            <GradientStop Color="{DynamicResource FirstGradientColor}" Offset="0.5" />
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
             <Grid Style="{DynamicResource GridShadowStyle}" Grid.ColumnSpan="2" Grid.Column="0" Margin="30">
-                <Border Style="{DynamicResource BorderStyle}" Background="{StaticResource White}">
+                <Border Style="{DynamicResource BorderStyle}">
                     <Grid Margin="65, 20, 65, 20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60"/>
@@ -62,8 +62,8 @@
                             </Grid.ColumnDefinitions>
                             <CheckBox Style="{DynamicResource CheckBoxStyle}" Content="Запомнить пароль" Grid.Column="0"/>
                         </Grid>
-                        <Button Content="Войти" Style="{DynamicResource LightGreenButtonStyle}" Grid.Row="8"/>
-                        <Button Content="Регистрация" Style="{DynamicResource DarkGreenButtonStyle}" Grid.Row="10"/>
+                        <Button Content="Войти" Style="{DynamicResource LightMainColorButtonStyle}" Grid.Row="8"/>
+                        <Button Content="Регистрация" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="10"/>
                         <Grid Grid.Row="12">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
