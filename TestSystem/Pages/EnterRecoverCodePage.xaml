@@ -10,19 +10,19 @@
     <Grid Background="{StaticResource LightGreen}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="567"/>
+            <RowDefinition Height="560"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="827"/>
+            <ColumnDefinition Width="820"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="27*"/>
-                <ColumnDefinition Width="70*"/>
-                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Grid Style="{DynamicResource GridShadowStyle}" Grid.ColumnSpan="2" Grid.Column="1">
                 <Rectangle Style="{DynamicResource RectangleStyle}">
@@ -34,33 +34,33 @@
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>
-            <Grid Style="{DynamicResource GridShadowStyle}" Margin="100, 75, 100, 75" Grid.ColumnSpan="3" Grid.Column="0">
+            <Grid Style="{DynamicResource GridShadowStyle}" Margin="100, 95, 100, 95" Grid.ColumnSpan="3" Grid.Column="0">
                 <Border Style="{DynamicResource BorderStyle}" Background="{StaticResource White}">
                     <Grid Margin="65, 10, 65, 10">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100*"/>
-                            <RowDefinition Height="35*"/>
-                            <RowDefinition Height="170*"/>
-                            <RowDefinition Height="35*"/>
-                            <RowDefinition Height="100*"/>
-                            <RowDefinition Height="35*"/>
-                            <RowDefinition Height="100*"/>
-                            <RowDefinition Height="35*"/>
-                            <RowDefinition Height="70*"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Восстановление пароля" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
                         <TextBlock Text="Проверьте свою электронную почту на наличие кода для сброса пароля. Введите этот код в поле ниже. Если она не появится в течение нескольких минут, проверьте папку спама." Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="2"/>
                         <Grid Grid.Row="4">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="3*"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Код" Grid.Column="0"/>
                         </Grid>
                         <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="3*"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Button Content="Далее" Style="{DynamicResource LightGreenButtonStyle}" Grid.Column="0"/>
                         </Grid>
