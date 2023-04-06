@@ -137,6 +137,10 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Resources\WindowStyle\WindowStyle.cs" />
+    <Compile Include="UserMessages\UserMessages.cs" />
+    <Compile Include="Windows\MessageBoxWindow.xaml.cs">
+      <DependentUpon>MessageBoxWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -182,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\WindowStyle\WindowStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\MessageBoxWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -252,8 +260,12 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\Error.png" />
+    <Resource Include="Resources\Images\Info.png" />
+    <Resource Include="Resources\Images\Question.png" />
     <Resource Include="Resources\Images\moon.png" />
     <Resource Include="Resources\Images\sun.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

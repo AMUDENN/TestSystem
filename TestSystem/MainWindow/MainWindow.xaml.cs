@@ -19,14 +19,13 @@ namespace TestSystem
         }
         private void ShowCloseMessage(object sender, CancelEventArgs e)
         {
-            if (ActionConfirmation("Вы уверены, что хотите закрыть приложение?") == MessageBoxResult.No) e.Cancel = true;
+            if (!UserMessages.ActionConfirmation("Вы уверены, что хотите закрыть приложение?")) e.Cancel = true;
         }
-        private static MessageBoxResult ActionConfirmation(string question) => MessageBox.Show(question, "Подтвердите действие", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Какая-то логика загрузки дефолтного стиля
-            CustomWindowStyle.WindowStyle.ChangeDefaultTheme(CustomWindowStyle.WindowStyle.Themes.Dark);
+            MainWindowStyle.WindowStyle.ChangeDefaultTheme(MainWindowStyle.WindowStyle.Themes.Dark);
         }
     }
 }

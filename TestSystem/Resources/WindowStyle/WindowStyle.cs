@@ -2,23 +2,16 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace CustomWindowStyle
+namespace MainWindowStyle
 {
-    partial class WindowStyle
+    public partial class WindowStyle
     {
         public enum Themes { Light, Dark };
         public static void ChangeDefaultTheme(Themes theme)
         {
-            System.Windows.Window me = Application.Current.MainWindow;
+            Window me = Application.Current.MainWindow;
             CheckBox cb = me.Template.FindName("ChangeThemeCheckBox", me) as CheckBox;
-            if (theme == Themes.Light)
-            {
-                cb.IsChecked = false;
-            }
-            else
-            {
-                cb.IsChecked = true;
-            }
+            cb.IsChecked = theme != Themes.Light;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
