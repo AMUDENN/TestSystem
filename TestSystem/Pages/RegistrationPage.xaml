@@ -63,8 +63,8 @@
                             <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Фамилия" Grid.Column="2"/>
                         </Grid>
                         <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="4"/>
-                        <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Придумайте пароль" Grid.Row="6"/>
-                        <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Повторите пароль" Grid.Row="8"/>
+                        <PasswordBox Style="{DynamicResource PasswordBoxStyle}" Tag="Придумайте пароль" Grid.Row="6"/>
+                        <PasswordBox Style="{DynamicResource PasswordBoxStyle}" Tag="Повторите пароль" Grid.Row="8"/>
                         <Button Content="Зарегистрироваться" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="10"/>
                         <Grid Grid.Row="12">
                             <Grid.ColumnDefinitions>
