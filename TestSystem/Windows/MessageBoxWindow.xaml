@@ -3,16 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         xmlns:local="clr-namespace:TestSystem.Windows"
         mc:Ignorable="d"
         WindowStyle="None" 
         ResizeMode="NoResize"
         AllowsTransparency="True" 
         Background="Transparent"
-        Height="150" 
+        Height="140" 
         Width="300">
-    <Border Style="{DynamicResource BorderStyleWithStroke}" Background="{DynamicResource Accent}">
-        <Grid HorizontalAlignment="Stretch" MouseDown="DragMove">
+    <Border Style="{DynamicResource BorderStyleWithStroke}" MouseDown="DragMove" Background="{DynamicResource Accent}">
+        <Grid HorizontalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
@@ -29,9 +30,15 @@
                     <RowDefinition Height="9*"/>
                     <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="Error" Source="/Resources/Images/Error.png" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="10"/>
-                <Image x:Name="Info" Source="/Resources/Images/Info.png" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="10"/>
-                <Image x:Name="Question" Source="/Resources/Images/Question.png" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="10"/>
+                
+                <svgc:SvgViewbox x:Name="Error" Source="/Resources/Images/Error.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="15"/>
+                <svgc:SvgViewbox x:Name="Info" Source="/Resources/Images/Info.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="15"/>
+                <svgc:SvgViewbox x:Name="Question" Source="/Resources/Images/Question.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="15"/>
+
+                <Button x:Name="Ok_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="3"/>
+                <Button x:Name="OkCancel_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="2"/>
+                <Button x:Name="OkCancel_Cancel" Content = "Отмена" Click="CancelClick" Style="{DynamicResource DarkMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="3"/>
+                
                 <TextBlock x:Name="Text" Style="{DynamicResource CommonTextBlockStyle}" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="0"/>
             </Grid>
         </Grid>

@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
                     x:Class="MainWindowStyle.WindowStyle">
     <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
         <Setter Property="AllowsTransparency" Value="True"/>
@@ -37,7 +38,7 @@
                                     <CheckBox x:Name="ChangeThemeCheckBox" Margin="2,0,2,0" Style="{DynamicResource CheckBoxToggleSwitchStyle}"/>
                                 </StackPanel>
                                 <TextBlock Text="{TemplateBinding Title}" Style="{DynamicResource SmallTextBlockStyle}"/>
-                                <Image Source="{TemplateBinding Icon}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="16" Height="16" Margin="6,0,0,0"/>
+                                <svgc:SvgViewbox Source="/Resources/Images/icon.svg" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" Height="25" Margin="6,0,0,0"/>
                                 <ContentPresenter Grid.Row="1"/>
                             </Grid>
                         </Border>
@@ -158,8 +159,8 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="/Resources/Images/moon.png" HorizontalAlignment="Right" Margin="2" Grid.Column="0"/>
-                            <Image Source="/Resources/Images/sun.png" HorizontalAlignment="Left" Margin="2" Grid.Column="1"/>
+                            <svgc:SvgViewbox Source="/Resources/Images/moon.svg" HorizontalAlignment="Right" Margin="3" Grid.Column="0"/>
+                            <svgc:SvgViewbox Source="/Resources/Images/sun.svg" HorizontalAlignment="Left" Margin="3" Grid.Column="1"/>
                             <Border HorizontalAlignment="Left" 
                                     x:Name="slider" 
                                     Background="{DynamicResource DarkMainColor}"

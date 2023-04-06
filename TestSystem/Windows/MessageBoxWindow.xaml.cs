@@ -9,8 +9,6 @@ namespace TestSystem.Windows
 {
     public partial class MessageBoxWindow : Window
     {
-        readonly Style LightMainColorButtonStyle = (Style)Application.Current.Resources["LightMainColorButtonStyle"];
-        readonly Style DarkMainColorButtonStyle = (Style)Application.Current.Resources["DarkMainColorButtonStyle"];
         public enum MessageBoxButton { Ok, OkCancel };
         public enum MessageBoxImage { Info, Error, Question };
         public MessageBoxWindow(string title, string text, MessageBoxButton messageBoxButton, MessageBoxImage messageBoxImage)
@@ -31,43 +29,12 @@ namespace TestSystem.Windows
         }
         private void SetOk()
         {
-            Button ok = new Button()
-            {
-                Style = LightMainColorButtonStyle,
-                FontSize = 14,
-                Content = "Ок",
-                Margin = new Thickness(3)
-            };
-            ok.Click += OkClick;
-            Grid.SetRow(ok, 1);
-            Grid.SetColumn(ok, 3);
-            MainGrid.Children.Add(ok);
+            Ok_Ok.Visibility = Visibility.Visible;
         }
         private void SetOkCancel()
         {
-            Button ok = new Button()
-            {
-                Style = LightMainColorButtonStyle,
-                FontSize = 14,
-                Content = "Ок",
-                Margin = new Thickness(3)
-            };
-            ok.Click += OkClick;
-            Grid.SetRow(ok, 1);
-            Grid.SetColumn(ok, 2);
-            MainGrid.Children.Add(ok);
-
-            Button cancel = new Button()
-            {
-                Style = DarkMainColorButtonStyle,
-                FontSize = 14,
-                Content = "Отмена",
-                Margin = new Thickness(3)
-            };
-            cancel.Click += CancelClick;
-            Grid.SetRow(cancel, 1);
-            Grid.SetColumn(cancel, 3);
-            MainGrid.Children.Add(cancel);
+            OkCancel_Ok.Visibility = Visibility.Visible; 
+            OkCancel_Cancel.Visibility = Visibility.Visible;
         }
         private void SetImageSource(MessageBoxImage messageBoxImage)
         {
