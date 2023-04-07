@@ -9,6 +9,8 @@ namespace TestSystem.Pages
         public AuthorizationPage()
         {
             InitializeComponent();
+
+            DataContext = new ViewModels.AuthorizationVM();
         }
     }
 }

@@ -53,7 +53,7 @@
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Авторизация" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
-                        <TextBox Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="2"/>
+                        <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="2"/>
                         <PasswordBox Style="{DynamicResource PasswordBoxStyle}" Tag="Пароль" Grid.Row="4"/>
                         <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
@@ -62,7 +62,7 @@
                             </Grid.ColumnDefinitions>
                             <CheckBox Style="{DynamicResource CheckBoxStyle}" Content="Запомнить пароль" Grid.Column="0"/>
                         </Grid>
-                        <Button Content="Войти" Style="{DynamicResource LightMainColorButtonStyle}" Grid.Row="8"/>
+                        <Button Content="Войти" Command="{Binding SingInCommand}" Style="{DynamicResource LightMainColorButtonStyle}" Grid.Row="8"/>
                         <Button Content="Регистрация" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="10"/>
                         <Grid Grid.Row="12">
                             <Grid.ColumnDefinitions>

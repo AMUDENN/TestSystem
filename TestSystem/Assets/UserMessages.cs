@@ -1,8 +1,8 @@
 ﻿using TestSystem.Windows;
 
-namespace TestSystem
+namespace TestSystem.Assets
 {
-    class UserMessages
+    internal class UserMessages
     {
         public static bool ActionConfirmation(string question)
            => (bool)new MessageBoxWindow("Подтверждение", question, MessageBoxWindow.MessageBoxButton.OkCancel, MessageBoxWindow.MessageBoxImage.Question).ShowDialog();

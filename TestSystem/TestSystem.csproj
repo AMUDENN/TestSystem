@@ -91,6 +91,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Assets\Navigation.cs" />
+    <Compile Include="Assets\RelayCommand.cs" />
+    <Compile Include="Assets\Themes.cs" />
     <Compile Include="Entities\Albums.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -162,7 +165,8 @@
     </Compile>
     <Compile Include="Resources\Dictionaries\MainDictionary.cs" />
     <Compile Include="Resources\WindowStyle\WindowStyle.cs" />
-    <Compile Include="UserMessages\UserMessages.cs" />
+    <Compile Include="Assets\UserMessages.cs" />
+    <Compile Include="ViewModels\AuthorizationVM.cs" />
     <Compile Include="Windows\MessageBoxWindow.xaml.cs">
       <DependentUpon>MessageBoxWindow.xaml</DependentUpon>
     </Compile>

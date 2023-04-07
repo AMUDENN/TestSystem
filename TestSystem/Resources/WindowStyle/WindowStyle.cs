@@ -43,19 +43,11 @@ namespace MainWindowStyle
         }
         private void ToggleSwitchChecked(object sender, RoutedEventArgs e)
         {
-            var uri = new Uri("Resources\\Dictionaries\\DarkTheme.xaml", UriKind.Relative);
-            ResourceDictionary resourceDict = Application.LoadComponent(uri) as
-            ResourceDictionary;
-            Application.Current.Resources.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            TestSystem.Assets.Themes.ChangeTheme("Resources\\Dictionaries\\DarkTheme.xaml");
         }
         private void ToggleSwitchUnchecked(object sender, RoutedEventArgs e)
         {
-            var uri = new Uri("Resources\\Dictionaries\\LightTheme.xaml", UriKind.Relative);
-            ResourceDictionary resourceDict = Application.LoadComponent(uri) as
-            ResourceDictionary;
-            Application.Current.Resources.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(resourceDict); ;
+            TestSystem.Assets.Themes.ChangeTheme("Resources\\Dictionaries\\LightTheme.xaml");
         }
     }
 }

@@ -41,7 +41,7 @@
                         <TextDecoration.Pen>
                             <Pen>
                                 <Pen.Brush>
-                                    <SolidColorBrush Color="{DynamicResource DarkAdditionalColor}" Opacity="0.5"/>
+                                    <SolidColorBrush Color="{DynamicResource DarkAdditionalColor}" Opacity="0.4"/>
                                 </Pen.Brush>
                             </Pen>
                         </TextDecoration.Pen>
@@ -288,7 +288,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type PasswordBox}">
                     <Grid>
-                        <Border x:Name="border" CornerRadius="10" Padding="5, 0, 0, 0" BorderThickness="1" BorderBrush="{DynamicResource DarkAdditional}">
+                        <Border x:Name="MainPasswordBox" CornerRadius="10" Padding="5, 0, 0, 0" BorderThickness="1" BorderBrush="{DynamicResource DarkAdditional}">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
                         <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
