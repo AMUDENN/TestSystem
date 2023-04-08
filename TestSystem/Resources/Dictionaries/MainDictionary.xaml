@@ -119,6 +119,9 @@
                     </Setter.Value>
                 </Setter>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.7"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
     <Style x:Key="LightMainColorButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
