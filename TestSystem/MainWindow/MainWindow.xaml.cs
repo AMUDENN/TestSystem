@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.Configuration;
 using System.Windows;
-using System.Windows.Navigation;
-using TestSystem.ViewModels;
+using static TestSystem.Utilities.Themes;
 
 namespace TestSystem
 {
@@ -15,13 +14,20 @@ namespace TestSystem
         }
         private void ShowCloseMessage(object sender, CancelEventArgs e)
         {
-            if (!Assets.UserMessages.ActionConfirmation("Вы уверены, что хотите закрыть приложение?")) e.Cancel = true;
+            if (!Utilities.UserMessages.ActionConfirmation("Вы уверены, что хотите закрыть приложение?")) e.Cancel = true;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Какая-то логика загрузки дефолтного стиля
-            MainWindowStyle.WindowStyle.ChangeDefaultTheme(MainWindowStyle.WindowStyle.Themes.Dark);
+            string theme = ConfigurationManager.AppSettings.Get("CurrentTheme");
+            if (theme == "Light")
+            {
+                MainWindowStyle.WindowStyle.ChangeDefaultTheme(ThemesEnum.Light);
+            }
+            else if (theme == "Dark")
+            {
+                MainWindowStyle.WindowStyle.ChangeDefaultTheme(ThemesEnum.Dark);
+            }
         }
     }
 }

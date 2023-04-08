@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Windows.Input;
+using TestSystem.Utilities;
 using TestSystem.Models;
 
 namespace TestSystem.ViewModels
@@ -12,21 +12,13 @@ namespace TestSystem.ViewModels
         private string repeatPassword;
         public string Password
         {
-            private get { return password; }
-            set
-            {
-                password = value;
-                OnPropertyChanged("Password");
-            }
+            private get => password;
+            set => SetProperty(ref password, value);
         }
         public string RepeatPassword
         {
-            get { return repeatPassword; }
-            set
-            {
-                repeatPassword = value;
-                OnPropertyChanged("RememberPassword");
-            }
+            get => repeatPassword;
+            set => SetProperty(ref repeatPassword, value);
         }
         private RelayCommand saveCommand;
         private RelayCommand authorizationBackCommand;
@@ -35,7 +27,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return saveCommand ??
-                  (saveCommand = new RelayCommand(() =>
+                  (saveCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
                       WeakReferenceMessenger.Default.Send(navModel);
@@ -47,7 +39,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return authorizationBackCommand ??
-                  (authorizationBackCommand = new RelayCommand(() =>
+                  (authorizationBackCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
                       WeakReferenceMessenger.Default.Send(navModel);

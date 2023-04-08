@@ -1,7 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using System.Windows;
 using System.Windows.Input;
+using TestSystem.Utilities;
 using TestSystem.Models;
 
 namespace TestSystem.ViewModels
@@ -13,30 +14,18 @@ namespace TestSystem.ViewModels
         private bool rememberPassword;
         public string Email
         {
-            get { return email; }
-            set
-            {
-                email = value;
-                OnPropertyChanged("Email");
-            }
+            get => email;
+            set => SetProperty(ref email, value);
         }
         public string Password
         {
-            private get { return password; }
-            set
-            {
-                password = value;
-                OnPropertyChanged("Password");
-            }
+            private get => password;
+            set => SetProperty(ref password, value);
         }
         public bool RememberPassword
         {
-            get { return rememberPassword; }
-            set
-            {
-                rememberPassword = value;
-                OnPropertyChanged("RememberPassword");
-            }
+            private get => rememberPassword;
+            set => SetProperty(ref rememberPassword, value);
         }
         private RelayCommand singInCommand;
         private RelayCommand registrationCommand;
@@ -46,11 +35,22 @@ namespace TestSystem.ViewModels
             get
             {
                 return singInCommand ??
-                  (singInCommand = new RelayCommand(() =>
-                  {
-                      var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AbstractMainViewModel() });
-                      WeakReferenceMessenger.Default.Send(navModel);
-                  }));
+                  (singInCommand = new RelayCommand(
+                    (obj) =>
+                    {
+                        if (Authorization.GetAuthorization(Email, Password, RememberPassword) != -1)
+                        {
+                            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AbstractMainViewModel() });
+                            WeakReferenceMessenger.Default.Send(navModel);
+                        }
+                        else
+                        {
+                            UserMessages.Error("Ошибка авторизации");
+                        }
+                        
+                    },
+                    (obj) => !((string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password)) || (Email.Length < 3 || Password.Length < 3))
+                  ));
             }
         }
         public ICommand RegistrationCommand
@@ -58,7 +58,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return registrationCommand ??
-                  (registrationCommand = new RelayCommand(() =>
+                  (registrationCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new RegistrationViewModel() });
                       WeakReferenceMessenger.Default.Send(navModel);
@@ -70,7 +70,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return forgotPasswordCommand ??
-                  (forgotPasswordCommand = new RelayCommand(() =>
+                  (forgotPasswordCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new RecoverPasswordViewModel() });
                       WeakReferenceMessenger.Default.Send(navModel);

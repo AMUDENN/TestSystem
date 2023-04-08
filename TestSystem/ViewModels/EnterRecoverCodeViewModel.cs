@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Windows.Input;
+using TestSystem.Utilities;
 using TestSystem.Models;
 
 namespace TestSystem.ViewModels
@@ -11,12 +11,8 @@ namespace TestSystem.ViewModels
         private string code;
         public string Code
         {
-            private get { return code; }
-            set
-            {
-                code = value;
-                OnPropertyChanged("Code");
-            }
+            get => code;
+            set => SetProperty(ref code, value);
         }
         private RelayCommand nextCommand;
         private RelayCommand authorizationBackCommand;
@@ -25,7 +21,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return nextCommand ??
-                  (nextCommand = new RelayCommand(() =>
+                  (nextCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new ChangePasswordViewModel() });
                       WeakReferenceMessenger.Default.Send(navModel);
@@ -37,7 +33,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return authorizationBackCommand ??
-                  (authorizationBackCommand = new RelayCommand(() =>
+                  (authorizationBackCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
                       WeakReferenceMessenger.Default.Send(navModel);

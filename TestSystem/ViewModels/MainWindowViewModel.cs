@@ -23,8 +23,16 @@ namespace TestSystem.ViewModels
 
 
             //логика дефолтной страницы
-            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
-            WeakReferenceMessenger.Default.Send(navModel);
+            if (Authorization.CheckSaveEmailAndPassword() == -1)
+            {
+                var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
+                WeakReferenceMessenger.Default.Send(navModel);
+            }
+            else
+            {
+                var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AbstractMainViewModel() });
+                WeakReferenceMessenger.Default.Send(navModel);
+            }
         }
 
         private void NavigateTo(object recipient, NavigationChangedRequestedMessage message)

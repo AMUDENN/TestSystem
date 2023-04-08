@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Windows.Input;
+using TestSystem.Utilities;
 using TestSystem.Models;
 
 namespace TestSystem.ViewModels
@@ -15,48 +15,28 @@ namespace TestSystem.ViewModels
         private string repeatPassword;
         public string Name
         {
-            get { return name; }
-            set
-            {
-                name = value;
-                OnPropertyChanged("Name");
-            }
+            get => name;
+            set => SetProperty(ref name, value);
         }
         public string Surname
         {
-            get { return surname; }
-            set
-            {
-                surname = value;
-                OnPropertyChanged("Surname");
-            }
+            get => surname;
+            set => SetProperty(ref surname, value);
         }
         public string Email
         {
-            get { return email; }
-            set
-            {
-                email = value;
-                OnPropertyChanged("Email");
-            }
+            get => email;
+            set => SetProperty(ref email, value);
         }
         public string Password
         {
-            private get { return password; }
-            set
-            {
-                password = value;
-                OnPropertyChanged("Password");
-            }
+            private get => password;
+            set => SetProperty(ref password, value);
         }
         public string RepeatPassword
         {
-            get { return repeatPassword; }
-            set
-            {
-                repeatPassword = value;
-                OnPropertyChanged("RememberPassword");
-            }
+            private get => repeatPassword;
+            set => SetProperty(ref repeatPassword, value);
         }
 
         private RelayCommand registrationCommand;
@@ -66,7 +46,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return registrationCommand ??
-                  (registrationCommand = new RelayCommand(() =>
+                  (registrationCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel()
                       {
@@ -81,7 +61,7 @@ namespace TestSystem.ViewModels
             get
             {
                 return alreadyHaveAnAccountCommand ??
-                  (alreadyHaveAnAccountCommand = new RelayCommand(() =>
+                  (alreadyHaveAnAccountCommand = new RelayCommand((obj) =>
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel()
                       {

@@ -8,7 +8,7 @@
 
         <ResourceDictionary x:Key="Dictionaries">
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Assets\DataTemplate.xaml"/>
+                <ResourceDictionary Source="Utilities\DataTemplate.xaml"/>
                 <ResourceDictionary Source="Resources\Dictionaries\LightTheme.xaml"/>
                 <ResourceDictionary Source="Resources\Dictionaries\MainDictionary.xaml"/>
                 <ResourceDictionary Source="Resources\WindowStyle\WindowStyle.xaml"/>

@@ -1,6 +1,6 @@
 ﻿using TestSystem.Windows;
 
-namespace TestSystem.Assets
+namespace TestSystem.Utilities
 {
     internal class UserMessages
     {
