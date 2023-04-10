@@ -125,6 +125,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utilities\Config.cs" />
     <Compile Include="Utilities\Context.cs" />
     <Compile Include="Utilities\Encryption.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />

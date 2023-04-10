@@ -10,6 +10,7 @@
         ResizeMode="NoResize"
         AllowsTransparency="True" 
         Background="Transparent"
+        WindowStartupLocation="CenterOwner"
         Height="140" 
         Width="300">
     <Border Style="{DynamicResource BorderStyleWithStroke}" MouseDown="DragMove" Background="{DynamicResource Accent}">

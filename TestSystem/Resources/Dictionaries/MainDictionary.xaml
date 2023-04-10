@@ -63,7 +63,7 @@
                         <Border Style="{DynamicResource BorderStyleWithStroke}" Padding="5, 0, 0, 0">
                             <ScrollViewer x:Name="PART_ContentHost"/>
                         </Border>
-                        <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                        <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
                            Visibility="Collapsed" Foreground="{DynamicResource DarkAdditional}" Opacity="0.5" FontSize="18"/>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -294,7 +294,7 @@
                         <Border x:Name="MainPasswordBox" CornerRadius="10" Padding="5, 0, 0, 0" BorderThickness="1" BorderBrush="{DynamicResource DarkAdditional}">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
-                        <Label Margin="10,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                        <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
                            Visibility="Visible" Foreground="{DynamicResource DarkAdditional}" Opacity="0.5" FontSize="18"/>
                     </Grid>
                 </ControlTemplate>

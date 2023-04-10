@@ -5,8 +5,7 @@
              xmlns:vm="clr-namespace:TestSystem.ViewModels"
              xmlns:view="clr-namespace:TestSystem.Views">
     <Application.Resources>
-
-        <ResourceDictionary x:Key="Dictionaries">
+        <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Utilities\DataTemplate.xaml"/>
                 <ResourceDictionary Source="Resources\Dictionaries\LightTheme.xaml"/>

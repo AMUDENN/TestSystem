@@ -10,8 +10,8 @@ namespace TestSystem.Utilities
         public enum ThemesEnum { Light, Dark };
         private static Dictionary<ThemesEnum, string> themesPath = new Dictionary<ThemesEnum, string>()
         {
-            { ThemesEnum.Light, "Resources\\Dictionaries\\LightTheme.xaml" },
-            {ThemesEnum.Dark, "Resources\\Dictionaries\\DarkTheme.xaml" } 
+            { ThemesEnum.Light, @"Resources\Dictionaries\LightTheme.xaml" },
+            {ThemesEnum.Dark, @"Resources\Dictionaries\DarkTheme.xaml" } 
         };
         public static void ChangeTheme(ThemesEnum theme)
         {
@@ -20,10 +20,7 @@ namespace TestSystem.Utilities
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
 
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["CurrentTheme"].Value = theme.ToString();
-            config.Save();
-            ConfigurationManager.RefreshSection("appSettings");
+            Config.CurrentTheme = theme.ToString();
         }
     }
 }

@@ -17,16 +17,13 @@ namespace TestSystem.Models
         }
         private static void SaveEmailAndPassword(string email, string password)
         {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["SaveEmail"].Value = email;
-            config.AppSettings.Settings["SavePassword"].Value = password;
-            config.Save();
-            ConfigurationManager.RefreshSection("appSettings");
+            Config.SaveEmail = email;
+            Config.SavePassword = password;
         }
         public static int CheckSaveEmailAndPassword()
         {
-            string email = ConfigurationManager.AppSettings.Get("SaveEmail");
-            string password = ConfigurationManager.AppSettings.Get("SavePassword");
+            string email = Config.SaveEmail;
+            string password = Config.SavePassword;
             if (email.Length < 3 || password.Length < 3) return -1;
             return GetAuthorization(email, password);
         }
