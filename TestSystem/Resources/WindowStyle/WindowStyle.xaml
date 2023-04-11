@@ -21,7 +21,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">
-                    <Border x:Name="PART_Container" Padding="{TemplateBinding Padding}" >
+                    <Border x:Name="PART_Container" Padding="{TemplateBinding Padding}">
                         <Border.Effect>
                             <DropShadowEffect Color="Black" Opacity="0.4" BlurRadius="10" ShadowDepth="0" Direction="0"/>
                         </Border.Effect>
@@ -37,7 +37,7 @@
                                     <Button x:Name="MinimizeButton" Content="0" Margin="2,0,2,0" Style="{DynamicResource MinimizeButtonStyle}"/>
                                     <CheckBox x:Name="ChangeThemeCheckBox" Margin="2,0,2,0" Style="{DynamicResource CheckBoxToggleSwitchStyle}"/>
                                 </StackPanel>
-                                <TextBlock Text="{TemplateBinding Title}" Style="{DynamicResource SmallTextBlockStyle}"/>
+                                <TextBlock Text="{TemplateBinding Title}" Style="{DynamicResource TitleTextBlockStyle}"/>
                                 <svgc:SvgViewbox Source="/Resources/Images/icon.svg" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" Height="25" Margin="6,0,0,0"/>
                                 <ContentPresenter Grid.Row="1"/>
                             </Grid>
@@ -52,18 +52,16 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="BorderRightAngleStyle" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="{DynamicResource MainColor}"/>
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkAdditional}"/>
-    </Style>
+    
     <Style x:Key="WindowBorderStyle" TargetType="{x:Type Border}">
         <Setter Property="CornerRadius" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource MainColor}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
-    <Style x:Key="SmallTextBlockStyle" BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="{x:Type TextBlock}">
+    <Style x:Key="TitleTextBlockStyle" BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource DarkAdditional}"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -129,7 +127,6 @@
         <EventSetter Event="Button.Click" Handler="MinimizeButton_Click"/>
         <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
     </Style>
-
     <Style x:Key="CheckBoxToggleSwitchStyle" TargetType="{x:Type CheckBox}">
         <Setter Property="Width" Value="44"/>
         <Setter Property="Height" Value="24"/>

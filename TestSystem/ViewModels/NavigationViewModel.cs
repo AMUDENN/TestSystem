@@ -6,10 +6,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using TestSystem.Models;
 
-//ПРИМЕР РЕАЛИЗАЦИИ НАВИГАЦИИ ПО КНОПОЧКАМ СБОКУ ЭКРАНА
-
-//ПОКА НЕ ПРИМЕНЯЕТСЯ В ПРИЛОЖЕНИИ
-
 namespace TestSystem.ViewModels
 {
     public class NavigationViewModel : ObservableObject

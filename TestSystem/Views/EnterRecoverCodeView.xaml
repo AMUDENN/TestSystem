@@ -33,7 +33,7 @@
                 </Rectangle>
             </Grid>
             <Grid Style="{DynamicResource GridShadowStyle}" Margin="100, 95, 100, 95" Grid.ColumnSpan="3" Grid.Column="0">
-                <Border Style="{DynamicResource BorderStyle}">
+                <Border Style="{DynamicResource AccentBorderStyle}">
                     <Grid Margin="65, 10, 65, 10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60"/>

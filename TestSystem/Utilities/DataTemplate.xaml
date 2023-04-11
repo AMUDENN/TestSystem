@@ -23,8 +23,8 @@
         <view:ChangePasswordView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AbstractMainViewModel}">
-        <view:AbstractMainView/>
+    <DataTemplate DataType="{x:Type vm:NavigationViewModel}">
+        <view:NavigationView/>
     </DataTemplate>
 
 </ResourceDictionary>

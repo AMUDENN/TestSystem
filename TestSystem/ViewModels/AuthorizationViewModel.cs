@@ -1,9 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
-using System.Windows;
 using System.Windows.Input;
-using TestSystem.Utilities;
 using TestSystem.Models;
+using TestSystem.Utilities;
 
 namespace TestSystem.ViewModels
 {
@@ -42,8 +41,9 @@ namespace TestSystem.ViewModels
                         var error = userModel.TryAuthorization(Email, Password, RememberPassword);
                         if (error is null)
                         {
-                            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AbstractMainViewModel(userModel) });
-                            WeakReferenceMessenger.Default.Send(navModel);
+                            App.GetMainWindow(userModel).Show();
+                            App.Current.Windows[0].Closing -= ((LoginWindow)App.Current.Windows[0]).ShowCloseMessage;
+                            App.Current.Windows[0].Close();
                         }
                         else
                         {

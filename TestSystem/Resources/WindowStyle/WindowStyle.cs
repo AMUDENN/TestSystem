@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using static TestSystem.Utilities.Themes;
+using TestSystem.Utilities;
 
 namespace MainWindowStyle
 {
     public partial class WindowStyle
     {
-        public static void ChangeDefaultTheme(ThemesEnum theme)
+        public static void ChangeDefaultTheme(Themes.ThemesEnum theme)
         {
             Window me = Application.Current.MainWindow;
             CheckBox cb = me.Template.FindName("ChangeThemeCheckBox", me) as CheckBox;
-            cb.IsChecked = theme != ThemesEnum.Light;
+            cb.IsChecked = theme != Themes.ThemesEnum.Light;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -43,11 +43,11 @@ namespace MainWindowStyle
         }
         private void ToggleSwitchChecked(object sender, RoutedEventArgs e)
         {
-            ChangeTheme(ThemesEnum.Dark);
+            Themes.ChangeTheme(Themes.ThemesEnum.Dark);
         }
         private void ToggleSwitchUnchecked(object sender, RoutedEventArgs e)
         {
-            ChangeTheme(ThemesEnum.Light);
+            Themes.ChangeTheme(Themes.ThemesEnum.Light);
         }
     }
 }

@@ -4,29 +4,26 @@ using TestSystem.Models;
 
 namespace TestSystem.ViewModels
 {
-    public class MainWindowViewModel : ObservableObject
+    public class LoginWindowViewModel : ObservableObject
     {
-        public UserModel userModel;
-        public ObservableObject NavigationVM { get; set; }
-
+        private bool isVisible = true;
         private ObservableObject currentVM;
-        public UserModel UserModel
+        public bool IsVisible
         {
-            get => userModel;
-            set => SetProperty(ref userModel, value);
+            get => isVisible;
+            set => SetProperty(ref isVisible, value);
         }
         public ObservableObject CurrentVM
         {
             get => currentVM;
             set => SetProperty(ref currentVM, value);
         }
-
-        public MainWindowViewModel(NavigationViewModel navVM)
+        public LoginWindowViewModel()
         {
-            NavigationVM = navVM;
             WeakReferenceMessenger.Default.Register<NavigationChangedRequestedMessage>(this, NavigateTo);
+            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
+            WeakReferenceMessenger.Default.Send(navModel);
         }
-
         private void NavigateTo(object recipient, NavigationChangedRequestedMessage message)
         {
             if (message.Value is NavigationModel navModel)

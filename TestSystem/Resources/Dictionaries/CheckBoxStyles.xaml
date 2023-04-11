@@ -37,13 +37,13 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Border x:Name="checkBoxBorder" 
+                                Style="{DynamicResource BaseBorderStyle}"
                                 Background="{TemplateBinding Background}" 
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="{TemplateBinding BorderThickness}" 
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                 Margin="1" 
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                CornerRadius="7"
                                 Height="20" Width="20">
                             <Grid x:Name="markGrid">
                                 <Path x:Name="optionMark" 
