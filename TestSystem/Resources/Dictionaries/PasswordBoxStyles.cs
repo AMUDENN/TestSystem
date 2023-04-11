@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace TestSystem.Resources.Dictionaries
 {
-    public partial class MainDictionary
+    public partial class PasswordBoxStyles
     {
         private void PasswordChangedHandler(object sender, RoutedEventArgs e)
         {

@@ -125,11 +125,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Utilities\Config.cs" />
     <Compile Include="Utilities\Context.cs" />
     <Compile Include="Utilities\Encryption.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
-    <Compile Include="Models\Authorization.cs" />
     <Compile Include="Models\NavigationChangedRequestedMessage.cs" />
     <Compile Include="Models\NavigationModel.cs" />
     <Compile Include="Models\PageModel.cs" />
@@ -203,7 +203,7 @@
     <Compile Include="Entities\Users.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Dictionaries\MainDictionary.cs" />
+    <Compile Include="Resources\Dictionaries\PasswordBoxStyles.cs" />
     <Compile Include="Resources\WindowStyle\WindowStyle.cs" />
     <Compile Include="Utilities\UserMessages.cs" />
     <Compile Include="ViewModels\AbstractMainViewModel.cs" />
@@ -220,6 +220,42 @@
     <Compile Include="Windows\MessageBoxWindow.xaml.cs">
       <DependentUpon>MessageBoxWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Dictionaries\BorderStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\CheckBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\GridStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\PasswordBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\RectangleStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\ShadowStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\TextBlockStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\TextBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Utilities\DataTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

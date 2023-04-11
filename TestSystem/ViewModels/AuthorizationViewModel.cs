@@ -9,6 +9,7 @@ namespace TestSystem.ViewModels
 {
     public class AuthorizationViewModel : ObservableObject
     {
+        private UserModel userModel;
         private string email;
         private string password;
         private bool rememberPassword;
@@ -20,7 +21,7 @@ namespace TestSystem.ViewModels
         public string Password
         {
             private get => password;
-            set => SetProperty(ref password, value);
+            set => SetProperty(ref password, Encryption.GetHash(value));
         }
         public bool RememberPassword
         {
@@ -38,18 +39,19 @@ namespace TestSystem.ViewModels
                   (singInCommand = new RelayCommand(
                     (obj) =>
                     {
-                        if (Authorization.GetAuthorization(Email, Password, RememberPassword) != -1)
+                        var error = userModel.TryAuthorization(Email, Password, RememberPassword);
+                        if (error is null)
                         {
-                            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AbstractMainViewModel() });
+                            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AbstractMainViewModel(userModel) });
                             WeakReferenceMessenger.Default.Send(navModel);
                         }
                         else
                         {
                             UserMessages.Error("Ошибка авторизации");
                         }
-                        
+
                     },
-                    (obj) => !((string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password)) || (Email.Length < 3 || Password.Length < 3))
+                    (obj) => !((string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password)) || (Email.Length < 6 || Password.Length < 6))
                   ));
             }
         }
@@ -79,6 +81,7 @@ namespace TestSystem.ViewModels
         }
         public AuthorizationViewModel()
         {
+            userModel = new UserModel();
         }
     }
 }

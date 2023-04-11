@@ -8,6 +8,7 @@ namespace TestSystem.ViewModels
 {
     public class RegistrationViewModel : ObservableObject
     {
+        private UserModel userModel;
         private string name;
         private string surname;
         private string email;
@@ -50,7 +51,7 @@ namespace TestSystem.ViewModels
                   {
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel()
                       {
-                          DestinationVM = new AbstractMainViewModel()
+                          DestinationVM = new AbstractMainViewModel(userModel)
                       });
                       WeakReferenceMessenger.Default.Send(navModel);
                   }));

@@ -8,7 +8,11 @@ namespace TestSystem.ViewModels
 {
     public class AbstractMainViewModel : ObservableObject
     {
+        private UserModel userModel;
         private RelayCommand backCommand;
+        public UserModel UserModel { get; set; }
+        public string Name => userModel.CurrentUser.name;
+
         public ICommand BackCommand
         {
             get
@@ -16,14 +20,16 @@ namespace TestSystem.ViewModels
                 return backCommand ??
                   (backCommand = new RelayCommand(() =>
                   {
+                      userModel.LogOut();
+
                       var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
                       WeakReferenceMessenger.Default.Send(navModel);
                   }));
             }
         }
-        public AbstractMainViewModel()
+        public AbstractMainViewModel(UserModel userModel)
         {
-
+            this.userModel = userModel; 
         }
     }
 }

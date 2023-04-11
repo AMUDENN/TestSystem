@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="GridShadowStyle" TargetType="{x:Type Grid}">
+        <Setter Property="Effect" Value="{DynamicResource dropShadow}"/>
+    </Style>
+    <Style x:Key="GridBackGroundStyle" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
+    </Style>
+</ResourceDictionary>
