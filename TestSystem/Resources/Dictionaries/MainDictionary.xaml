@@ -10,5 +10,6 @@
         <ResourceDictionary Source="\Resources\Dictionaries\CheckBoxStyles.xaml"/>
         <ResourceDictionary Source="\Resources\Dictionaries\GridStyles.xaml"/>
         <ResourceDictionary Source="\Resources\Dictionaries\PasswordBoxStyles.xaml"/>
+        <ResourceDictionary Source="\Resources\Dictionaries\ListViewStyles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -252,6 +252,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Dictionaries\ListViewStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Dictionaries\PasswordBoxStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -403,6 +407,12 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\HomeListVIew.svg" />
+    <Resource Include="Resources\Images\ProfileListView.svg" />
+    <Resource Include="Resources\Images\ResultsListView.svg" />
+    <Resource Include="Resources\Images\SettingsListView.svg" />
+    <Resource Include="Resources\Images\TestsListView.svg" />
+    <Resource Include="Resources\Images\BaseProfile.png" />
     <Resource Include="Resources\Images\Error.svg" />
     <Resource Include="Resources\Images\Info.svg" />
     <Resource Include="Resources\Images\Question.svg" />

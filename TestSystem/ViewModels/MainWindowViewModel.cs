@@ -20,7 +20,6 @@ namespace TestSystem.ViewModels
             get => currentVM;
             set => SetProperty(ref currentVM, value);
         }
-
         public MainWindowViewModel(NavigationViewModel navVM)
         {
             NavigationVM = navVM;

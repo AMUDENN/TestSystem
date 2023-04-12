@@ -36,27 +36,32 @@ namespace TestSystem.ViewModels
 
             NavigationOptions.Add(new NavigationModel()
             {
-                Name = "Login",
+                Name = "Главная",
+                ImageSource = @"/Resources/Images/HomeListVIew.svg",
                 DestinationVM = authorizationView
             });
             NavigationOptions.Add(new NavigationModel()
             {
-                Name = "Registration",
+                Name = "Профиль",
+                ImageSource = @"/Resources/Images/ProfileListVIew.svg",
                 DestinationVM = registrationView
             });
             NavigationOptions.Add(new NavigationModel()
             {
-                Name = "RecoverPassword",
+                Name = "Тесты",
+                ImageSource = @"/Resources/Images/TestsListVIew.svg",
                 DestinationVM = recoverPasswordView
             });
             NavigationOptions.Add(new NavigationModel()
             {
-                Name = "EnterRecoverCode",
+                Name = "Результаты",
+                ImageSource = @"/Resources/Images/ResultsListVIew.svg",
                 DestinationVM = enterRecoverCodeView
             });
             NavigationOptions.Add(new NavigationModel()
             {
-                Name = "ChangePassword",
+                Name = "Настройки",
+                ImageSource = @"/Resources/Images/SettingsListVIew.svg",
                 DestinationVM = changePasswordView
             });
 

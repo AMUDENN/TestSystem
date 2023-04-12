@@ -7,15 +7,24 @@ namespace MainWindowStyle
 {
     public partial class WindowStyle
     {
-        public static void ChangeDefaultTheme(Themes.ThemesEnum theme)
+        private void ChangeDefaultTheme(Themes.ThemesEnum theme, Window window)
         {
-            Window me = Application.Current.MainWindow;
-            CheckBox cb = me.Template.FindName("ChangeThemeCheckBox", me) as CheckBox;
+            CheckBox cb = window.Template.FindName("ChangeThemeCheckBox", window) as CheckBox;
             cb.IsChecked = theme != Themes.ThemesEnum.Light;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            (sender as System.Windows.Window).StateChanged += Window_StateChanged;
+            Window wdw = sender as System.Windows.Window;
+            wdw.StateChanged += Window_StateChanged;
+            wdw.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight - 26;
+            if (Config.CurrentTheme == "Light")
+            {
+                ChangeDefaultTheme(Themes.ThemesEnum.Light, wdw);
+            }
+            else if (Config.CurrentTheme == "Dark")
+            {
+                ChangeDefaultTheme(Themes.ThemesEnum.Dark, wdw);
+            }
         }
         private void Window_StateChanged(object sender, EventArgs e)
         {
