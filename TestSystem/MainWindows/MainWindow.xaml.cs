@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 
 namespace TestSystem.MainWindows
 {
@@ -8,11 +7,6 @@ namespace TestSystem.MainWindows
         public MainWindow()
         {
             InitializeComponent();
-            Closing += ShowCloseMessage;
-        }
-        public void ShowCloseMessage(object sender, CancelEventArgs e)
-        {
-            if (!Utilities.UserMessages.ActionConfirmation("Вы уверены, что хотите закрыть приложение?")) e.Cancel = true;
         }
     }
 }

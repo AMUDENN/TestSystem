@@ -41,9 +41,8 @@ namespace TestSystem.ViewModels
                         var error = userModel.TryAuthorization(Email, Password, RememberPassword);
                         if (error is null)
                         {
-                            App.GetMainWindow(userModel).Show();
-                            App.Current.Windows[0].Closing -= ((LoginWindow)App.Current.Windows[0]).ShowCloseMessage;
-                            App.Current.Windows[0].Close();
+                            App.GetMainWindow(userModel).Visibility = System.Windows.Visibility.Visible;
+                            App.GetLoginWindow().Visibility = System.Windows.Visibility.Collapsed;
                         }
                         else
                         {

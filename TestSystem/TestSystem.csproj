@@ -133,6 +133,7 @@
     <Compile Include="MainWindows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Utilities\Config.cs" />
     <Compile Include="Utilities\Context.cs" />

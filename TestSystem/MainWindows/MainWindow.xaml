@@ -48,7 +48,7 @@
                             </Grid>
                         </Grid>
                         <ContentControl Content="{Binding NavigationVM}" Grid.Row="4"/>
-                        <Button Content="Выход" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="7"/>
+                        <Button Command="{Binding LogOut}" Content="Выход" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="7"/>
                     </Grid>
                 </Border>
             </Grid>

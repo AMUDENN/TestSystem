@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using TestSystem.Utilities;
@@ -16,6 +17,7 @@ namespace MainWindowStyle
         {
             Window wdw = sender as System.Windows.Window;
             wdw.StateChanged += Window_StateChanged;
+            wdw.Closing += ShowCloseMessage;
             wdw.MaxHeight = System.Windows.SystemParameters.WorkArea.Height + 7;
             wdw.MaxWidth = System.Windows.SystemParameters.WorkArea.Width + 7;
             if (Config.CurrentTheme == "Light")
@@ -58,6 +60,10 @@ namespace MainWindowStyle
         private void ToggleSwitchUnchecked(object sender, RoutedEventArgs e)
         {
             Themes.ChangeTheme(Themes.ThemesEnum.Light);
+        }
+        public static void ShowCloseMessage(object sender, CancelEventArgs e)
+        {
+            if (!UserMessages.ActionConfirmation("Вы уверены, что хотите закрыть приложение?")) e.Cancel = true;
         }
     }
 }

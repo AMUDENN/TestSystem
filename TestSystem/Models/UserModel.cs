@@ -7,8 +7,6 @@ namespace TestSystem.Models
 {
     public class UserModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
         public Users CurrentUser { get; set; }
         public Exception TryAuthorization(string email, string password, bool rememberPassword = false)
         {
@@ -18,16 +16,14 @@ namespace TestSystem.Models
             if (user.password != password) return new Exception("Неверный пароль");
             //ДОБАВИТЬ ПОЛЕ В БД С ПРОВЕРКОЙ ПОДТВЕРЖДЁННОСТИ email
             //if (!user.IsConfirmed) return new Exception("Эл.почта не подтверждена");
-            Email = email;
-            Password = password;
             CurrentUser = user;
-            if (rememberPassword) SaveLoginInConfig();
+            if (rememberPassword) SaveLoginInConfig(email, password);
             return null;
         }
-        private void SaveLoginInConfig()
+        private void SaveLoginInConfig(string email, string password)
         {
-            Config.SaveEmail = Email;
-            Config.SavePassword = Password;
+            Config.SaveEmail = email;
+            Config.SavePassword = password;
         }
         public Exception TryConfigAuthorization()
         {

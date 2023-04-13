@@ -54,7 +54,7 @@ namespace TestSystem
 
             Container = services.BuildServiceProvider();
         }
-        private static Window GetLoginWindow()
+        public static Window GetLoginWindow()
         {
             LoginWindowViewModel MainVM = Container.GetService<LoginWindowViewModel>() as LoginWindowViewModel;
             Window window = Container.GetService(typeof(LoginWindow)) as LoginWindow;
