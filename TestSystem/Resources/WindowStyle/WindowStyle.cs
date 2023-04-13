@@ -16,7 +16,6 @@ namespace MainWindowStyle
         {
             Window wdw = sender as System.Windows.Window;
             wdw.StateChanged += Window_StateChanged;
-            wdw.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight - 26;
             if (Config.CurrentTheme == "Light")
             {
                 ChangeDefaultTheme(Themes.ThemesEnum.Light, wdw);
