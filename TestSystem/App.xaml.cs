@@ -39,10 +39,10 @@ namespace TestSystem
         private static void InitContainer()
         {
             ServiceCollection services = new ServiceCollection();
-            services.AddSingleton<LoginWindowViewModel>();
-            services.AddSingleton<LoginWindow>();
-            services.AddSingleton<MainWindowViewModel>();
-            services.AddSingleton<MainWindow>();
+            //services.AddSingleton<LoginWindowViewModel>();
+            //services.AddSingleton<LoginWindow>();
+            //services.AddSingleton<MainWindowViewModel>();
+            //services.AddSingleton<MainWindow>();
             services.AddSingleton<AuthorizationViewModel>();
             services.AddSingleton<RegistrationViewModel>();
             services.AddSingleton<RecoverPasswordViewModel>();
@@ -56,16 +56,16 @@ namespace TestSystem
         }
         public static Window GetLoginWindow()
         {
-            LoginWindowViewModel MainVM = Container.GetService<LoginWindowViewModel>() as LoginWindowViewModel;
-            Window window = Container.GetService(typeof(LoginWindow)) as LoginWindow;
+            LoginWindowViewModel MainVM = new LoginWindowViewModel();
+            Window window = new LoginWindow();
             window.DataContext = MainVM;
             return window;
         }
         public static Window GetMainWindow(UserModel userModel)
         {
-            MainWindowViewModel MainVM = Container.GetService<MainWindowViewModel>() as MainWindowViewModel;
+            MainWindowViewModel MainVM = new MainWindowViewModel(Container.GetService<NavigationViewModel>() as NavigationViewModel);
             MainVM.UserModel = userModel;
-            Window window = Container.GetService(typeof(MainWindow)) as MainWindow;
+            Window window = new MainWindow();
             window.DataContext = MainVM;
             return window;
         }

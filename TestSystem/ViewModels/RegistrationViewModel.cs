@@ -49,14 +49,8 @@ namespace TestSystem.ViewModels
             {
                 return registrationCommand ??
                   (registrationCommand = new RelayCommand(
-                      (obj) =>
-                          {
-                              DoRegistrationCommand();
-                          }, 
-                      (obj) =>
-                          {
-                            return CanExecuteRegistrationCommand();
-                          }
+                      (obj) => DoRegistrationCommand(),
+                      (obj) => CanExecuteRegistrationCommand()  
                   ));
             }
         }

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
+using System.Windows;
 using System.Windows.Input;
 using TestSystem.Models;
 using TestSystem.Utilities;
@@ -31,8 +32,11 @@ namespace TestSystem.ViewModels
                   (logOut = new RelayCommand((obj) =>
                       {
                           userModel.LogOut();
-                          App.GetLoginWindow().Visibility = System.Windows.Visibility.Visible;
-                          App.GetMainWindow(UserModel).Visibility = System.Windows.Visibility.Collapsed;
+                          Window mw = App.GetLoginWindow();
+                          mw.Show();
+                          App.Current.MainWindow.Closing -= MainWindowStyle.WindowStyle.ShowCloseMessage;
+                          App.Current.MainWindow.Close();
+                          App.Current.MainWindow = mw;
                       }
                   ));
             }

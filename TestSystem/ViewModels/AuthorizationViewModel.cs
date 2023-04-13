@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
+using System.Windows;
 using System.Windows.Input;
 using TestSystem.Models;
 using TestSystem.Utilities;
@@ -12,6 +13,11 @@ namespace TestSystem.ViewModels
         private string email;
         private string password;
         private bool rememberPassword;
+        public UserModel UserModel
+        {
+            get => userModel;
+            set => SetProperty(ref userModel, value);
+        }
         public string Email
         {
             get => email;
@@ -36,21 +42,8 @@ namespace TestSystem.ViewModels
             {
                 return singInCommand ??
                   (singInCommand = new RelayCommand(
-                    (obj) =>
-                    {
-                        var error = userModel.TryAuthorization(Email, Password, RememberPassword);
-                        if (error is null)
-                        {
-                            App.GetMainWindow(userModel).Visibility = System.Windows.Visibility.Visible;
-                            App.GetLoginWindow().Visibility = System.Windows.Visibility.Collapsed;
-                        }
-                        else
-                        {
-                            UserMessages.Error("Ошибка авторизации");
-                        }
-
-                    },
-                    (obj) => !((string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password)) || (Email.Length < 6 || Password.Length < 6))
+                    (obj) => DoSingInCommand(),
+                    (obj) => CanExecuteSignInCommand()
                   ));
             }
         }
@@ -77,6 +70,26 @@ namespace TestSystem.ViewModels
                       WeakReferenceMessenger.Default.Send(navModel);
                   }));
             }
+        }
+        private void DoSingInCommand()
+        {
+            var error = userModel.TryAuthorization(Email, Password, RememberPassword);
+            if (error is null)
+            {
+                Window mw = App.GetMainWindow(UserModel);
+                mw.Show();
+                App.Current.MainWindow.Closing -= MainWindowStyle.WindowStyle.ShowCloseMessage;
+                App.Current.MainWindow.Close();
+                App.Current.MainWindow = mw;
+            }
+            else
+            {
+                UserMessages.Error("Ошибка авторизации");
+            }
+        }
+        private bool CanExecuteSignInCommand()
+        {
+            return !((string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password)) || (Email.Length < 6 || Password.Length < 6));
         }
         public AuthorizationViewModel()
         {
