@@ -84,7 +84,7 @@ namespace TestSystem.ViewModels
             }
             else
             {
-                UserMessages.Error("Ошибка авторизации");
+                ToastNotification.ShowMessage(ToastNotification.ToastViewModel.ShowError, "Ошибка авторизации");
             }
         }
         private bool CanExecuteSignInCommand()

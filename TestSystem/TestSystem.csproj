@@ -220,6 +220,8 @@
     </Compile>
     <Compile Include="Resources\Dictionaries\PasswordBoxStyles.cs" />
     <Compile Include="Resources\WindowStyle\WindowStyle.cs" />
+    <Compile Include="Utilities\ToastNotifications\ToastNotification.cs" />
+    <Compile Include="Utilities\ToastNotifications\ToastViewModel.cs" />
     <Compile Include="Utilities\UserMessages.cs" />
     <Compile Include="ViewModels\AbstractMainViewModel.cs" />
     <Compile Include="ViewModels\AuthorizationViewModel.cs" />
