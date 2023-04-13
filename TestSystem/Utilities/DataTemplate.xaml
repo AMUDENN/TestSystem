@@ -27,4 +27,8 @@
         <view:NavigationView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+        <view:HomeView/>
+    </DataTemplate>
+
 </ResourceDictionary>

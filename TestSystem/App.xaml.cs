@@ -48,7 +48,7 @@ namespace TestSystem
             services.AddSingleton<RecoverPasswordViewModel>();
             services.AddSingleton<EnterRecoverCodeViewModel>();
             services.AddSingleton<ChangePasswordViewModel>();
-            services.AddSingleton<AbstractMainViewModel>();
+            services.AddSingleton<HomeViewModel>();
 
             services.AddSingleton<NavigationViewModel>();
 

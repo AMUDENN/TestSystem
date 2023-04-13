@@ -27,7 +27,7 @@ namespace TestSystem.ViewModels
         });
 
         public NavigationViewModel(
-            AuthorizationViewModel authorizationView,
+            HomeViewModel homeView,
             RegistrationViewModel registrationView,
             RecoverPasswordViewModel recoverPasswordView,
             EnterRecoverCodeViewModel enterRecoverCodeView,
@@ -37,8 +37,8 @@ namespace TestSystem.ViewModels
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Главная",
-                ImageSource = @"/Resources/Images/HomeListVIew.svg",
-                DestinationVM = authorizationView
+                ImageSource = @"/Resources/Images/HomeListView.svg",
+                DestinationVM = homeView
             });
             NavigationOptions.Add(new NavigationModel()
             {
