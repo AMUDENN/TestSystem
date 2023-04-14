@@ -30,7 +30,7 @@ namespace TestSystem.Utilities
 
                 cfg.Dispatcher = Application.Current.Dispatcher;
 
-                cfg.DisplayOptions.TopMost = false;
+                cfg.DisplayOptions.TopMost = true;
                 cfg.DisplayOptions.Width = 350;
             });
 

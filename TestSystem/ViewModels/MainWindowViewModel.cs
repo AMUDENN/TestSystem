@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using TestSystem.Models;
@@ -32,6 +33,8 @@ namespace TestSystem.ViewModels
                   (logOut = new RelayCommand((obj) =>
                       {
                           userModel.LogOut();
+                          ToastNotification.ToastViewModel.ClearAll();
+                          ToastNotification.Reset();
                           Window mw = App.GetLoginWindow();
                           mw.Show();
                           App.Current.MainWindow.Closing -= MainWindowStyle.WindowStyle.ShowCloseMessage;

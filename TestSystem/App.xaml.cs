@@ -32,6 +32,7 @@ namespace TestSystem
             if (window is null)
                 throw new Exception("something went wrong during initializing DI container. MainWindow is missing");
 
+            Application.Current.MainWindow = window;
             window.Show();
             base.OnStartup(e);
         }

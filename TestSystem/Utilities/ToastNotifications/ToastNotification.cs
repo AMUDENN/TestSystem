@@ -5,7 +5,7 @@ namespace TestSystem.Utilities
 {
     public static class ToastNotification
     {
-        private static ToastViewModel toastViewModel = new ToastViewModel();
+        private static ToastViewModel toastViewModel;
         public static ToastViewModel ToastViewModel => toastViewModel;
         public static void ShowMessage(Action<string, MessageOptions> action, string name)
         {
@@ -14,6 +14,14 @@ namespace TestSystem.Utilities
                 ShowCloseButton = true
             };
             action(name, opts);
+        }
+        public static void Reset()
+        {
+            toastViewModel = new ToastViewModel();
+        }
+        static ToastNotification()
+        {
+            Reset();
         }
     }
 }

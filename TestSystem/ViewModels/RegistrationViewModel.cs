@@ -74,7 +74,7 @@ namespace TestSystem.ViewModels
             var error = registrationModel.TryRegistration(Name, Surname, Email, Password, RepeatPassword);
             if (error is null)
             {
-                ToastNotification.ShowMessage(ToastNotification.ToastViewModel.ShowInformation, "Аккаунт успешно создан");
+                UserMessages.Information("Аккаунт успешно создан");
                 var navModel = new NavigationChangedRequestedMessage(new NavigationModel()
                 {
                     DestinationVM = new AuthorizationViewModel()
@@ -83,7 +83,7 @@ namespace TestSystem.ViewModels
             }
             else
             {
-                ToastNotification.ShowMessage(ToastNotification.ToastViewModel.ShowError, "При создании аккаунта произошла ошибка");
+                UserMessages.Error("При создании аккаунта произошла ошибка");
             }
         }
         private bool CanExecuteRegistrationCommand()

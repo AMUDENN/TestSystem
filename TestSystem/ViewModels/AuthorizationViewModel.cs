@@ -74,7 +74,7 @@ namespace TestSystem.ViewModels
         private void DoSingInCommand()
         {
             var error = userModel.TryAuthorization(Email, Password, RememberPassword);
-            if (error is null)
+            if (error is null) 
             {
                 Window mw = App.GetMainWindow(UserModel);
                 mw.Show();
@@ -84,7 +84,7 @@ namespace TestSystem.ViewModels
             }
             else
             {
-                ToastNotification.ShowMessage(ToastNotification.ToastViewModel.ShowError, "Ошибка авторизации");
+                UserMessages.Error("Ошибка авторизации");
             }
         }
         private bool CanExecuteSignInCommand()
