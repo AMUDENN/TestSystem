@@ -1,9 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Messaging;
-using System.Windows.Input;
-using TestSystem.Utilities;
-using TestSystem.Models;
 using System.Linq;
+using System.Windows.Input;
+using TestSystem.Models;
+using TestSystem.Utilities;
 
 namespace TestSystem.ViewModels
 {
@@ -50,7 +49,7 @@ namespace TestSystem.ViewModels
                 return registrationCommand ??
                   (registrationCommand = new RelayCommand(
                       (obj) => DoRegistrationCommand(),
-                      (obj) => CanExecuteRegistrationCommand()  
+                      (obj) => CanExecuteRegistrationCommand()
                   ));
             }
         }
@@ -61,11 +60,7 @@ namespace TestSystem.ViewModels
                 return alreadyHaveAnAccountCommand ??
                   (alreadyHaveAnAccountCommand = new RelayCommand((obj) =>
                   {
-                      var navModel = new NavigationChangedRequestedMessage(new NavigationModel()
-                      {
-                          DestinationVM = new AuthorizationViewModel()
-                      });
-                      WeakReferenceMessenger.Default.Send(navModel);
+                      NavigationMainWindow.Navigate(new AuthorizationViewModel());
                   }));
             }
         }
@@ -75,11 +70,7 @@ namespace TestSystem.ViewModels
             if (error is null)
             {
                 UserMessages.Information("Аккаунт успешно создан");
-                var navModel = new NavigationChangedRequestedMessage(new NavigationModel()
-                {
-                    DestinationVM = new AuthorizationViewModel()
-                });
-                WeakReferenceMessenger.Default.Send(navModel);
+                NavigationMainWindow.Navigate(new AuthorizationViewModel());
             }
             else
             {

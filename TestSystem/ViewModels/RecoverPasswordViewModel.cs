@@ -23,8 +23,7 @@ namespace TestSystem.ViewModels
                 return getCodeCommand ??
                   (getCodeCommand = new RelayCommand((obj) =>
                   {
-                      var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new EnterRecoverCodeViewModel() });
-                      WeakReferenceMessenger.Default.Send(navModel);
+                      NavigationMainWindow.Navigate(new EnterRecoverCodeViewModel());
                   }));
             }
         }
@@ -35,8 +34,7 @@ namespace TestSystem.ViewModels
                 return authorizationBackCommand ??
                   (authorizationBackCommand = new RelayCommand((obj) =>
                   {
-                      var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new AuthorizationViewModel() });
-                      WeakReferenceMessenger.Default.Send(navModel);
+                      NavigationMainWindow.Navigate(new AuthorizationViewModel());
                   }));
             }
         }

@@ -54,8 +54,7 @@ namespace TestSystem.ViewModels
                 return registrationCommand ??
                   (registrationCommand = new RelayCommand((obj) =>
                   {
-                      var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new RegistrationViewModel() });
-                      WeakReferenceMessenger.Default.Send(navModel);
+                      NavigationMainWindow.Navigate(new RegistrationViewModel());
                   }));
             }
         }
@@ -66,8 +65,7 @@ namespace TestSystem.ViewModels
                 return forgotPasswordCommand ??
                   (forgotPasswordCommand = new RelayCommand((obj) =>
                   {
-                      var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new RecoverPasswordViewModel() });
-                      WeakReferenceMessenger.Default.Send(navModel);
+                      NavigationMainWindow.Navigate(new RecoverPasswordViewModel());
                   }));
             }
         }
@@ -76,11 +74,7 @@ namespace TestSystem.ViewModels
             var error = userModel.TryAuthorization(Email, Password, RememberPassword);
             if (error is null) 
             {
-                Window mw = App.GetMainWindow(UserModel);
-                mw.Show();
-                App.Current.MainWindow.Closing -= MainWindowStyle.WindowStyle.ShowCloseMessage;
-                App.Current.MainWindow.Close();
-                App.Current.MainWindow = mw;
+                NavigationMainWindow.Navigate(new MainViewModel(userModel));
             }
             else
             {

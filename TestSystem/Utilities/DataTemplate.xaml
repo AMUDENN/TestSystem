@@ -2,7 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:TestSystem.ViewModels"
                     xmlns:view="clr-namespace:TestSystem.Views">
-
+    
+    <DataTemplate DataType="{x:Type vm:MainViewModel}">
+        <view:MainView/>
+    </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:AuthorizationViewModel}">
         <view:AuthorizationView/>
     </DataTemplate>

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
-using TestSystem.MainWindows;
 using TestSystem.Models;
 using TestSystem.ViewModels;
 
@@ -18,21 +17,21 @@ namespace TestSystem
             UserModel userModel = new UserModel();
             var error = userModel.TryConfigAuthorization();
 
-            Window window;
+            MainWindowViewModel MainVM = Container.GetService<MainWindowViewModel>() as MainWindowViewModel;
 
             if (error is null)
             {
-                window = GetMainWindow(userModel);
+                MainVM.CurrentVM = new MainViewModel(userModel);
             }
             else
             {
-                window = GetLoginWindow();
+                MainVM.CurrentVM = new AuthorizationViewModel();
             }
 
+            var window = Container.GetService(typeof(MainWindow)) as MainWindow;
             if (window is null)
                 throw new Exception("something went wrong during initializing DI container. MainWindow is missing");
-
-            Application.Current.MainWindow = window;
+            window.DataContext = MainVM;
             window.Show();
             base.OnStartup(e);
         }
@@ -40,35 +39,11 @@ namespace TestSystem
         private static void InitContainer()
         {
             ServiceCollection services = new ServiceCollection();
-            //services.AddSingleton<LoginWindowViewModel>();
-            //services.AddSingleton<LoginWindow>();
-            //services.AddSingleton<MainWindowViewModel>();
-            //services.AddSingleton<MainWindow>();
-            services.AddSingleton<AuthorizationViewModel>();
-            services.AddSingleton<RegistrationViewModel>();
-            services.AddSingleton<RecoverPasswordViewModel>();
-            services.AddSingleton<EnterRecoverCodeViewModel>();
-            services.AddSingleton<ChangePasswordViewModel>();
-            services.AddSingleton<HomeViewModel>();
 
-            services.AddSingleton<NavigationViewModel>();
+            services.AddSingleton<MainWindowViewModel>();
+            services.AddSingleton<MainWindow>();
 
             Container = services.BuildServiceProvider();
-        }
-        public static Window GetLoginWindow()
-        {
-            LoginWindowViewModel MainVM = new LoginWindowViewModel();
-            Window window = new LoginWindow();
-            window.DataContext = MainVM;
-            return window;
-        }
-        public static Window GetMainWindow(UserModel userModel)
-        {
-            MainWindowViewModel MainVM = new MainWindowViewModel(Container.GetService<NavigationViewModel>() as NavigationViewModel);
-            MainVM.UserModel = userModel;
-            Window window = new MainWindow();
-            window.DataContext = MainVM;
-            return window;
         }
     }
 }

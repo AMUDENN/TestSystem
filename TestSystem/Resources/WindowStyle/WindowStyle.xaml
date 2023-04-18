@@ -141,15 +141,15 @@
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="OnChecking">
                             <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
-                                <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="18"/>
+                                <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="18"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="OnUnchecking">
                             <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
-                                <SplineDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+                                <SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
                             </DoubleAnimationUsingKeyFrames>
                             <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(FrameworkElement.Margin)">
-                                <SplineThicknessKeyFrame KeyTime="00:00:00.4000000" Value="1,1,1,1"/>
+                                <SplineThicknessKeyFrame KeyTime="00:00:00.2000000" Value="1,1,1,1"/>
                             </ThicknessAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>

@@ -26,43 +26,38 @@ namespace TestSystem.ViewModels
             }
         });
 
-        public NavigationViewModel(
-            HomeViewModel homeView,
-            RegistrationViewModel registrationView,
-            RecoverPasswordViewModel recoverPasswordView,
-            EnterRecoverCodeViewModel enterRecoverCodeView,
-            ChangePasswordViewModel changePasswordView)
+        public NavigationViewModel()
         {
 
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Главная",
                 ImageSource = @"/Resources/Images/HomeListView.svg",
-                DestinationVM = homeView
+                DestinationVM = new HomeViewModel()
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Профиль",
                 ImageSource = @"/Resources/Images/ProfileListVIew.svg",
-                DestinationVM = registrationView
+                DestinationVM = new RegistrationViewModel()
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Тесты",
                 ImageSource = @"/Resources/Images/TestsListVIew.svg",
-                DestinationVM = recoverPasswordView
+                DestinationVM = new RecoverPasswordViewModel()
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Результаты",
                 ImageSource = @"/Resources/Images/ResultsListVIew.svg",
-                DestinationVM = enterRecoverCodeView
+                DestinationVM = new EnterRecoverCodeViewModel()
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Настройки",
                 ImageSource = @"/Resources/Images/SettingsListVIew.svg",
-                DestinationVM = changePasswordView
+                DestinationVM = new ChangePasswordViewModel()
             });
 
             var message = new NavigationChangedRequestedMessage(NavigationOptions[0]);

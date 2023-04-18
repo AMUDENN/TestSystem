@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TestSystem.MainWindows
+namespace TestSystem
 {
     public partial class MainWindow : Window
     {
