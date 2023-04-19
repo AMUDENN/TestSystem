@@ -41,8 +41,8 @@
                                     <RowDefinition Height="40"/>
                                     <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="{Binding UserModel.CurrentUser.surname}" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="0"/>
-                                <TextBlock Text="{Binding UserModel.CurrentUser.name}" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="1"/>
+                                <TextBlock Text="{Binding Surname}" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="0"/>
+                                <TextBlock Text="{Binding Name}" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="1"/>
                             </Grid>
                         </Grid>
                         <ContentControl Content="{Binding NavigationVM}" Grid.Row="4"/>

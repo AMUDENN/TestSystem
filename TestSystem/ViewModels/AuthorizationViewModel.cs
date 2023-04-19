@@ -26,7 +26,7 @@ namespace TestSystem.ViewModels
         public string Password
         {
             private get => password;
-            set => SetProperty(ref password, Encryption.GetHash(value));
+            set => SetProperty(ref password, value);
         }
         public bool RememberPassword
         {
@@ -83,7 +83,7 @@ namespace TestSystem.ViewModels
         }
         private bool CanExecuteSignInCommand()
         {
-            return !((string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password)) || (Email.Length < 6 || Password.Length < 6));
+            return !((string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password)) || (Email.Length < 6 || Password.Length < 5));
         }
         public AuthorizationViewModel()
         {

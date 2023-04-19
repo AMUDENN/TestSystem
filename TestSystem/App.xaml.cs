@@ -14,20 +14,20 @@ namespace TestSystem
         {
             InitContainer();
 
-            UserModel userModel = new UserModel();
-            var error = userModel.TryConfigAuthorization();
+            //UserModel userModel = new UserModel();
+            //var error = userModel.TryConfigAuthorization();
 
             MainWindowViewModel MainVM = Container.GetService<MainWindowViewModel>() as MainWindowViewModel;
 
-            if (error is null)
-            {
-                MainVM.CurrentVM = new MainViewModel(userModel);
-            }
-            else
-            {
-                MainVM.CurrentVM = new AuthorizationViewModel();
-            }
-
+            //if (error is null)
+            //{
+            //    MainVM.CurrentVM = new MainViewModel(userModel);
+            //}
+            //else
+            //{
+            //    MainVM.CurrentVM = new AuthorizationViewModel();
+            //}
+            MainVM.CurrentVM = new AuthorizationViewModel();
             var window = Container.GetService(typeof(MainWindow)) as MainWindow;
             if (window is null)
                 throw new Exception("something went wrong during initializing DI container. MainWindow is missing");

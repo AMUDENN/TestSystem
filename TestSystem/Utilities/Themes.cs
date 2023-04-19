@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Windows;
 
 namespace TestSystem.Utilities
@@ -10,8 +9,8 @@ namespace TestSystem.Utilities
         public enum ThemesEnum { Light, Dark };
         private static Dictionary<ThemesEnum, string> themesPath = new Dictionary<ThemesEnum, string>()
         {
-            { ThemesEnum.Light, @"Resources\Dictionaries\LightTheme.xaml" },
-            {ThemesEnum.Dark, @"Resources\Dictionaries\DarkTheme.xaml" } 
+            { ThemesEnum.Light, @"Resources\Themes\LightTheme.xaml" },
+            {ThemesEnum.Dark, @"Resources\Themes\DarkTheme.xaml" }
         };
         public static void ChangeTheme(ThemesEnum theme)
         {

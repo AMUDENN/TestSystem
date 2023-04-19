@@ -10,6 +10,7 @@ namespace TestSystem.ViewModels
 {
     public class NavigationViewModel : ObservableObject
     {
+        private UserModel currentUser;
         public List<NavigationModel> NavigationOptions { get; set; } = new List<NavigationModel>();
 
         public ICommand SelectionChangedCommand { get; set; } = new RelayCommand<object>((o) =>
@@ -26,42 +27,43 @@ namespace TestSystem.ViewModels
             }
         });
 
-        public NavigationViewModel()
+        public NavigationViewModel(UserModel currentUser)
         {
 
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Главная",
-                ImageSource = @"/Resources/Images/HomeListView.svg",
-                DestinationVM = new HomeViewModel()
+                ImageSource = @"/Resources/Images/Vectors/HomeListView.svg",
+                DestinationVM = new HomeViewModel(currentUser)
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Профиль",
-                ImageSource = @"/Resources/Images/ProfileListVIew.svg",
-                DestinationVM = new RegistrationViewModel()
+                ImageSource = @"/Resources/Images/Vectors/ProfileListVIew.svg",
+                DestinationVM = new ProfileViewModel(currentUser)
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Тесты",
-                ImageSource = @"/Resources/Images/TestsListVIew.svg",
-                DestinationVM = new RecoverPasswordViewModel()
+                ImageSource = @"/Resources/Images/Vectors/TestsListVIew.svg",
+                DestinationVM = new TestsViewModel(currentUser)
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Результаты",
-                ImageSource = @"/Resources/Images/ResultsListVIew.svg",
-                DestinationVM = new EnterRecoverCodeViewModel()
+                ImageSource = @"/Resources/Images/Vectors/ResultsListVIew.svg",
+                DestinationVM = new ResultsViewModel(currentUser)
             });
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Настройки",
-                ImageSource = @"/Resources/Images/SettingsListVIew.svg",
-                DestinationVM = new ChangePasswordViewModel()
+                ImageSource = @"/Resources/Images/Vectors/SettingsListVIew.svg",
+                DestinationVM = new SettingsViewModel(currentUser)
             });
 
             var message = new NavigationChangedRequestedMessage(NavigationOptions[0]);
             WeakReferenceMessenger.Default.Send(message);
+            this.currentUser = currentUser;
         }
     }
 }

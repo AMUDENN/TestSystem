@@ -2,7 +2,8 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:uc="clr-namespace:TestSystem.Resources.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="1024" d:DesignWidth="1440">
     <Grid Style="{DynamicResource GridBackGroundStyle}">
@@ -61,8 +62,8 @@
                             <TextBox Text="{Binding Surname}" Style="{DynamicResource TextBoxStyle}" Tag="Фамилия" Grid.Column="2"/>
                         </Grid>
                         <TextBox Text="{Binding Email}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="4"/>
-                        <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{DynamicResource PasswordBoxStyle}" Tag="Придумайте пароль" Grid.Row="6"/>
-                        <PasswordBox PasswordChanged="PasswordBox_RepeatPasswordChanged" Style="{DynamicResource PasswordBoxStyle}" Tag="Повторите пароль" Grid.Row="8"/>
+                        <uc:AdvancedPasswordBox Password="{Binding Password, Mode=TwoWay}" Placeholder="Придумайте пароль" Grid.Row="6"/>
+                        <uc:AdvancedPasswordBox Password="{Binding RepeatPassword, Mode=TwoWay}" Placeholder="Повторите пароль" Grid.Row="8"/>
                         <Button Command="{Binding RegistrationCommand}" Content="Зарегистрироваться" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="10"/>
                         <Grid Grid.Row="12">
                             <Grid.ColumnDefinitions>

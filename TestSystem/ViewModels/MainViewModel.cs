@@ -18,6 +18,8 @@ namespace TestSystem.ViewModels
             get => userModel;
             set => SetProperty(ref userModel, value);
         }
+        public string Name => userModel.CurrentUser.name;
+        public string Surname => userModel.CurrentUser.surname;
         public ObservableObject CurrentVM
         {
             get => currentVM;
@@ -40,7 +42,7 @@ namespace TestSystem.ViewModels
         public MainViewModel(UserModel userModel)
         {
             UserModel = userModel;
-            NavigationVM = new NavigationViewModel();
+            NavigationVM = new NavigationViewModel(userModel);
             WeakReferenceMessenger.Default.Register<NavigationChangedRequestedMessage>(this, NavigateTo);
         }
 

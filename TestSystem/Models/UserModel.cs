@@ -10,10 +10,10 @@ namespace TestSystem.Models
         public Users CurrentUser { get; set; }
         public Exception TryAuthorization(string email, string password, bool rememberPassword = false)
         {
-            var context = Context.DbContext;
+            var context = Context.GetContext();
             var user = context.Users.FirstOrDefault(x => x.email == email);
             if (user is null) return new Exception("Нет аккаунта с таким адресом эл.почты");
-            if (user.password != password) return new Exception("Неверный пароль");
+            if (user.password != Encryption.GetHash(password)) return new Exception("Неверный пароль");
             //ДОБАВИТЬ ПОЛЕ В БД С ПРОВЕРКОЙ ПОДТВЕРЖДЁННОСТИ email
             //if (!user.IsConfirmed) return new Exception("Эл.почта не подтверждена");
             CurrentUser = user;

@@ -10,7 +10,7 @@ namespace TestSystem.Models
         public Exception TryRegistration(string name, string surname, string email, string password, string confirmpassword)
         {
             if (password != confirmpassword) return new Exception("Пароли не соввпадают");
-            var context = Context.DbContext;
+            var context = Context.GetContext();
             if (context.Users.FirstOrDefault(x => x.email == email) != null) return new Exception("Аккаунт с этим адресом эл. почты уже существует");
             try
             {
@@ -21,7 +21,7 @@ namespace TestSystem.Models
                             name = name,
                             surname = surname,
                             email = email,
-                            password = password
+                            password = Encryption.GetHash(password)
                         }
                     );
                 context.SaveChanges();

@@ -6,12 +6,19 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using TestSystem.Models;
 using TestSystem.Utilities;
 
 namespace TestSystem.ViewModels
 {
     public class HomeViewModel : ObservableObject
     {
+        public UserModel userModel;
+        public UserModel UserModel
+        {
+            private get => userModel;
+            set => SetProperty(ref userModel, value);
+        }
         private RelayCommand exportCommand;
         private RelayCommand importCommand;
         public ICommand ExportCommand
@@ -22,7 +29,7 @@ namespace TestSystem.ViewModels
                   (exportCommand = new RelayCommand(
                     (obj) =>
                     {
-                        var context = Context.DbContext;
+                        var context = Context.GetContext();
                         SaveFileDialog sfd = new SaveFileDialog();
                         sfd.Filter = "Text Files (*.txt)|*.txt";
                         string fileName = "";
@@ -67,6 +74,10 @@ namespace TestSystem.ViewModels
                     }
                   ));
             }
+        }
+        public HomeViewModel(UserModel userModel)
+        {
+            UserModel = userModel;
         }
     }
 }

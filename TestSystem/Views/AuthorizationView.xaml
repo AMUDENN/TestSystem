@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:vm="clr-namespace:TestSystem.ViewModels"
+      xmlns:uc="clr-namespace:TestSystem.Resources.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="1024" d:DesignWidth="1440">
 
@@ -54,7 +54,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="Авторизация" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
                         <TextBox Text="{Binding Email}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="2"/>
-                        <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Style="{DynamicResource PasswordBoxStyle}" Tag="Пароль" Grid.Row="4"/>
+                        <uc:AdvancedPasswordBox Password="{Binding Password, Mode=TwoWay}" Placeholder="Пароль" Grid.Row="4"/>
                         <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>

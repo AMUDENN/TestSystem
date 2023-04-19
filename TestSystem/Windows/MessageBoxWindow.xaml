@@ -31,10 +31,10 @@
                     <RowDefinition Height="9*"/>
                     <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
-                
-                <svgc:SvgViewbox x:Name="Error" Source="/Resources/Images/Error.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
-                <svgc:SvgViewbox x:Name="Info" Source="/Resources/Images/Info.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
-                <svgc:SvgViewbox x:Name="Question" Source="/Resources/Images/Question.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
+
+                <svgc:SvgViewbox x:Name="Error" Source="/Resources/Images/Vectors/Error.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
+                <svgc:SvgViewbox x:Name="Info" Source="/Resources/Images/Vectors/Info.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
+                <svgc:SvgViewbox x:Name="Question" Source="/Resources/Images/Vectors/Question.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
 
                 <Button x:Name="Ok_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="3"/>
                 <Button x:Name="OkCancel_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="2"/>

@@ -4,6 +4,12 @@ namespace TestSystem.Utilities
 {
     public static class Context
     {
-        public static TestSystemEntities DbContext = new TestSystemEntities();
+        private static TestSystemEntities DbContext;
+        public static TestSystemEntities GetContext()
+        {
+            if (DbContext == null)
+                DbContext = new TestSystemEntities();
+            return DbContext;
+        }
     }
 }

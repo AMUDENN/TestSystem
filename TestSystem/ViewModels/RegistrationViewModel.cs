@@ -32,12 +32,12 @@ namespace TestSystem.ViewModels
         public string Password
         {
             private get => password;
-            set => SetProperty(ref password, Encryption.GetHash(value));
+            set => SetProperty(ref password, value);
         }
         public string RepeatPassword
         {
             private get => repeatPassword;
-            set => SetProperty(ref repeatPassword, Encryption.GetHash(value));
+            set => SetProperty(ref repeatPassword, value);
         }
 
         private RelayCommand registrationCommand;

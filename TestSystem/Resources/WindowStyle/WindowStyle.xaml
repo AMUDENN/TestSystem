@@ -41,7 +41,7 @@
                                     <CheckBox x:Name="ChangeThemeCheckBox" Margin="2,0,2,0" Style="{DynamicResource CheckBoxToggleSwitchStyle}"/>
                                 </StackPanel>
                                 <TextBlock Text="{TemplateBinding Title}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                                <svgc:SvgViewbox Source="/Resources/Images/icon.svg" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" Height="25" Margin="6,0,0,0"/>
+                                <svgc:SvgViewbox Source="/Resources/Images/Vectors/icon.svg" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" Height="25" Margin="6,0,0,0"/>
                                 <ContentPresenter Grid.Row="1"/>
                             </Grid>
                         </Border>
@@ -55,9 +55,8 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <Style x:Key="WindowBorderStyle" TargetType="{x:Type Border}">
-        <Setter Property="CornerRadius" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource MainColor}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -159,8 +158,8 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <svgc:SvgViewbox Source="/Resources/Images/moon.svg" HorizontalAlignment="Right" Margin="3" Grid.Column="0"/>
-                            <svgc:SvgViewbox Source="/Resources/Images/sun.svg" HorizontalAlignment="Left" Margin="3" Grid.Column="1"/>
+                            <svgc:SvgViewbox Source="/Resources/Images/Vectors/moon.svg" HorizontalAlignment="Right" Margin="3" Grid.Column="0"/>
+                            <svgc:SvgViewbox Source="/Resources/Images/Vectors/sun.svg" HorizontalAlignment="Left" Margin="3" Grid.Column="1"/>
                             <Border HorizontalAlignment="Left" 
                                     x:Name="slider" 
                                     Background="{DynamicResource DarkMainColor}"

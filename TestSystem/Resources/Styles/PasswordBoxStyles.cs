@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace TestSystem.Resources.Dictionaries
+namespace TestSystem.Resources.Styles
 {
     public partial class PasswordBoxStyles
     {

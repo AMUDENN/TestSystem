@@ -35,4 +35,20 @@
         <view:HomeView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:ProfileViewModel}">
+        <view:ProfileView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:TestsViewModel}">
+        <view:TestsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ResultsViewModel}">
+        <view:ResultsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+        <view:SettingsView/>
+    </DataTemplate>
+
 </ResourceDictionary>

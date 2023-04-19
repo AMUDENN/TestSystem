@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Images\icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Images\Bitmaps\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommunityToolkit.Mvvm, Version=8.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
@@ -136,8 +136,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Resources\UserControls\AdvancedPasswordBox.xaml.cs">
+      <DependentUpon>AdvancedPasswordBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\NavigationMainWindow.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
+    <Compile Include="ViewModels\ResultsViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\TestsViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -149,7 +156,6 @@
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Models\NavigationChangedRequestedMessage.cs" />
     <Compile Include="Models\NavigationModel.cs" />
-    <Compile Include="Models\PageModel.cs" />
     <Compile Include="Utilities\Themes.cs" />
     <Compile Include="Entities\Albums.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -220,7 +226,7 @@
     <Compile Include="Entities\Users.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Dictionaries\PasswordBoxStyles.cs" />
+    <Compile Include="Resources\Styles\PasswordBoxStyles.cs" />
     <Compile Include="Resources\WindowStyle\WindowStyle.cs" />
     <Compile Include="Utilities\ToastNotifications\ToastNotification.cs" />
     <Compile Include="Utilities\ToastNotifications\ToastViewModel.cs" />
@@ -239,54 +245,82 @@
     <Compile Include="Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResultsView.xaml.cs">
+      <DependentUpon>ResultsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestsView.xaml.cs">
+      <DependentUpon>TestsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MessageBoxWindow.xaml.cs">
       <DependentUpon>MessageBoxWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Dictionaries\Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Images\Vectors\Eye.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Images\Vectors\OffEye.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\UserControls\AdvancedPasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\BorderStyles.xaml">
+    <Page Include="Resources\Styles\BorderStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\ButtonStyles.xaml">
+    <Page Include="Resources\Styles\ButtonStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\CheckBoxStyles.xaml">
+    <Page Include="Resources\Styles\CheckBoxStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\GridStyles.xaml">
+    <Page Include="Resources\Styles\GridStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\ListViewStyles.xaml">
+    <Page Include="Resources\Styles\ListViewStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\PasswordBoxStyles.xaml">
+    <Page Include="Resources\Styles\PasswordBoxStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\RectangleStyles.xaml">
+    <Page Include="Resources\Styles\RectangleStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\ShadowStyles.xaml">
+    <Page Include="Resources\Styles\ShadowStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\TextBlockStyles.xaml">
+    <Page Include="Resources\Styles\TextBlockStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\TextBoxStyles.xaml">
+    <Page Include="Resources\Styles\TextBoxStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utilities\DataTemplate.xaml">
+    <Page Include="Resources\Dictionaries\DataTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -322,6 +356,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RecoverPasswordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -330,11 +368,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\DarkTheme.xaml">
+    <Page Include="Resources\Themes\DarkTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Dictionaries\LightTheme.xaml">
+    <Page Include="Resources\Themes\LightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -345,6 +383,18 @@
     <Page Include="Resources\WindowStyle\WindowStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ResultsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TestsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\MessageBoxWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -401,7 +451,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\icon.ico" />
+    <Resource Include="Resources\Images\Bitmaps\icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -417,23 +467,25 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\Images\HomeListView.svg" />
-    <Resource Include="Resources\Images\ProfileListView.svg" />
-    <Resource Include="Resources\Images\ResultsListView.svg" />
-    <Resource Include="Resources\Images\SettingsListView.svg" />
-    <Resource Include="Resources\Images\TestsListView.svg" />
-    <Resource Include="Resources\Images\BaseProfile.png" />
-    <Resource Include="Resources\Images\Error.svg" />
-    <Resource Include="Resources\Images\Info.svg" />
-    <Resource Include="Resources\Images\Question.svg" />
-    <Resource Include="Resources\Images\Warning.png" />
-    <Resource Include="Resources\Images\Warning.svg" />
-    <Resource Include="Resources\Images\moon.svg" />
-    <Resource Include="Resources\Images\sun.svg" />
-    <Resource Include="Resources\Images\icon.svg" />
-    <Resource Include="Resources\Images\Error.png" />
-    <Resource Include="Resources\Images\Info.png" />
-    <Resource Include="Resources\Images\Question.png" />
+    <Resource Include="Resources\Images\Vectors\Eye.svg" />
+    <Resource Include="Resources\Images\Vectors\OffEye.svg" />
+    <Resource Include="Resources\Images\Vectors\HomeListView.svg" />
+    <Resource Include="Resources\Images\Vectors\ProfileListView.svg" />
+    <Resource Include="Resources\Images\Vectors\ResultsListView.svg" />
+    <Resource Include="Resources\Images\Vectors\SettingsListView.svg" />
+    <Resource Include="Resources\Images\Vectors\TestsListView.svg" />
+    <Resource Include="Resources\Images\Bitmaps\BaseProfile.png" />
+    <Resource Include="Resources\Images\Vectors\Error.svg" />
+    <Resource Include="Resources\Images\Vectors\Info.svg" />
+    <Resource Include="Resources\Images\Vectors\Question.svg" />
+    <Resource Include="Resources\Images\Bitmaps\Warning.png" />
+    <Resource Include="Resources\Images\Vectors\Warning.svg" />
+    <Resource Include="Resources\Images\Vectors\moon.svg" />
+    <Resource Include="Resources\Images\Vectors\sun.svg" />
+    <Resource Include="Resources\Images\Vectors\icon.svg" />
+    <Resource Include="Resources\Images\Bitmaps\Error.png" />
+    <Resource Include="Resources\Images\Bitmaps\Info.png" />
+    <Resource Include="Resources\Images\Bitmaps\Question.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
