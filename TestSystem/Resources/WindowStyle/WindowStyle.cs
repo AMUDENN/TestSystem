@@ -18,8 +18,6 @@ namespace MainWindowStyle
             Window wdw = sender as System.Windows.Window;
             wdw.StateChanged += Window_StateChanged;
             wdw.Closing += ShowCloseMessage;
-            wdw.MaxHeight = System.Windows.SystemParameters.WorkArea.Height + 7;
-            wdw.MaxWidth = System.Windows.SystemParameters.WorkArea.Width + 7;
             if (Config.CurrentTheme == "Light")
             {
                 ChangeDefaultTheme(Themes.ThemesEnum.Light, wdw);
