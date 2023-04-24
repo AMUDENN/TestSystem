@@ -42,5 +42,6 @@ namespace TestSystem.Entities
         public virtual QuestionTypes QuestionTypes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TextAnswers> TextAnswers { get; set; }
+        public virtual Tests Tests { get; set; }
     }
 }

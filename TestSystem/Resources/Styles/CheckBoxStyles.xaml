@@ -102,4 +102,36 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="LockCheckBoxStyle" TargetType="{x:Type CheckBox}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource FocusVisual}"/>
+        <Setter Property="IsEnabled" Value="False"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                        <Image x:Name="Close" Style="{DynamicResource CloseLockImage}"/>
+                        <Image x:Name="Open" Style="{DynamicResource OpenLockImage}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Visibility" TargetName="Close" Value="Hidden"/>
+                            <Setter Property="Visibility" TargetName="Open" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Visibility" TargetName="Close" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="Open" Value="Hidden"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="Close" Value="Hidden"/>
+                            <Setter Property="Visibility" TargetName="Open" Value="Hidden"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

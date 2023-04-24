@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TestSystem.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="1024" d:DesignWidth="1440">
+             d:DesignHeight="974" d:DesignWidth="1040">
     <Grid>
         <Grid Margin="200">
             <Grid.RowDefinitions>
@@ -13,6 +13,14 @@
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="Список результатов" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
+            <DataGrid ItemsSource="{Binding Results}" AutoGenerateColumns="False" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название теста" Binding="{Binding TestTitle}" Width="Auto"/>
+                    <DataGridTextColumn Header="Дата старта" Binding="{Binding DateStart}" Width="Auto"/>
+                    <DataGridTextColumn Header="Дата окончания" Binding="{Binding DateEnd}" Width="Auto"/>
+                    <DataGridTextColumn Header="IP адресс" Binding="{Binding IPAdress}" Width="Auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </UserControl>

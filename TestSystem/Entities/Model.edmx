@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TestSystemModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TestSystemModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Albums">
           <Key>
             <PropertyRef Name="id" />
@@ -162,6 +162,7 @@
           <Property Name="percent_three" Type="int" />
           <Property Name="percent_four" Type="int" />
           <Property Name="percent_five" Type="int" />
+          <Property Name="date_creation" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="TextAnswers">
           <Key>
@@ -300,6 +301,18 @@
             </Principal>
             <Dependent Role="Questions">
               <PropertyRef Name="question_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Questions__test___19AACF41">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="test_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -566,6 +579,10 @@
             <End Role="QuestionTypes" EntitySet="QuestionTypes" />
             <End Role="Questions" EntitySet="Questions" />
           </AssociationSet>
+          <AssociationSet Name="FK__Questions__test___19AACF41" Association="Self.FK__Questions__test___19AACF41">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
           <AssociationSet Name="FK__Results__student__5812160E" Association="Self.FK__Results__student__5812160E">
             <End Role="Users" EntitySet="Users" />
             <End Role="Results" EntitySet="Results" />
@@ -635,8 +652,7 @@
             <End Role="Categories" EntitySet="Categories" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TestSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -742,6 +758,7 @@
           <NavigationProperty Name="Hints" Relationship="Self.FK__Hints__question___5070F446" FromRole="Questions" ToRole="Hints" />
           <NavigationProperty Name="QuestionTypes" Relationship="Self.FK__Questions__quest__6FB49575" FromRole="Questions" ToRole="QuestionTypes" />
           <NavigationProperty Name="TextAnswers" Relationship="Self.FK__TextAnswe__quest__4F7CD00D" FromRole="Questions" ToRole="TextAnswers" />
+          <NavigationProperty Name="Tests" Relationship="TestSystemModel.FK__Questions__test___19AACF41" FromRole="Questions" ToRole="Tests" />
         </EntityType>
         <EntityType Name="QuestionTypes">
           <Key>
@@ -845,6 +862,8 @@
           <NavigationProperty Name="Categories" Relationship="Self.FK__Tests__category___49C3F6B7" FromRole="Tests" ToRole="Categories" />
           <NavigationProperty Name="Results" Relationship="Self.FK__Results__test_id__571DF1D5" FromRole="Tests" ToRole="Results" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Tests__teacher_i__4AB81AF0" FromRole="Tests" ToRole="Users" />
+          <NavigationProperty Name="Questions" Relationship="TestSystemModel.FK__Questions__test___19AACF41" FromRole="Tests" ToRole="Questions" />
+          <Property Name="date_creation" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="TextAnswers">
           <Key>
@@ -1323,7 +1342,23 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Tests" EntitySet="Tests" />
           </AssociationSet>
+          <AssociationSet Name="FK__Questions__test___19AACF41" Association="TestSystemModel.FK__Questions__test___19AACF41">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__Questions__test___19AACF41">
+          <End Type="TestSystemModel.Tests" Role="Tests" Multiplicity="1" />
+          <End Type="TestSystemModel.Questions" Role="Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="test_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1489,6 +1524,7 @@
           <EntitySetMapping Name="Tests">
             <EntityTypeMapping TypeName="TestSystemModel.Tests">
               <MappingFragment StoreEntitySet="Tests">
+                <ScalarProperty Name="date_creation" ColumnName="date_creation" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category_id" ColumnName="category_id" />
                 <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />

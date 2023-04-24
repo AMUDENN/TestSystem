@@ -6,4 +6,7 @@
     <Style x:Key="GridBackGroundStyle" TargetType="{x:Type Grid}">
         <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
     </Style>
+    <Style x:Key="GridAdditionStyle" TargetType="{x:Type Grid}">
+        <Setter Property="Background" Value="{DynamicResource MainColor}"/>
+    </Style>
 </ResourceDictionary>

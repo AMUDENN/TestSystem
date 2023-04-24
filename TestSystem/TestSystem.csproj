@@ -130,12 +130,33 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Models\TestModel.cs" />
+    <Compile Include="Models\TestOperationsModel.cs" />
+    <Compile Include="Resources\Converters\UniformGridColumnsConverter.cs" />
+    <Compile Include="Resources\Converters\ShortStringConverter.cs" />
     <Compile Include="Resources\UserControls\AdvancedPasswordBox.xaml.cs">
       <DependentUpon>AdvancedPasswordBox.xaml</DependentUpon>
     </Compile>
@@ -144,6 +165,7 @@
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\ResultsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\TestEditViewModel.cs" />
     <Compile Include="ViewModels\TestsViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -254,6 +276,9 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TestEditView.xaml.cs">
+      <DependentUpon>TestEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TestsView.xaml.cs">
       <DependentUpon>TestsView.xaml</DependentUpon>
     </Compile>
@@ -264,11 +289,63 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Images\Vectors\Add.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images\Vectors\EditPen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images\Vectors\Copy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images\Vectors\CloseLock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images\Vectors\Peoples.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images\Vectors\TrashCan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images\Vectors\OpenLock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images\Vectors\Folder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\Images\Vectors\Eye.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Images\Vectors\OffEye.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Images\Vectors\ThreeDots.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\MaskedTextBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\MenuStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\ScrollBarStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\SeparatorStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -392,6 +469,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TestEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TestsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -467,6 +548,15 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Images\Vectors\Add.svg" />
+    <Resource Include="Resources\Images\Vectors\CloseLock.svg" />
+    <Resource Include="Resources\Images\Vectors\Copy.svg" />
+    <Resource Include="Resources\Images\Vectors\EditPen.svg" />
+    <Resource Include="Resources\Images\Vectors\Folder.svg" />
+    <Resource Include="Resources\Images\Vectors\OpenLock.svg" />
+    <Resource Include="Resources\Images\Vectors\Peoples.svg" />
+    <Resource Include="Resources\Images\Vectors\TrashCan.svg" />
+    <Resource Include="Resources\Images\Vectors\ThreeDots.svg" />
     <Resource Include="Resources\Images\Vectors\Eye.svg" />
     <Resource Include="Resources\Images\Vectors\OffEye.svg" />
     <Resource Include="Resources\Images\Vectors\HomeListView.svg" />

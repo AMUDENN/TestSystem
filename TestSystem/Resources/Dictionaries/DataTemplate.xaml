@@ -51,4 +51,8 @@
         <view:SettingsView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:TestEditViewModel}">
+        <view:TestEditView/>
+    </DataTemplate>
+
 </ResourceDictionary>

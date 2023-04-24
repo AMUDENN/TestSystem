@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="TestSystem.Views.TestEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:TestSystem.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="974" d:DesignWidth="1040">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Редактирование теста" Style="{DynamicResource HeadingTextBlockStyle}" Grid.ColumnSpan="2" Grid.Row="0"/>
+        
+        <TextBlock Text="Название" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="1" Grid.Column="0"/>
+        <TextBox Text="{Binding Title}" Style="{DynamicResource TextBoxStyle}" Margin="5" Grid.Row="1" Grid.Column="1"/>
+
+        <TextBlock Text="Описание" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="2" Grid.Column="0"/>
+        <TextBox Text="{Binding Description}" Style="{DynamicResource TextBoxStyle}" Margin="5" Grid.Row="2" Grid.Column="1"/>
+
+        <TextBlock Text="Дата начала" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="3" Grid.Column="0"/>
+        <DatePicker SelectedDate="{Binding DateStart}" Margin="5" Grid.Row="3" Grid.Column="1"/>
+
+        <TextBlock Text="Дата конца" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="4" Grid.Column="0"/>
+        <DatePicker SelectedDate="{Binding DateEnd}" Margin="5" Grid.Row="4" Grid.Column="1"/>
+
+        <TextBlock Text="Допустимое время" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="5" Grid.Column="0"/>
+        <xctk:MaskedTextBox Mask="99:99:99" 
+                            ValueDataType="{x:Type s:TimeSpan}" 
+                            Style="{DynamicResource MaskedTextBoxStyle}" 
+                            Text="{Binding ResponseTime}" 
+                            Margin="5" Grid.Row="5" Grid.Column="1"/>
+
+        <TextBlock Text="Процент на 3" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="6" Grid.Column="0"/>
+        <xctk:MaskedTextBox Mask="00" 
+                            ValueDataType="{x:Type s:Int32}" 
+                            Style="{DynamicResource MaskedTextBoxStyle}" 
+                            Text="{Binding PercentThree}" 
+                            Margin="5" Grid.Row="6" Grid.Column="1"/>
+
+        <TextBlock Text="Процент на 4" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="7" Grid.Column="0"/>
+        <xctk:MaskedTextBox Mask="00" 
+                            ValueDataType="{x:Type s:Int32}" 
+                            Style="{DynamicResource MaskedTextBoxStyle}" 
+                            Text="{Binding PercentFour}" 
+                            Margin="5" Grid.Row="7" Grid.Column="1"/>
+
+        <TextBlock Text="Процент на 5" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="8" Grid.Column="0"/>
+        <xctk:MaskedTextBox Mask="00" 
+                            ValueDataType="{x:Type s:Int32}" 
+                            Style="{DynamicResource MaskedTextBoxStyle}" 
+                            Text="{Binding PercentFive}" 
+                            Margin="5" Grid.Row="8" Grid.Column="1"/>
+
+        <DataGrid ItemsSource="{Binding Questions}" AutoGenerateColumns="False" Grid.ColumnSpan="2" Grid.Row="9">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="Auto"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="Auto"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="Auto"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding ResponseTimeString}" Width="Auto"/>
+                <DataGridTextColumn Header="Баллы" Binding="{Binding Scores}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Command="{Binding BackCommand}" Content="Назад" Style="{DynamicResource DarkMainColorButtonStyle}" Margin="20" Grid.Row="10" Grid.Column="0"/>
+
+        <Button Command="{Binding SaveCommand}" Content="Сохранить" Style="{DynamicResource LightMainColorButtonStyle}" Margin="20" Grid.Row="10" Grid.Column="1"/>
+    </Grid>
+</UserControl>

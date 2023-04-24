@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="EditPenImage" TargetType="{x:Type Image}">
+        <Setter Property="Source">
+            <Setter.Value>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <DrawingGroup ClipGeometry="M0,0 V32 H32 V0 H0 Z">
+                            <DrawingGroup Opacity="1">
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M2,29A1,1,0,0,1,1,27.89L1.77,20.89A1,1,0,0,1,2.06,20.3L18.42,3.94A3.2,3.2,0,0,1,22.95,3.94L26.06,7.05A3.2,3.2,0,0,1,26.06,11.58L9.71,27.93A1,1,0,0,1,9.12,28.22L2.12,28.99z M9,27.22L9,27.22z M3.73,21.45L3.13,26.87 8.55,26.27 24.65,10.17A1.2,1.2,0,0,0,24.65,8.47L21.53,5.35A1.2,1.2,0,0,0,19.83,5.35z" />
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M23,14.21A1,1,0,0,1,22.29,13.92L16.08,7.69A1,1,0,0,1,17.5,6.27L23.73,12.5A1,1,0,0,1,23.73,13.92A1,1,0,0,1,23,14.21z" />
+                                <DrawingGroup Transform="0.707106781186548,-0.707106781186547,0.707106781186547,0.707106781186548,-8.31,14.13">
+                                    <GeometryDrawing Brush="{DynamicResource DarkAdditional}">
+                                        <GeometryDrawing.Geometry>
+                                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="7.39,16.1,11.01,2" />
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                </DrawingGroup>
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M30,29L14,29A1,1,0,0,1,14,27L30,27A1,1,0,0,1,30,29z" />
+                            </DrawingGroup>
+                        </DrawingGroup>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

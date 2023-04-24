@@ -3,6 +3,9 @@
     <Style x:Key="BaseBorderStyle" TargetType="{x:Type Border}">
         <Setter Property="CornerRadius" Value="7"/>
     </Style>
+    <Style x:Key="BottomRoundingBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="0, 0, 7, 7"/>
+    </Style>
     <Style x:Key="AccentBorderStyle" BasedOn="{StaticResource BaseBorderStyle}" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="{DynamicResource Accent}"/>
     </Style>

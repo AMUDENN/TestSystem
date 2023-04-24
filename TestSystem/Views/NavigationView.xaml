@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="430" d:DesignWidth="300">
     <Grid>
-        <ListView Style="{DynamicResource ListViewStyle}" ItemsSource="{Binding NavigationOptions}" SelectionMode="Single">
+        <ListView ItemsSource="{Binding NavigationOptions}" Style="{DynamicResource ListViewStyle}" SelectionMode="Single">
             <Behaviors:Interaction.Triggers>
                 <Behaviors:EventTrigger EventName="SelectionChanged">
                     <Behaviors:InvokeCommandAction Command="{Binding SelectionChangedCommand}" PassEventArgsToCommand="True"/>
@@ -28,7 +28,7 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type ListViewItem}">
                                 <Grid>
-                                    <ContentPresenter x:Name="PART_ContentHost" Grid.Column="1"/>
+                                    <ContentPresenter x:Name="PART_ContentHost"/>
                                 </Grid>
                             </ControlTemplate>
                         </Setter.Value>

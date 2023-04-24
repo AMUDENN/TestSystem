@@ -50,6 +50,7 @@
         <AssociationConnector Association="TestSystemModel.FK__StudentsS__secon__619B8048" ManuallyRouted="false" />
         <AssociationConnector Association="TestSystemModel.FK__StudentsT__text___5BE2A6F2" ManuallyRouted="false" />
         <AssociationConnector Association="TestSystemModel.FK__Tests__teacher_i__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="TestSystemModel.FK__Questions__test___19AACF41" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

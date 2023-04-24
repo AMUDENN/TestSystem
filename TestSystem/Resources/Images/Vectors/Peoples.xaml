@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="PeoplesImage" TargetType="{x:Type Image}">
+        <Setter Property="Source">
+            <Setter.Value>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <DrawingGroup ClipGeometry="M0,0 V32 H32 V0 H0 Z">
+                            <DrawingGroup Opacity="1">
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M16,22A6,6,0,1,1,22,16A6,6,0,0,1,16,22z M16,12A4,4,0,1,0,20,16A4,4,0,0,0,16,12z" />
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M21,31L11,31A4,4,0,0,1,7,27L7,24.45A1,1,0,0,1,7.63,23.53L11.27,22.07A1,1,0,1,1,12,23.93L9,25.13 9,27A2,2,0,0,0,11,29L21,29A2,2,0,0,0,23,27L23,25.13 20,23.93A1,1,0,0,1,20.74,22.07L24.38,23.53A1,1,0,0,1,25.01,24.45L25.01,27A4,4,0,0,1,21,31z" />
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M9,11A5,5,0,1,1,14,6A5,5,0,0,1,9,11z M9,3A3,3,0,1,0,12,6A3,3,0,0,0,9,3z" />
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M8,19.39L5,19.39A4,4,0,0,1,1,15.39L1,13.64A1,1,0,0,1,1.63,12.71L4.82,11.46A1,1,0,0,1,6.11,12A1,1,0,0,1,5.55,13.3L3,14.32 3,15.39A2,2,0,0,0,5,17.39L8,17.39A1,1,0,0,1,8,19.39z" />
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M23,11A5,5,0,1,1,28,6A5,5,0,0,1,23,11z M23,3A3,3,0,1,0,26,6A3,3,0,0,0,23,3z" />
+                                <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M32,32z M0,0z M27,19.39L24,19.39A1,1,0,0,1,24,17.39L27,17.39A2,2,0,0,0,29,15.39L29,14.32 26.45,13.32A1,1,0,0,1,25.89,12.02A1,1,0,0,1,27.18,11.45L30.37,12.7A1,1,0,0,1,31,13.63L31,15.38A4,4,0,0,1,27,19.39z" />
+                            </DrawingGroup>
+                        </DrawingGroup>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

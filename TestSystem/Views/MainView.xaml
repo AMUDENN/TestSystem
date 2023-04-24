@@ -35,7 +35,7 @@
                                 <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="200"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="/Resources/Images/BaseProfile.png" Grid.Column="0"/>
+                            <Image Source="/Resources/Images/Bitmaps/BaseProfile.png" Grid.Column="0"/>
                             <Grid Grid.Column="2">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="40"/>

@@ -3,5 +3,14 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="\Resources\Images\Vectors\Eye.xaml"/>
         <ResourceDictionary Source="\Resources\Images\Vectors\OffEye.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\ThreeDots.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\CloseLock.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\Copy.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\EditPen.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\Folder.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\OpenLock.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\TrashCan.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\Peoples.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\Add.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

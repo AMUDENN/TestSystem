@@ -18,6 +18,7 @@ namespace TestSystem.Entities
         public Tests()
         {
             this.Results = new HashSet<Results>();
+            this.Questions = new HashSet<Questions>();
         }
     
         public int id { get; set; }
@@ -32,10 +33,13 @@ namespace TestSystem.Entities
         public Nullable<int> percent_three { get; set; }
         public Nullable<int> percent_four { get; set; }
         public Nullable<int> percent_five { get; set; }
+        public System.DateTime date_creation { get; set; }
     
         public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Results> Results { get; set; }
         public virtual Users Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Questions> Questions { get; set; }
     }
 }

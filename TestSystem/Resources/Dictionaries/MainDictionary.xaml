@@ -11,5 +11,9 @@
         <ResourceDictionary Source="\Resources\Styles\GridStyles.xaml"/>
         <ResourceDictionary Source="\Resources\Styles\PasswordBoxStyles.xaml"/>
         <ResourceDictionary Source="\Resources\Styles\ListViewStyles.xaml"/>
+        <ResourceDictionary Source="\Resources\Styles\MenuStyles.xaml"/>
+        <ResourceDictionary Source="\Resources\Styles\SeparatorStyles.xaml"/>
+        <ResourceDictionary Source="\Resources\Styles\MaskedTextBoxStyles.xaml"/>
+        <ResourceDictionary Source="\Resources\Styles\ScrollBarStyles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
