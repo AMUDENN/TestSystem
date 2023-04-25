@@ -94,7 +94,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="test_id" Type="int" Nullable="false" />
+          <Property Name="test_id" Type="int" />
           <Property Name="student_id" Type="int" Nullable="false" />
           <Property Name="date_start" Type="datetime" Nullable="false" />
           <Property Name="date_end" Type="datetime" Nullable="false" />
@@ -145,6 +145,16 @@
           <Property Name="text_answer_id" Type="int" Nullable="false" />
           <Property Name="text_answer" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Tests">
           <Key>
@@ -329,7 +339,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Results__test_id__571DF1D5">
-          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="0..1" />
           <End Role="Results" Type="Self.Results" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tests">
@@ -536,6 +546,7 @@
           <EntitySet Name="StudentsMatches" EntityType="Self.StudentsMatches" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentsSequences" EntityType="Self.StudentsSequences" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentsTexts" EntityType="Self.StudentsTexts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tests" EntityType="Self.Tests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TextAnswers" EntityType="Self.TextAnswers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -757,8 +768,8 @@
           <NavigationProperty Name="FirstSequences" Relationship="Self.FK__FirstSequ__quest__534D60F1" FromRole="Questions" ToRole="FirstSequences" />
           <NavigationProperty Name="Hints" Relationship="Self.FK__Hints__question___5070F446" FromRole="Questions" ToRole="Hints" />
           <NavigationProperty Name="QuestionTypes" Relationship="Self.FK__Questions__quest__6FB49575" FromRole="Questions" ToRole="QuestionTypes" />
+          <NavigationProperty Name="Tests" Relationship="Self.FK__Questions__test___19AACF41" FromRole="Questions" ToRole="Tests" />
           <NavigationProperty Name="TextAnswers" Relationship="Self.FK__TextAnswe__quest__4F7CD00D" FromRole="Questions" ToRole="TextAnswers" />
-          <NavigationProperty Name="Tests" Relationship="TestSystemModel.FK__Questions__test___19AACF41" FromRole="Questions" ToRole="Tests" />
         </EntityType>
         <EntityType Name="QuestionTypes">
           <Key>
@@ -773,7 +784,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="test_id" Type="Int32" Nullable="false" />
+          <Property Name="test_id" Type="Int32" />
           <Property Name="student_id" Type="Int32" Nullable="false" />
           <Property Name="date_start" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="date_end" Type="DateTime" Nullable="false" Precision="3" />
@@ -843,6 +854,16 @@
           <NavigationProperty Name="Results" Relationship="Self.FK__StudentsT__resul__5AEE82B9" FromRole="StudentsTexts" ToRole="Results" />
           <NavigationProperty Name="TextAnswers" Relationship="Self.FK__StudentsT__text___5BE2A6F2" FromRole="StudentsTexts" ToRole="TextAnswers" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Tests">
           <Key>
             <PropertyRef Name="id" />
@@ -859,11 +880,11 @@
           <Property Name="percent_three" Type="Int32" />
           <Property Name="percent_four" Type="Int32" />
           <Property Name="percent_five" Type="Int32" />
+          <Property Name="date_creation" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Categories" Relationship="Self.FK__Tests__category___49C3F6B7" FromRole="Tests" ToRole="Categories" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__test___19AACF41" FromRole="Tests" ToRole="Questions" />
           <NavigationProperty Name="Results" Relationship="Self.FK__Results__test_id__571DF1D5" FromRole="Tests" ToRole="Results" />
           <NavigationProperty Name="Users" Relationship="Self.FK__Tests__teacher_i__4AB81AF0" FromRole="Tests" ToRole="Users" />
-          <NavigationProperty Name="Questions" Relationship="TestSystemModel.FK__Questions__test___19AACF41" FromRole="Tests" ToRole="Questions" />
-          <Property Name="date_creation" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="TextAnswers">
           <Key>
@@ -1095,6 +1116,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Questions__test___19AACF41">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="test_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__TextAnswe__quest__4F7CD00D">
           <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
           <End Role="TextAnswers" Type="Self.TextAnswers" Multiplicity="*" />
@@ -1120,7 +1153,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Results__test_id__571DF1D5">
-          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="0..1" />
           <End Role="Results" Type="Self.Results" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tests">
@@ -1231,6 +1264,7 @@
           <EntitySet Name="StudentsMatches" EntityType="Self.StudentsMatches" />
           <EntitySet Name="StudentsSequences" EntityType="Self.StudentsSequences" />
           <EntitySet Name="StudentsTexts" EntityType="Self.StudentsTexts" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tests" EntityType="Self.Tests" />
           <EntitySet Name="TextAnswers" EntityType="Self.TextAnswers" />
           <EntitySet Name="Users" EntityType="Self.Users" />
@@ -1302,6 +1336,10 @@
             <End Role="QuestionTypes" EntitySet="QuestionTypes" />
             <End Role="Questions" EntitySet="Questions" />
           </AssociationSet>
+          <AssociationSet Name="FK__Questions__test___19AACF41" Association="Self.FK__Questions__test___19AACF41">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
           <AssociationSet Name="FK__TextAnswe__quest__4F7CD00D" Association="Self.FK__TextAnswe__quest__4F7CD00D">
             <End Role="Questions" EntitySet="Questions" />
             <End Role="TextAnswers" EntitySet="TextAnswers" />
@@ -1342,23 +1380,7 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Tests" EntitySet="Tests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Questions__test___19AACF41" Association="TestSystemModel.FK__Questions__test___19AACF41">
-            <End Role="Tests" EntitySet="Tests" />
-            <End Role="Questions" EntitySet="Questions" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK__Questions__test___19AACF41">
-          <End Type="TestSystemModel.Tests" Role="Tests" Multiplicity="1" />
-          <End Type="TestSystemModel.Questions" Role="Questions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tests">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Questions">
-              <PropertyRef Name="test_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1521,10 +1543,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TestSystemModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Tests">
             <EntityTypeMapping TypeName="TestSystemModel.Tests">
               <MappingFragment StoreEntitySet="Tests">
-                <ScalarProperty Name="date_creation" ColumnName="date_creation" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category_id" ColumnName="category_id" />
                 <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
@@ -1537,6 +1569,7 @@
                 <ScalarProperty Name="percent_three" ColumnName="percent_three" />
                 <ScalarProperty Name="percent_four" ColumnName="percent_four" />
                 <ScalarProperty Name="percent_five" ColumnName="percent_five" />
+                <ScalarProperty Name="date_creation" ColumnName="date_creation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

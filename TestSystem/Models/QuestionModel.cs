@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestSystem.Entities;
 
 namespace TestSystem.Models
@@ -37,7 +33,11 @@ namespace TestSystem.Models
         public int Scores
         {
             get => question.scores;
-        } 
+        }
+        public Questions Question
+        {
+            get => question;
+        }
         public QuestionModel(Questions question)
         {
             this.question = question;

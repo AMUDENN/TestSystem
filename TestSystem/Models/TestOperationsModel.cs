@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using TestSystem.Entities;
 using TestSystem.Utilities;
 
@@ -15,7 +14,7 @@ namespace TestSystem.Models
             this.userModel = userModel;
         }
         public IEnumerable<TestModel> GetTestModels() => userModel.CurrentUser.Tests.Select(x => new TestModel(x));
-        public TestModel AddTest(string test_title = "Новый тест", bool test_is_ordered = false)
+        public TestModel AddTest(string testTitle = "Новый тест", bool testIsOrdered = false)
         {
             TestModel testModel = null;
             try
@@ -23,8 +22,8 @@ namespace TestSystem.Models
                 Tests test = new Tests()
                 {
                     teacher_id = userModel.CurrentUser.id,
-                    title = test_title,
-                    is_ordered = test_is_ordered,
+                    title = testTitle,
+                    is_ordered = testIsOrdered,
                     date_creation = DateTime.Now
                 };
                 var context = Context.GetContext();

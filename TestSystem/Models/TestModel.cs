@@ -78,6 +78,10 @@ namespace TestSystem.Models
         {
             get => DateTime.Now < DateEnd && DateTime.Now > DateStart;
         }
+        public Tests Test
+        {
+            get => test;
+        }
         public IEnumerable<QuestionModel> Questions
         {
             get => questions;
@@ -99,6 +103,34 @@ namespace TestSystem.Models
             catch
             {
                 return new Exception("Ошибка во время сохранения теста");
+            }
+            return null;
+        }
+        public TestModel CopyTest()
+        {
+            TestModel testModel = null;
+            try
+            {
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+            return testModel;
+        }
+        public Exception DeleteTest()
+        {
+            try
+            {
+                var context = Context.GetContext();
+                context.Questions.RemoveRange(test.Questions);
+                context.Tests.Remove(test);
+                context.SaveChanges();
+            }
+            catch
+            {
+                return new Exception("Ошибка при удалении теста");
             }
             return null;
         }

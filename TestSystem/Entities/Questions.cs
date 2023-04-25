@@ -40,8 +40,8 @@ namespace TestSystem.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hints> Hints { get; set; }
         public virtual QuestionTypes QuestionTypes { get; set; }
+        public virtual Tests Tests { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TextAnswers> TextAnswers { get; set; }
-        public virtual Tests Tests { get; set; }
     }
 }

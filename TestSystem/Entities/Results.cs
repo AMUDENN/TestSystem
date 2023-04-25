@@ -24,7 +24,7 @@ namespace TestSystem.Entities
         }
     
         public int id { get; set; }
-        public int test_id { get; set; }
+        public Nullable<int> test_id { get; set; }
         public int student_id { get; set; }
         public System.DateTime date_start { get; set; }
         public System.DateTime date_end { get; set; }

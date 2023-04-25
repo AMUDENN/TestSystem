@@ -40,6 +40,7 @@ namespace TestSystem.Entities
         public virtual DbSet<StudentsMatches> StudentsMatches { get; set; }
         public virtual DbSet<StudentsSequences> StudentsSequences { get; set; }
         public virtual DbSet<StudentsTexts> StudentsTexts { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tests> Tests { get; set; }
         public virtual DbSet<TextAnswers> TextAnswers { get; set; }
         public virtual DbSet<Users> Users { get; set; }

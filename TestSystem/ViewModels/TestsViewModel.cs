@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using TestSystem.Models;
@@ -87,11 +88,23 @@ namespace TestSystem.ViewModels
         }
         private void DoCopyCommand(object data)
         {
-            MessageBox.Show("ы");
+            TestModel sourceTest = data as TestModel;
+            TestModel tm = sourceTest.CopyTest();
+            if(tm != null)
+            {
+                Tests = Tests.Append(tm);
+                UserMessages.Information("Тест скопирован");
+            }
         }
         private void DoDeleteCommand(object data)
         {
-            MessageBox.Show(((TestModel)data).Title);
+            TestModel tm = data as TestModel;
+            string title = tm.Title;
+            if (tm.DeleteTest() is null)
+            {
+                Tests = Tests.Where(x => x != tm);
+                UserMessages.Information($"Тест {title} удалён");
+            }
         }
         private void DoAddCommand()
         {
