@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:TestSystem.Resources.Converters"
+             xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:TestSystem.Views"
              mc:Ignorable="d"
              d:DesignHeight="974" d:DesignWidth="1040">
@@ -50,24 +51,14 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" Margin="20, 0, 0, 0" Grid.Column="0">
-                <ComboBox Background="Transparent" Text="Статусы">
-                    <TextBlock Style="{DynamicResource CommonTextBlockStyle}" Text="Все статусы"/>
-                    <TextBlock Style="{DynamicResource CommonTextBlockStyle}" Text="Только открытые"/>
-                    <TextBlock Style="{DynamicResource CommonTextBlockStyle}" Text="Только закрытые"/>
-                </ComboBox>
-                <ComboBox Text="Shihs">
-                    <TextBlock Style="{DynamicResource CommonTextBlockStyle}" Text="По дате создания"/>
-                    <TextBlock Style="{DynamicResource CommonTextBlockStyle}" Text="По названию"/>
-                </ComboBox>
-                <ComboBox Text="Aboba">
-                    <TextBlock Style="{DynamicResource CommonTextBlockStyle}" Text="По возрастанию"/>
-                    <TextBlock Style="{DynamicResource CommonTextBlockStyle}" Text="По убыванию"/>
-                </ComboBox>
+                <ComboBox ItemsSource="{Binding TestStatuses, Mode=OneWay}" SelectedItem="{Binding SelectedTestStatus}"/>
+                <ComboBox ItemsSource="{Binding TestOrderType, Mode=OneWay}" SelectedItem="{Binding SelectedTestOrderType}"/>
+                <ComboBox ItemsSource="{Binding TestOrder, Mode=OneWay}" SelectedItem="{Binding SelectedTestOrder}"/>
             </StackPanel>
-            <TextBox Grid.Column="1"/>
+            <TextBox x:Name="FilterTextBox" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="40" Grid.Column="1"/>
         </Grid>
         
-        <ListView ItemsSource="{Binding Tests}" 
+        <ListView ItemsSource="{Binding DisplayedTests}" 
                   Style="{DynamicResource ListViewStyle}" 
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                   Grid.Row="4">
@@ -163,7 +154,7 @@
                                         <Image Style="{DynamicResource PeoplesImage}" Margin="5" Grid.Column="0"/>
                                         <TextBlock Text="{Binding ResultsCount}" Style="{DynamicResource CommonTextBlockStyle}" Margin="2, 0, 0, 0" Grid.Column="1"/>
                                     </Grid>
-                                    <TextBlock Text="{Binding DateCreation}" Style="{DynamicResource CommonTextBlockStyle}" TextAlignment="Right" HorizontalAlignment="Right" Grid.Column="3"/>
+                                    <TextBlock Text="{Binding DateCreationString}" Style="{DynamicResource CommonTextBlockStyle}" TextAlignment="Right" HorizontalAlignment="Right" Grid.Column="3"/>
                                 </Grid>
                             </Grid>
                         </Border>

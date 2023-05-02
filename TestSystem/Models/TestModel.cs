@@ -70,7 +70,11 @@ namespace TestSystem.Models
         {
             get => test.Results.Count;
         }
-        public string DateCreation
+        public DateTime DateCreation
+        {
+            get => test.date_creation;
+        }
+        public string DateCreationString
         {
             get => test.date_creation.ToString("dd.MM.yyyy");
         }

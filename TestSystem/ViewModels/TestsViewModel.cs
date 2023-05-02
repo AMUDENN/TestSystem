@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using TestSystem.Models;
 using TestSystem.Utilities;
@@ -14,7 +13,28 @@ namespace TestSystem.ViewModels
     {
         public UserModel userModel;
         public TestOperationsModel operationsModel;
+        private Dictionary<string, Func<TestModel, bool>> testStatuses = new Dictionary<string, Func<TestModel, bool>>
+        {
+            { "Все статусы", x => true},
+            { "Только открытые", x => x.IsOpen },
+            { "Только закрытые", x => !x.IsOpen }
+        };
+        private string selectedTestStatus;
+        private Dictionary<string, Func<TestModel, object>> testOrderType = new Dictionary<string, Func<TestModel, object>>
+        {
+            { "По дате создания", x => x.DateCreation },
+            { "По названию", x => x.Title }
+        };
+        private string selectedTestOrderType;
+        private Dictionary<string, bool> testOrder = new Dictionary<string, bool>
+        {
+            { "По возрастанию", true },
+            { "По убыванию", false }
+        };
+        private string selectedTestOrder;
+        private string filter;
         private IEnumerable<TestModel> tests;
+        private IEnumerable<TestModel> displayedTests;
         private RelayCommand editCommand;
         private RelayCommand copyCommand;
         private RelayCommand deleteCommand;
@@ -24,10 +44,54 @@ namespace TestSystem.ViewModels
             private get => userModel;
             set => SetProperty(ref userModel, value);
         }
+        public IEnumerable<string> TestStatuses => testStatuses.Keys;
+        public string SelectedTestStatus
+        {
+            get => selectedTestStatus;
+            set
+            {
+                SetProperty(ref selectedTestStatus, value);
+                DoOrder();
+            }
+        }
+        public IEnumerable<string> TestOrderType => testOrderType.Keys;
+        public string SelectedTestOrderType
+        {
+            get => selectedTestOrderType;
+            set
+            {
+                SetProperty(ref selectedTestOrderType, value);
+                DoOrder();
+            }
+        }
+        public IEnumerable<string> TestOrder => testOrder.Keys;
+        public string SelectedTestOrder
+        {
+            get => selectedTestOrder;
+            set
+            {
+                SetProperty(ref selectedTestOrder, value);
+                DoOrder();
+            }
+        }
+        public string Filter
+        {
+            get => filter;
+            set
+            {
+                SetProperty(ref filter, value.ToLower());
+                DisplayedTests = DisplayedTests.Where(x => x.Title.ToLower().Contains(Filter));
+            }
+        }
         public IEnumerable<TestModel> Tests
         {
             get => tests;
             set => SetProperty(ref tests, value);
+        }
+        public IEnumerable<TestModel> DisplayedTests
+        {
+            get => displayedTests;
+            set => SetProperty(ref displayedTests, value);
         }
         public ICommand EditCommand
         {
@@ -90,7 +154,7 @@ namespace TestSystem.ViewModels
         {
             TestModel sourceTest = data as TestModel;
             TestModel tm = sourceTest.CopyTest();
-            if(tm != null)
+            if (tm != null)
             {
                 Tests = Tests.Append(tm);
                 UserMessages.Information("Тест скопирован");
@@ -113,11 +177,21 @@ namespace TestSystem.ViewModels
             var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestEditViewModel(testModel, userModel) });
             WeakReferenceMessenger.Default.Send(navModel);
         }
+        private void DoOrder()
+        {
+            var tests = Tests.Where(testStatuses[SelectedTestStatus]);
+            tests = testOrder[SelectedTestOrder] ? tests.OrderBy(testOrderType[SelectedTestOrderType]) : tests.OrderByDescending(testOrderType[SelectedTestOrderType]);
+            DisplayedTests = tests;
+        }
         public TestsViewModel(UserModel userModel)
         {
             UserModel = userModel;
             operationsModel = new TestOperationsModel(UserModel);
             Tests = operationsModel.GetTestModels();
+            DisplayedTests = tests;
+            selectedTestStatus = testStatuses.First().Key;
+            selectedTestOrderType = testOrderType.First().Key;
+            selectedTestOrder = testOrder.Last().Key;
         }
     }
 }
