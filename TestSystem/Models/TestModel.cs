@@ -9,7 +9,7 @@ namespace TestSystem.Models
     public class TestModel
     {
         private Tests test;
-        private IEnumerable<QuestionModel> questions = new QuestionModel[0];
+        private IEnumerable<QuestionModel> questions;
         public string Title
         {
             get => test.title;
@@ -22,37 +22,13 @@ namespace TestSystem.Models
         {
             get => test.response_time;
         }
-        public string ResponseTimeString
-        {
-            get
-            {
-                if (test.response_time is null) return "Нет ограничений";
-                return ((TimeSpan)test.response_time).ToString();
-            }
-        }
         public DateTime? DateStart
         {
             get => test.date_start;
         }
-        public string DateStartString
-        {
-            get
-            {
-                if (test.date_start is null) return "Нет даты старта";
-                return ((DateTime)test.date_start).ToString("hh:mm dd.MM.yyyy");
-            }
-        }
         public DateTime? DateEnd
         {
             get => test.date_end;
-        }
-        public string DateEndString
-        {
-            get
-            {
-                if (test.date_end is null) return "Нет даты окончания";
-                return ((DateTime)test.date_end).ToString("hh:mm dd.MM.yyyy");
-            }
         }
         public int? PercentThree
         {
@@ -74,10 +50,6 @@ namespace TestSystem.Models
         {
             get => test.date_creation;
         }
-        public string DateCreationString
-        {
-            get => test.date_creation.ToString("dd.MM.yyyy");
-        }
         public bool IsOpen
         {
             get => DateTime.Now < DateEnd && DateTime.Now > DateStart;
@@ -88,7 +60,15 @@ namespace TestSystem.Models
         }
         public IEnumerable<QuestionModel> Questions
         {
-            get => questions;
+            get
+            {
+                if (questions is null) questions = test.Questions.Select(x => new QuestionModel(x));
+                return questions;
+            }
+        }
+        public TestModel(Tests test)
+        {
+            this.test = test;
         }
         public Exception ChangeTest(string title, string description, DateTime? dateStart, DateTime? dateEnd, int? percentThree, int? percentFour, int? percentFive)
         {
@@ -137,11 +117,6 @@ namespace TestSystem.Models
                 return new Exception("Ошибка при удалении теста");
             }
             return null;
-        }
-        public TestModel(Tests test)
-        {
-            this.test = test;
-            questions = test.Questions.Select(x => new QuestionModel(x));
         }
     }
 }

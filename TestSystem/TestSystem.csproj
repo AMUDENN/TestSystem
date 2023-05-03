@@ -228,6 +228,7 @@
     <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Models\TestOperationsModel.cs" />
+    <Compile Include="Resources\Converters\DateTimeConverter.cs" />
     <Compile Include="Resources\Converters\UniformGridColumnsConverter.cs" />
     <Compile Include="Resources\Converters\ShortStringConverter.cs" />
     <Compile Include="Resources\UserControls\AdvancedPasswordBox.xaml.cs">

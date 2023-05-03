@@ -16,13 +16,16 @@ namespace TestSystem.ViewModels
         }
         public IEnumerable<ResultModel> Results
         {
-            get => results;
+            get 
+            {
+                if (results is null) results = this.UserModel.CurrentUser.Results.Select(x => new ResultModel(x));
+                return results;
+            }
             set => SetProperty(ref results, value);
         }
         public ResultsViewModel(UserModel userModel)
         {
             UserModel = userModel;
-            Results = this.UserModel.CurrentUser.Results.Select(x => new ResultModel(x)).ToList();
         }
     }
 }

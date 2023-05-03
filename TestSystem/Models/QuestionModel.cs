@@ -22,13 +22,9 @@ namespace TestSystem.Models
         {
             get => question.QuestionTypes.title;
         }
-        public string ResponseTimeString
+        public TimeSpan? ResponseTime
         {
-            get
-            {
-                if (question.response_time is null) return "Нет ограничений";
-                return ((TimeSpan)question.response_time).ToString();
-            }
+            get => question.response_time;
         }
         public int Scores
         {

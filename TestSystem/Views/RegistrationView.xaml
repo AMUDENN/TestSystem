@@ -58,12 +58,12 @@
                                 <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="220"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox Text="{Binding Name}" Style="{DynamicResource TextBoxStyle}" Tag="Имя" Grid.Column="0"/>
-                            <TextBox Text="{Binding Surname}" Style="{DynamicResource TextBoxStyle}" Tag="Фамилия" Grid.Column="2"/>
+                            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxStyle}" Tag="Имя" Grid.Column="0"/>
+                            <TextBox Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxStyle}" Tag="Фамилия" Grid.Column="2"/>
                         </Grid>
-                        <TextBox Text="{Binding Email}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="4"/>
-                        <uc:AdvancedPasswordBox Password="{Binding Password, Mode=TwoWay}" Placeholder="Придумайте пароль" Grid.Row="6"/>
-                        <uc:AdvancedPasswordBox Password="{Binding RepeatPassword, Mode=TwoWay}" Placeholder="Повторите пароль" Grid.Row="8"/>
+                        <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="4"/>
+                        <uc:AdvancedPasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Placeholder="Придумайте пароль" Grid.Row="6"/>
+                        <uc:AdvancedPasswordBox Password="{Binding RepeatPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Placeholder="Повторите пароль" Grid.Row="8"/>
                         <Button Command="{Binding RegistrationCommand}" Content="Зарегистрироваться" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="10"/>
                         <Grid Grid.Row="12">
                             <Grid.ColumnDefinitions>

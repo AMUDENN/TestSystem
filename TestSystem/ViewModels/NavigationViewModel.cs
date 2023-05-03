@@ -29,7 +29,6 @@ namespace TestSystem.ViewModels
 
         public NavigationViewModel(UserModel currentUser)
         {
-
             NavigationOptions.Add(new NavigationModel()
             {
                 Name = "Главная",

@@ -53,8 +53,8 @@
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="Авторизация" Style="{DynamicResource HeadingTextBlockStyle}" Grid.Row="0"/>
-                        <TextBox Text="{Binding Email}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="2"/>
-                        <uc:AdvancedPasswordBox Password="{Binding Password, Mode=TwoWay}" Placeholder="Пароль" Grid.Row="4"/>
+                        <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="2"/>
+                        <uc:AdvancedPasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Placeholder="Пароль" Grid.Row="4"/>
                         <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>

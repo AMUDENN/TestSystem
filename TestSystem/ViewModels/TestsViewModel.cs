@@ -2,7 +2,10 @@
 using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using TestSystem.Models;
 using TestSystem.Utilities;
@@ -13,20 +16,20 @@ namespace TestSystem.ViewModels
     {
         public UserModel userModel;
         public TestOperationsModel operationsModel;
-        private Dictionary<string, Func<TestModel, bool>> testStatuses = new Dictionary<string, Func<TestModel, bool>>
+        private readonly Dictionary<string, Func<TestModel, bool>> testStatuses = new Dictionary<string, Func<TestModel, bool>>
         {
             { "Все статусы", x => true},
             { "Только открытые", x => x.IsOpen },
             { "Только закрытые", x => !x.IsOpen }
         };
         private string selectedTestStatus;
-        private Dictionary<string, Func<TestModel, object>> testOrderType = new Dictionary<string, Func<TestModel, object>>
+        private readonly Dictionary<string, Func<TestModel, object>> testOrderType = new Dictionary<string, Func<TestModel, object>>
         {
             { "По дате создания", x => x.DateCreation },
             { "По названию", x => x.Title }
         };
         private string selectedTestOrderType;
-        private Dictionary<string, bool> testOrder = new Dictionary<string, bool>
+        private readonly Dictionary<string, bool> testOrder = new Dictionary<string, bool>
         {
             { "По возрастанию", true },
             { "По убыванию", false }
@@ -43,6 +46,14 @@ namespace TestSystem.ViewModels
         {
             private get => userModel;
             set => SetProperty(ref userModel, value);
+        }
+        public TestOperationsModel OperationsModel
+        {
+            get
+            {
+                if (operationsModel is null) operationsModel = new TestOperationsModel(UserModel);
+                return operationsModel;
+            }
         }
         public IEnumerable<string> TestStatuses => testStatuses.Keys;
         public string SelectedTestStatus
@@ -86,7 +97,11 @@ namespace TestSystem.ViewModels
         public IEnumerable<TestModel> Tests
         {
             get => tests;
-            set => SetProperty(ref tests, value);
+            set
+            {
+                SetProperty(ref tests, value);
+                DoOrder();
+            }
         }
         public IEnumerable<TestModel> DisplayedTests
         {
@@ -147,7 +162,7 @@ namespace TestSystem.ViewModels
         }
         private void DoEditCommand(object data)
         {
-            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestEditViewModel((TestModel)data, userModel) });
+            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestEditViewModel((TestModel)data, userModel, this) });
             WeakReferenceMessenger.Default.Send(navModel);
         }
         private void DoCopyCommand(object data)
@@ -172,9 +187,10 @@ namespace TestSystem.ViewModels
         }
         private void DoAddCommand()
         {
-            TestModel testModel = operationsModel.AddTest();
+            TestModel testModel = OperationsModel.AddTest();
             if (testModel is null) return;
-            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestEditViewModel(testModel, userModel) });
+            Tests = Tests.Append(testModel);
+            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestEditViewModel(testModel, userModel, this) });
             WeakReferenceMessenger.Default.Send(navModel);
         }
         private void DoOrder()
@@ -186,12 +202,12 @@ namespace TestSystem.ViewModels
         public TestsViewModel(UserModel userModel)
         {
             UserModel = userModel;
-            operationsModel = new TestOperationsModel(UserModel);
-            Tests = operationsModel.GetTestModels();
-            DisplayedTests = tests;
+
             selectedTestStatus = testStatuses.First().Key;
             selectedTestOrderType = testOrderType.First().Key;
             selectedTestOrder = testOrder.Last().Key;
+
+            Tests = OperationsModel.GetTestModels();
         }
     }
 }

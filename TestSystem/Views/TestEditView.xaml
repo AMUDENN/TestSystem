@@ -74,7 +74,7 @@
                 <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="Auto"/>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="Auto"/>
                 <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="Auto"/>
-                <DataGridTextColumn Header="Время" Binding="{Binding ResponseTimeString}" Width="Auto"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding ResponseTime}" Width="Auto"/>
                 <DataGridTextColumn Header="Баллы" Binding="{Binding Scores}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>

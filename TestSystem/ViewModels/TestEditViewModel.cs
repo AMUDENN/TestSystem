@@ -10,6 +10,7 @@ namespace TestSystem.ViewModels
 {
     public class TestEditViewModel : ObservableObject
     {
+        private TestsViewModel testViewModel;
         private TestModel testModel;
         private UserModel userModel;
         private string title;
@@ -104,13 +105,14 @@ namespace TestSystem.ViewModels
         }
         private void Back()
         {
-            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestsViewModel(userModel) });
+            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = testViewModel });
             WeakReferenceMessenger.Default.Send(navModel);
         }
-        public TestEditViewModel(TestModel testModel, UserModel userModel)
+        public TestEditViewModel(TestModel testModel, UserModel userModel, TestsViewModel testViewModel)
         {
             this.testModel = testModel;
             this.userModel = userModel;
+            this.testViewModel = testViewModel;
             title = testModel.Title;
             description = testModel.Description;
             date_start = testModel.DateStart;
@@ -121,6 +123,5 @@ namespace TestSystem.ViewModels
             percent_five = testModel.PercentFive;
             questions = testModel.Questions;
         }
-
     }
 }

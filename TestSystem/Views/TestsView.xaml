@@ -9,6 +9,7 @@
              mc:Ignorable="d"
              d:DesignHeight="974" d:DesignWidth="1040">
     <UserControl.Resources>
+        <converters:DateTimeConverter x:Key="DateTimeConverter"/>
         <converters:ShortStringConverter x:Key="StringConverter"/>
         <converters:UniformGridColumnsConverter x:Key="ColumnsConverter"/>
     </UserControl.Resources>
@@ -58,8 +59,8 @@
             <TextBox x:Name="FilterTextBox" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="40" Grid.Column="1"/>
         </Grid>
         
-        <ListView ItemsSource="{Binding DisplayedTests}" 
-                  Style="{DynamicResource ListViewStyle}" 
+        <ListView ItemsSource="{Binding DisplayedTests, Mode=OneWay}"
+                  Style="{DynamicResource ListViewStyle}"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                   Grid.Row="4">
             <ItemsControl.ItemsPanel>
@@ -154,7 +155,7 @@
                                         <Image Style="{DynamicResource PeoplesImage}" Margin="5" Grid.Column="0"/>
                                         <TextBlock Text="{Binding ResultsCount}" Style="{DynamicResource CommonTextBlockStyle}" Margin="2, 0, 0, 0" Grid.Column="1"/>
                                     </Grid>
-                                    <TextBlock Text="{Binding DateCreationString}" Style="{DynamicResource CommonTextBlockStyle}" TextAlignment="Right" HorizontalAlignment="Right" Grid.Column="3"/>
+                                    <TextBlock Text="{Binding DateCreation, Converter={StaticResource DateTimeConverter}}" Style="{DynamicResource CommonTextBlockStyle}" TextAlignment="Right" HorizontalAlignment="Right" Grid.Column="3"/>
                                 </Grid>
                             </Grid>
                         </Border>
@@ -163,6 +164,19 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Visibility" TargetName="Menu" Value="Visible"/>
                         </Trigger>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                From="0.6"
+                                To="1"
+                                Duration="0:0:0.50" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
                     </DataTemplate.Triggers>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
