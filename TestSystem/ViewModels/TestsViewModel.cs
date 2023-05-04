@@ -42,6 +42,7 @@ namespace TestSystem.ViewModels
         private RelayCommand copyCommand;
         private RelayCommand deleteCommand;
         private RelayCommand addCommand;
+        private RelayCommand loadedCommand;
         public UserModel UserModel
         {
             private get => userModel;
@@ -91,7 +92,7 @@ namespace TestSystem.ViewModels
             set
             {
                 SetProperty(ref filter, value.ToLower());
-                DisplayedTests = DisplayedTests.Where(x => x.Title.ToLower().Contains(Filter));
+                DoOrder();
             }
         }
         public IEnumerable<TestModel> Tests
@@ -160,6 +161,19 @@ namespace TestSystem.ViewModels
                   ));
             }
         }
+        public ICommand LoadedCommand
+        {
+            get
+            {
+                return loadedCommand ??
+                  (loadedCommand = new RelayCommand(
+                    (obj) =>
+                    {
+                        AddTestsAsync();
+                    }
+                  ));
+            }
+        }
         private void DoEditCommand(object data)
         {
             var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestEditViewModel((TestModel)data, userModel, this) });
@@ -195,9 +209,23 @@ namespace TestSystem.ViewModels
         }
         private void DoOrder()
         {
-            var tests = Tests.Where(testStatuses[SelectedTestStatus]);
+            var tests = Tests.Where(x => x.Title.ToLower().Contains(Filter));
+            tests = tests.Where(testStatuses[SelectedTestStatus]);
             tests = testOrder[SelectedTestOrder] ? tests.OrderBy(testOrderType[SelectedTestOrderType]) : tests.OrderByDescending(testOrderType[SelectedTestOrderType]);
             DisplayedTests = tests;
+        }
+        private async void AddTestsAsync()
+        {
+            var tests = OperationsModel.GetTestModels().Reverse();
+            var testsList = new List<TestModel>();
+            int i = 0;
+            foreach (var item in tests)
+            {
+                i++;
+                testsList.Add(item);
+                Tests = testsList;
+                if (i < 8) await Task.Delay(100);
+            }
         }
         public TestsViewModel(UserModel userModel)
         {
@@ -206,8 +234,7 @@ namespace TestSystem.ViewModels
             selectedTestStatus = testStatuses.First().Key;
             selectedTestOrderType = testOrderType.First().Key;
             selectedTestOrder = testOrder.Last().Key;
-
-            Tests = OperationsModel.GetTestModels();
+            filter = string.Empty;
         }
     }
 }

@@ -13,6 +13,12 @@
         <converters:ShortStringConverter x:Key="StringConverter"/>
         <converters:UniformGridColumnsConverter x:Key="ColumnsConverter"/>
     </UserControl.Resources>
+    <Behaviors:Interaction.Triggers>
+        <Behaviors:EventTrigger EventName="Loaded">
+            <Behaviors:InvokeCommandAction Command="{Binding LoadedCommand}" PassEventArgsToCommand="True"/>
+        </Behaviors:EventTrigger>
+    </Behaviors:Interaction.Triggers>
+
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
