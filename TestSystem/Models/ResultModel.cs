@@ -10,11 +10,11 @@ namespace TestSystem.Models
         {
             get => result.Tests.title;
         }
-        public DateTime? DateStart
+        public DateTime DateStart
         {
             get => result.date_start;
         }
-        public DateTime? DateEnd
+        public DateTime DateEnd
         {
             get => result.date_start;
         }

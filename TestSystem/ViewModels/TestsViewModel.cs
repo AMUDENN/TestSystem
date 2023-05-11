@@ -2,10 +2,8 @@
 using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 using TestSystem.Models;
 using TestSystem.Utilities;
@@ -41,6 +39,7 @@ namespace TestSystem.ViewModels
         private RelayCommand editCommand;
         private RelayCommand copyCommand;
         private RelayCommand deleteCommand;
+        private RelayCommand testInfoCommand;
         private RelayCommand addCommand;
         private RelayCommand loadedCommand;
         public UserModel UserModel
@@ -148,6 +147,19 @@ namespace TestSystem.ViewModels
                   ));
             }
         }
+        public ICommand TestInfoCommand
+        {
+            get
+            {
+                return testInfoCommand ??
+                  (testInfoCommand = new RelayCommand(
+                    (obj) =>
+                    {
+                        DoTestInfoCommand(obj);
+                    }
+                  ));
+            }
+        }
         public ICommand AddCommand
         {
             get
@@ -198,6 +210,11 @@ namespace TestSystem.ViewModels
                 Tests = Tests.Where(x => x != tm);
                 UserMessages.Information($"Тест {title} удалён");
             }
+        }
+        private void DoTestInfoCommand(object data)
+        {
+            var navModel = new NavigationChangedRequestedMessage(new NavigationModel() { DestinationVM = new TestInfoViewModel((TestModel)data, this) });
+            WeakReferenceMessenger.Default.Send(navModel);
         }
         private void DoAddCommand()
         {

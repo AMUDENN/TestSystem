@@ -20,12 +20,11 @@
                     <Grid Margin="25">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="120"/>
-                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="120"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="430"/>
                             <RowDefinition Height="2*"/>
-                            <RowDefinition Height="20"/>
                             <RowDefinition Height="100"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="TestSystem™" Style="{DynamicResource HeadingTextBlockStyle}" VerticalAlignment="Center" Grid.Row="0"/>
@@ -46,7 +45,7 @@
                             </Grid>
                         </Grid>
                         <ContentControl Content="{Binding NavigationVM}" Grid.Row="4"/>
-                        <Button Command="{Binding LogOut}" Content="Выход" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="7"/>
+                        <Button Command="{Binding LogOut}" Content="Выход" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="6"/>
                     </Grid>
                 </Border>
             </Grid>

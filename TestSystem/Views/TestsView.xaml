@@ -62,7 +62,11 @@
                 <ComboBox ItemsSource="{Binding TestOrderType, Mode=OneWay}" SelectedItem="{Binding SelectedTestOrderType}"/>
                 <ComboBox ItemsSource="{Binding TestOrder, Mode=OneWay}" SelectedItem="{Binding SelectedTestOrder}"/>
             </StackPanel>
-            <TextBox x:Name="FilterTextBox" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="40" Grid.Column="1"/>
+            <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{DynamicResource SearchTextBoxStyle}" 
+                     Tag="поиск по названию"
+                     VerticalAlignment="Top" 
+                     Height="40" Grid.Column="1"/>
         </Grid>
         
         <ListView ItemsSource="{Binding DisplayedTests, Mode=OneWay}"
@@ -130,7 +134,11 @@
                                         </Button>
                                     </StackPanel>
 
-                                    <Button Content="{Binding Title, ConverterParameter=70, Converter={StaticResource StringConverter}}" Style="{DynamicResource BoldUnderlineTransparentButtonStyle}" VerticalAlignment="Top" Grid.Row="2"/>
+                                    <Button Content="{Binding Title, ConverterParameter=70, Converter={StaticResource StringConverter}}" 
+                                            Style="{DynamicResource BoldUnderlineTransparentButtonStyle}" 
+                                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}, Path=DataContext.TestInfoCommand}"
+                                            CommandParameter="{Binding}"
+                                            VerticalAlignment="Top" Grid.Row="2"/>
                                     <TextBlock Text="{Binding Description, ConverterParameter=90, Converter={StaticResource StringConverter}}" Style="{DynamicResource CommonTextBlockStyle}" Grid.Row="3"/>
                                 </Grid>
 

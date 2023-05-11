@@ -12,5 +12,6 @@
         <ResourceDictionary Source="\Resources\Images\Vectors\TrashCan.xaml"/>
         <ResourceDictionary Source="\Resources\Images\Vectors\Peoples.xaml"/>
         <ResourceDictionary Source="\Resources\Images\Vectors\Add.xaml"/>
+        <ResourceDictionary Source="\Resources\Images\Vectors\MagnifyingGlass.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

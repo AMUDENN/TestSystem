@@ -61,7 +61,17 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="OxyPlot, Version=2.1.2.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.2.1.2\lib\net45\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf, Version=2.1.2.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Wpf.2.1.2\lib\net45\OxyPlot.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Wpf.Shared, Version=2.1.2.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Wpf.Shared.2.1.2\lib\net45\OxyPlot.Wpf.Shared.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="ReachFramework" />
     <Reference Include="SharpVectors.Converters.Wpf, Version=1.8.1.0, Culture=neutral, PublicKeyToken=b532964b8548be77, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpVectors.1.8.1\lib\net47\SharpVectors.Converters.Wpf.dll</HintPath>
     </Reference>
@@ -104,6 +114,7 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -121,12 +132,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="ToastNotifications, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
-      <HintPath>..\packages\ToastNotifications.2.5.1\lib\net40\ToastNotifications.dll</HintPath>
-    </Reference>
-    <Reference Include="ToastNotifications.Messages, Version=2.5.1.0, Culture=neutral, PublicKeyToken=e89d9d7314a7c797, processorArchitecture=MSIL">
-      <HintPath>..\packages\ToastNotifications.Messages.2.5.1\lib\net40\ToastNotifications.Messages.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -240,6 +245,7 @@
     <Compile Include="ViewModels\ResultsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\TestEditViewModel.cs" />
+    <Compile Include="ViewModels\TestInfoViewModel.cs" />
     <Compile Include="ViewModels\TestsViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -255,8 +261,6 @@
     <Compile Include="Utilities\Themes.cs" />
     <Compile Include="Resources\Styles\PasswordBoxStyles.cs" />
     <Compile Include="Resources\WindowStyle\WindowStyle.cs" />
-    <Compile Include="Utilities\ToastNotifications\ToastNotification.cs" />
-    <Compile Include="Utilities\ToastNotifications\ToastViewModel.cs" />
     <Compile Include="Utilities\UserMessages.cs" />
     <Compile Include="ViewModels\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
@@ -284,6 +288,9 @@
     <Compile Include="Views\TestEditView.xaml.cs">
       <DependentUpon>TestEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TestInfoView.xaml.cs">
+      <DependentUpon>TestInfoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TestsView.xaml.cs">
       <DependentUpon>TestsView.xaml</DependentUpon>
     </Compile>
@@ -293,6 +300,10 @@
     <Page Include="Resources\Dictionaries\Images.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Images\Vectors\MagnifyingGlass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\Images\Vectors\Add.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -482,6 +493,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TestInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TestsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -547,17 +562,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\Vectors\Add.svg" />
-    <Resource Include="Resources\Images\Vectors\CloseLock.svg" />
-    <Resource Include="Resources\Images\Vectors\Copy.svg" />
-    <Resource Include="Resources\Images\Vectors\EditPen.svg" />
-    <Resource Include="Resources\Images\Vectors\Folder.svg" />
-    <Resource Include="Resources\Images\Vectors\OpenLock.svg" />
-    <Resource Include="Resources\Images\Vectors\Peoples.svg" />
-    <Resource Include="Resources\Images\Vectors\TrashCan.svg" />
-    <Resource Include="Resources\Images\Vectors\ThreeDots.svg" />
-    <Resource Include="Resources\Images\Vectors\Eye.svg" />
-    <Resource Include="Resources\Images\Vectors\OffEye.svg" />
     <Resource Include="Resources\Images\Vectors\HomeListView.svg" />
     <Resource Include="Resources\Images\Vectors\ProfileListView.svg" />
     <Resource Include="Resources\Images\Vectors\ResultsListView.svg" />
@@ -567,14 +571,10 @@
     <Resource Include="Resources\Images\Vectors\Error.svg" />
     <Resource Include="Resources\Images\Vectors\Info.svg" />
     <Resource Include="Resources\Images\Vectors\Question.svg" />
-    <Resource Include="Resources\Images\Bitmaps\Warning.png" />
     <Resource Include="Resources\Images\Vectors\Warning.svg" />
     <Resource Include="Resources\Images\Vectors\moon.svg" />
     <Resource Include="Resources\Images\Vectors\sun.svg" />
     <Resource Include="Resources\Images\Vectors\icon.svg" />
-    <Resource Include="Resources\Images\Bitmaps\Error.png" />
-    <Resource Include="Resources\Images\Bitmaps\Info.png" />
-    <Resource Include="Resources\Images\Bitmaps\Question.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -10,7 +10,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Grid>
-                        <Border Style="{DynamicResource BorderStyleWithStroke}" BorderThickness="{TemplateBinding BorderThickness}" Padding="5, 0, 0, 0">
+                        <Border Style="{DynamicResource BorderStyleWithStroke}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="5, 0, 0, 0">
                             <ScrollViewer x:Name="PART_ContentHost"/>
                         </Border>
                         <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
@@ -25,4 +25,39 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style x:Key="SearchTextBoxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Background" Value="{DynamicResource Accent}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DarkAdditional}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <Border Style="{DynamicResource BorderStyleWithStroke}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="5, 0, 0, 0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Style="{DynamicResource MagnifyingGlassImage}" Margin="5" Grid.Column="0"/>
+                                <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1"/>
+                                <Label Margin="1,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                                       Visibility="Collapsed" Foreground="{DynamicResource DarkAdditional}" Opacity="0.5" FontSize="16" Grid.Column="1"/>
+                            </Grid>
+                        </Border>
+                        
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>

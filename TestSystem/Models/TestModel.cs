@@ -10,6 +10,7 @@ namespace TestSystem.Models
     {
         private Tests test;
         private IEnumerable<QuestionModel> questions;
+        private IEnumerable<ResultModel> results;
         public string Title
         {
             get => test.title;
@@ -64,6 +65,14 @@ namespace TestSystem.Models
             {
                 if (questions is null) questions = test.Questions.Select(x => new QuestionModel(x));
                 return questions;
+            }
+        }
+        public IEnumerable<ResultModel> Results
+        {
+            get
+            {
+                if (results is null) results = test.Results.Select(x => new ResultModel(x));
+                return results;
             }
         }
         public TestModel(Tests test)

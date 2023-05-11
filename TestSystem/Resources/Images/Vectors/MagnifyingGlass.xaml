@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="MagnifyingGlassImage" TargetType="{x:Type Image}">
+        <Setter Property="Source">
+            <Setter.Value>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <DrawingGroup ClipGeometry="M0,0 V256.00098 H256.00098 V0 H0 Z">
+                            <GeometryDrawing Brush="{DynamicResource DarkAdditional}" Geometry="F1 M256.00098,256.00098z M0,0z M229.65137,218.34424L186.42853,175.12134A92.11164,92.11164,0,1,0,175.114,186.43481L218.3369,229.65771A8.00018,8.00018,0,1,0,229.65136,218.34424z M40,116A76,76,0,1,1,116,192A76.08614,76.08614,0,0,1,40,116z" />
+                        </DrawingGroup>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

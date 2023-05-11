@@ -55,4 +55,8 @@
         <view:TestEditView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:TestInfoViewModel}">
+        <view:TestInfoView/>
+    </DataTemplate>
+
 </ResourceDictionary>
