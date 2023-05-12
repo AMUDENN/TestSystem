@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <oxy:PlotView Model="{Binding PlotViewModel, Mode=OneWay}" Background="Transparent" Grid.Row="0"/>
-        <Button Command="{Binding BackCommand}" Content="Назад" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="3"/>
+        <oxy:PlotView Model="{Binding PlotViewModel, Mode=OneWay}" Background="Transparent" Margin="30" Grid.Row="0"/>
+        <Button Command="{Binding BackCommand}" Content="Назад" Style="{DynamicResource DarkMainColorButtonStyle}" Margin="40" Grid.Row="3"/>
     </Grid>
 </UserControl>

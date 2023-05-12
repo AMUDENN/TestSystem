@@ -56,7 +56,7 @@ namespace TestSystem.ViewModels
             DateTimeAxis xAxis = new DateTimeAxis
             {
                 Position = AxisPosition.Bottom,
-                StringFormat = "dd/MM/yyyy"
+                StringFormat = "dd.MM"
             };
 
             foreach (var item in groupedResults)

@@ -44,11 +44,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Style="{DynamicResource MagnifyingGlassImage}" Margin="5" Grid.Column="0"/>
                                 <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1"/>
-                                <Label Margin="1,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                                <Label x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Left"
                                        Visibility="Collapsed" Foreground="{DynamicResource DarkAdditional}" Opacity="0.5" FontSize="16" Grid.Column="1"/>
                             </Grid>
                         </Border>
-                        
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Text" Value="">
