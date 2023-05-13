@@ -60,7 +60,7 @@
                                 <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Command="{Binding NextCommand}" Content="Далее" Style="{DynamicResource LightMainColorButtonStyle}" Grid.Column="0"/>
+                            <Button Command="{Binding NextCommand}" Content="Далее" Style="{DynamicResource LightMainButtonStyle}" Grid.Column="0"/>
                         </Grid>
                         <Grid Grid.Row="8">
                             <Grid.ColumnDefinitions>

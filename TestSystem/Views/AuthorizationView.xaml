@@ -62,8 +62,8 @@
                             </Grid.ColumnDefinitions>
                             <CheckBox IsChecked="{Binding RememberPassword}" Style="{DynamicResource CheckBoxStyle}" Content="Запомнить пароль" Grid.Column="0"/>
                         </Grid>
-                        <Button Command="{Binding SingInCommand}" Content="Войти" Style="{DynamicResource LightMainColorButtonStyle}" Grid.Row="8"/>
-                        <Button Command="{Binding RegistrationCommand}" Content="Регистрация" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="10"/>
+                        <Button Command="{Binding SingInCommand}" Content="Войти" Style="{DynamicResource LightMainButtonStyle}" Grid.Row="8"/>
+                        <Button Command="{Binding RegistrationCommand}" Content="Регистрация" Style="{DynamicResource DarkMainButtonStyle}" Grid.Row="10"/>
                         <Grid Grid.Row="12">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>

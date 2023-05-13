@@ -64,6 +64,9 @@
     <Reference Include="OxyPlot, Version=2.1.2.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
       <HintPath>..\packages\OxyPlot.Core.2.1.2\lib\net45\OxyPlot.dll</HintPath>
     </Reference>
+    <Reference Include="OxyPlot.Contrib.Wpf, Version=2.1.2.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Contrib.Wpf.2.1.2\lib\net45\OxyPlot.Contrib.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="OxyPlot.Wpf, Version=2.1.2.0, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
       <HintPath>..\packages\OxyPlot.Wpf.2.1.2\lib\net45\OxyPlot.Wpf.dll</HintPath>
     </Reference>
@@ -358,6 +361,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles\MenuStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\RadioButtonStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

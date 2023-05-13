@@ -64,7 +64,7 @@
                         <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource TextBoxStyle}" Tag="Электронная почта" Grid.Row="4"/>
                         <uc:AdvancedPasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Placeholder="Придумайте пароль" Grid.Row="6"/>
                         <uc:AdvancedPasswordBox Password="{Binding RepeatPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Placeholder="Повторите пароль" Grid.Row="8"/>
-                        <Button Command="{Binding RegistrationCommand}" Content="Зарегистрироваться" Style="{DynamicResource DarkMainColorButtonStyle}" Grid.Row="10"/>
+                        <Button Command="{Binding RegistrationCommand}" Content="Зарегистрироваться" Style="{DynamicResource DarkMainButtonStyle}" Grid.Row="10"/>
                         <Grid Grid.Row="12">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>

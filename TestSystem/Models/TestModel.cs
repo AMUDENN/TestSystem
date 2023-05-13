@@ -43,6 +43,10 @@ namespace TestSystem.Models
         {
             get => test.percent_five;
         }
+        public int QuestionsCount
+        {
+            get => test.Questions.Count;
+        }
         public int ResultsCount
         {
             get => test.Results.Count;

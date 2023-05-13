@@ -35,7 +35,7 @@
                     </Setter>
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource MainColor}"/>
+                            <Setter Property="Background" Value="{DynamicResource Main}"/>
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type ListViewItem}">

@@ -3,7 +3,7 @@
     <Style x:Key="BaseButtonStyle" TargetType="Button">
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Foreground" Value="{DynamicResource DarkAdditional}"/>
-        <Setter Property="Background" Value="{DynamicResource MainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource Main}"/>
         <Setter Property="Effect" Value="{DynamicResource smallShadow}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -46,13 +46,13 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="LightMainColorButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
+    <Style x:Key="LightMainButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="{DynamicResource DarkAdditional}"/>
-        <Setter Property="Background" Value="{DynamicResource MainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource Main}"/>
     </Style>
-    <Style x:Key="DarkMainColorButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
+    <Style x:Key="DarkMainButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="{DynamicResource Accent}"/>
-        <Setter Property="Background" Value="{DynamicResource DarkMainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource DarkMain}"/>
     </Style>
     <Style x:Key="TransparentButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="{DynamicResource DarkAdditional}"/>

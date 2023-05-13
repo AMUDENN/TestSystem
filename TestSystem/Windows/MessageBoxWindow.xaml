@@ -36,9 +36,9 @@
                 <svgc:SvgViewbox x:Name="Info" Source="/Resources/Images/Vectors/Info.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
                 <svgc:SvgViewbox x:Name="Question" Source="/Resources/Images/Vectors/Question.svg" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Margin="13"/>
 
-                <Button x:Name="Ok_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="3"/>
-                <Button x:Name="OkCancel_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="2"/>
-                <Button x:Name="OkCancel_Cancel" Content = "Отмена" Click="CancelClick" Style="{DynamicResource DarkMainColorButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="3"/>
+                <Button x:Name="Ok_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="3"/>
+                <Button x:Name="OkCancel_Ok" Content = "Ок" Click="OkClick" Style="{DynamicResource LightMainButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="2"/>
+                <Button x:Name="OkCancel_Cancel" Content = "Отмена" Click="CancelClick" Style="{DynamicResource DarkMainButtonStyle}" Visibility="Collapsed" FontSize="13" Margin="3" Grid.Row="1" Grid.Column="3"/>
                 
                 <TextBlock x:Name="Text" Style="{DynamicResource CommonTextBlockStyle}" FontSize="14" HorizontalAlignment="Left" TextAlignment="Left" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="0"/>
             </Grid>

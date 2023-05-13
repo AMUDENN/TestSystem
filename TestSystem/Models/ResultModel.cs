@@ -10,6 +10,14 @@ namespace TestSystem.Models
         {
             get => result.Tests.title;
         }
+        public string StudentFullName
+        {
+            get
+            {
+                var user = result.Users;
+                return $"{user.surname} {user.name} {user.patronymic}";
+            }
+        }
         public DateTime DateStart
         {
             get => result.date_start;

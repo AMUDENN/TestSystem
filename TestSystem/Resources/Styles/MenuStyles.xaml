@@ -13,7 +13,7 @@
                             <Popup x:Name="Popup" Placement="Bottom" IsOpen="{TemplateBinding IsSubmenuOpen}" AllowsTransparency="True" Focusable="False" PopupAnimation="Fade">
                                 <Border x:Name="SubmenuBorder" SnapsToDevicePixels="True" 
                                         Style="{DynamicResource BorderStyleWithStroke}"
-                                        Background="{DynamicResource LightMainColor}"
+                                        Background="{DynamicResource LightMain}"
                                         Opacity="0.97">
                                     <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
                                 </Border>
@@ -26,11 +26,11 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Opacity" Value="0.5"/>
-                <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
+                <Setter Property="Background" Value="{DynamicResource LightMain}"/>
             </Trigger>
             <Trigger Property="IsHighlighted" Value="True">
                 <Setter Property="Opacity" Value="0.5"/>
-                <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
+                <Setter Property="Background" Value="{DynamicResource LightMain}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

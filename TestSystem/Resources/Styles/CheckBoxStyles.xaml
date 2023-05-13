@@ -72,20 +72,20 @@
                             <Setter Property="Padding" Value="4,-1,0,0"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource LightMainColor}"/>
-                            <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{DynamicResource DarkMainColor}"/>
+                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource LightMain}"/>
+                            <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{DynamicResource DarkMain}"/>
                             <Setter Property="Fill" TargetName="optionMark" Value="{DynamicResource DarkAdditional}"/>
                             <Setter Property="Fill" TargetName="indeterminateMark" Value="{DynamicResource DarkAdditional}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource LightMainColor}"/>
+                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource LightMain}"/>
                             <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{DynamicResource LightAdditional}"/>
                             <Setter Property="Fill" TargetName="optionMark" Value="{DynamicResource LightAdditional}"/>
                             <Setter Property="Fill" TargetName="indeterminateMark" Value="{DynamicResource LightAdditional}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource LightMainColor}"/>
-                            <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{DynamicResource DarkMainColor}"/>
+                            <Setter Property="Background" TargetName="checkBoxBorder" Value="{DynamicResource LightMain}"/>
+                            <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{DynamicResource DarkMain}"/>
                             <Setter Property="Fill" TargetName="optionMark" Value="{DynamicResource DarkAdditional}"/>
                             <Setter Property="Fill" TargetName="indeterminateMark" Value="{DynamicResource DarkAdditional}"/>
                         </Trigger>

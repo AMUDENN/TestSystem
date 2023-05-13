@@ -11,7 +11,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Command="{Binding ExportCommand}" Content="Экспорт" Style="{DynamicResource DarkMainColorButtonStyle}" Margin="150, 400" Grid.Column="0"/>
-        <Button Command="{Binding ImportCommand}" Content="Импорт" Style="{DynamicResource LightMainColorButtonStyle}" Margin="150, 400" Grid.Column="1"/>
+        <Button Command="{Binding ExportCommand}" Content="Экспорт" Style="{DynamicResource DarkMainButtonStyle}" Margin="150, 400" Grid.Column="0"/>
+        <Button Command="{Binding ImportCommand}" Content="Импорт" Style="{DynamicResource LightMainButtonStyle}" Margin="150, 400" Grid.Column="1"/>
     </Grid>
 </UserControl>

@@ -16,5 +16,6 @@
         <ResourceDictionary Source="\Resources\Styles\MaskedTextBoxStyles.xaml"/>
         <ResourceDictionary Source="\Resources\Styles\ScrollBarStyles.xaml"/>
         <ResourceDictionary Source="\Resources\Styles\ComboBoxStyles.xaml"/>
+        <ResourceDictionary Source="\Resources\Styles\RadioButtonStyles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

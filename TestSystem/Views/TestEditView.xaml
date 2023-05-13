@@ -79,8 +79,8 @@
             </DataGrid.Columns>
         </DataGrid>
         
-        <Button Command="{Binding BackCommand}" Content="Назад" Style="{DynamicResource DarkMainColorButtonStyle}" Margin="20" Grid.Row="10" Grid.Column="0"/>
+        <Button Command="{Binding BackCommand}" Content="Назад" Style="{DynamicResource DarkMainButtonStyle}" Margin="20" Grid.Row="10" Grid.Column="0"/>
 
-        <Button Command="{Binding SaveCommand}" Content="Сохранить" Style="{DynamicResource LightMainColorButtonStyle}" Margin="20" Grid.Row="10" Grid.Column="1"/>
+        <Button Command="{Binding SaveCommand}" Content="Сохранить" Style="{DynamicResource LightMainButtonStyle}" Margin="20" Grid.Row="10" Grid.Column="1"/>
     </Grid>
 </UserControl>

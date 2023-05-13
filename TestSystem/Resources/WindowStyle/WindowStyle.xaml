@@ -56,7 +56,7 @@
     </Style>
 
     <Style x:Key="WindowBorderStyle" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="{DynamicResource MainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource Main}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
@@ -112,7 +112,7 @@
     </Style>
     <Style x:Key="CloseButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
         <EventSetter Event="Button.Click" Handler="CloseButton_Click"/>
-        <Setter Property="Background" Value="{DynamicResource DarkMainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource DarkMain}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="FontWeight" Value="Bold"/>
@@ -122,11 +122,11 @@
     </Style>
     <Style x:Key="MaxRestoreButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
         <EventSetter Event="Button.Click" Handler="MaxRestoreButton_Click"/>
-        <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource LightMain}"/>
     </Style>
     <Style x:Key="MinimizeButtonStyle" BasedOn="{StaticResource BaseButtonStyle}" TargetType="{x:Type Button}">
         <EventSetter Event="Button.Click" Handler="MinimizeButton_Click"/>
-        <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource LightMain}"/>
     </Style>
     <Style x:Key="CheckBoxToggleSwitchStyle" TargetType="{x:Type CheckBox}">
         <Setter Property="Width" Value="44"/>
@@ -151,7 +151,7 @@
                             </ThicknessAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Border CornerRadius="10" BorderThickness="2" BorderBrush="{DynamicResource DarkMainColor}">
+                    <Border CornerRadius="10" BorderThickness="2" BorderBrush="{DynamicResource DarkMain}">
                         <Grid Width="40" Height="20">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -161,7 +161,7 @@
                             <svgc:SvgViewbox Source="/Resources/Images/Vectors/sun.svg" HorizontalAlignment="Left" Margin="3" Grid.Column="1"/>
                             <Border HorizontalAlignment="Left" 
                                     x:Name="slider" 
-                                    Background="{DynamicResource DarkMainColor}"
+                                    Background="{DynamicResource DarkMain}"
                                     Width="20" 
                                     CornerRadius="9" 
                                     RenderTransformOrigin="0.5,0.5" 

@@ -4,9 +4,9 @@
         <Setter Property="Effect" Value="{DynamicResource dropShadow}"/>
     </Style>
     <Style x:Key="GridBackGroundStyle" TargetType="{x:Type Grid}">
-        <Setter Property="Background" Value="{DynamicResource LightMainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource LightMain}"/>
     </Style>
     <Style x:Key="GridAdditionStyle" TargetType="{x:Type Grid}">
-        <Setter Property="Background" Value="{DynamicResource MainColor}"/>
+        <Setter Property="Background" Value="{DynamicResource Main}"/>
     </Style>
 </ResourceDictionary>

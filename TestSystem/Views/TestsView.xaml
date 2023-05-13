@@ -39,7 +39,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="Список тестов" Style="{DynamicResource HeadingTextBlockStyle}" VerticalAlignment="Center" Margin="20, 0, 0, 0" Grid.Column="0"/>
             <Button Command="{Binding AddCommand}"
-                    Style="{DynamicResource LightMainColorButtonStyle}" 
+                    Style="{DynamicResource LightMainButtonStyle}" 
                     Opacity="0.9" Grid.Column="1">
                 <Grid Margin="20, 10">
                     <Grid.ColumnDefinitions>
