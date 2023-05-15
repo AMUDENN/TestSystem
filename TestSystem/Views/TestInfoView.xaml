@@ -27,8 +27,8 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Border Style="{DynamicResource AccentBorderStyle}" Margin="20">
-                <Grid>
+            <Border Style="{DynamicResource AccentBorderStyle}" Margin="15">
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
@@ -38,24 +38,26 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Статус" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
-                    <TextBlock Text="Дата создания" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
-                    <TextBlock Text="Количество прохождений" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2"/>
-                    <TextBlock Text="Количество вопросов" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="3"/>
+                    <TextBlock Text="Статус" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Text="Дата создания" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Text="Количество прохождений" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="2"/>
+                    <TextBlock Text="Количество вопросов" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="3"/>
+                    <TextBlock Text="Максимальные баллы" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="0" Grid.Column="4"/>
 
                     <Grid Grid.Row="1" Grid.Column="0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <CheckBox Style="{DynamicResource LockCheckBoxStyle}" IsChecked="{Binding Path=TestModel.IsOpen, Mode=OneWay}" Margin="10" Grid.Column="1"/>
-                            <TextBlock Text="{Binding IsOpenString, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding IsOpenString, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center"/>
                         </StackPanel>
                     </Grid>
 
-                    <TextBlock Text="{Binding TestModel.DateCreation, Converter={StaticResource DateTimeConverter}, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
-                    <TextBlock Text="{Binding TestModel.ResultsCount, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2"/>
-                    <TextBlock Text="{Binding TestModel.QuestionsCount, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3"/>
-
+                    <TextBlock Text="{Binding TestModel.DateCreation, Converter={StaticResource DateTimeConverter}, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Text="{Binding TestModel.ResultsCount, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                    <TextBlock Text="{Binding TestModel.QuestionsCount, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="1" Grid.Column="3"/>
+                    <TextBlock Text="{Binding TestModel.MaxScore, Mode=OneWay}" Style="{DynamicResource CommonTextBlockStyle}" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="1" Grid.Column="4"/>
                 </Grid>
             </Border>
 
@@ -66,8 +68,8 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Border Style="{DynamicResource AccentBorderStyle}" Margin="20" Grid.Column="0">
-                <Grid>
+            <Border Style="{DynamicResource AccentBorderStyle}" Margin="15" Grid.Column="0">
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
@@ -76,8 +78,8 @@
                     <TextBlock Text="Когда-нибудь тут будет ссылка на тест" Style="{DynamicResource CommonTextBlockStyle}" Margin="10, 0, 0 ,0" Grid.Row="1"/>
                 </Grid>
             </Border>
-            <Border Style="{DynamicResource AccentBorderStyle}" Margin="20" Grid.Column="1">
-                <Grid>
+            <Border Style="{DynamicResource AccentBorderStyle}" Margin="15" Grid.Column="1">
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
@@ -101,8 +103,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Border Style="{DynamicResource AccentBorderStyle}" Margin="20" Grid.Column="0">
-                <Grid>
+            <Border Style="{DynamicResource AccentBorderStyle}" Margin="15" Grid.Column="0">
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
@@ -133,8 +135,8 @@
                 </Grid>
             </Border>
 
-            <Border Style="{DynamicResource AccentBorderStyle}" Margin="20" Grid.Column="1">
-                <Grid>
+            <Border Style="{DynamicResource AccentBorderStyle}" Margin="15" Grid.Column="1">
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
@@ -204,8 +206,8 @@
         </Grid>
 
         <Grid Grid.Row="3">
-            <Border Style="{DynamicResource AccentBorderStyle}" Margin="20">
-                <Grid>
+            <Border Style="{DynamicResource AccentBorderStyle}" Margin="15">
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
@@ -239,7 +241,7 @@
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <RadioButton Content="xslx" Style="{DynamicResource RadioButtonStyle}" IsChecked="{Binding IsXlsx}" GroupName="ChangeVariable" VerticalAlignment="Center" Grid.Column="0"/>
+                                <RadioButton Content="xlsx" Style="{DynamicResource RadioButtonStyle}" IsChecked="{Binding IsXlsx}" GroupName="ChangeVariable" VerticalAlignment="Center" Grid.Column="0"/>
                                 <RadioButton Content="csv" Style="{DynamicResource RadioButtonStyle}" IsChecked="{Binding IsCsv}" GroupName="ChangeVariable" VerticalAlignment="Center" Grid.Column="1"/>
                             </Grid>
                         </Grid>

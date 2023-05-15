@@ -9,6 +9,7 @@ namespace TestSystem.Models
     public class TestModel
     {
         private Tests test;
+        private int? maxScore;
         private IEnumerable<QuestionModel> questions;
         private IEnumerable<ResultModel> results;
         public string Title
@@ -63,6 +64,14 @@ namespace TestSystem.Models
         {
             get => test;
         }
+        public int MaxScore
+        {
+            get
+            {
+                if (maxScore is null) maxScore = test.Questions.Sum(x => x.scores);
+                return (int)maxScore;
+            }
+        }
         public IEnumerable<QuestionModel> Questions
         {
             get
@@ -75,7 +84,7 @@ namespace TestSystem.Models
         {
             get
             {
-                if (results is null) results = test.Results.Select(x => new ResultModel(x));
+                if (results is null) results = test.Results.Select(x => new ResultModel(x, this));
                 return results;
             }
         }

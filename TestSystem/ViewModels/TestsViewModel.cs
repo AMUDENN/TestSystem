@@ -233,6 +233,7 @@ namespace TestSystem.ViewModels
         }
         private async void AddTestsAsync()
         {
+            if (!(Tests is null)) return;
             var tests = OperationsModel.GetTestModels().Reverse();
             var testsList = new List<TestModel>();
             int i = 0;

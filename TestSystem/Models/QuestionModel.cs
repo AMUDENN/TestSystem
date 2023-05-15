@@ -6,6 +6,10 @@ namespace TestSystem.Models
     public class QuestionModel
     {
         private Questions question;
+        public QuestionTypes QuestionType
+        {
+            get => question.QuestionTypes;
+        }
         public string Title
         {
             get => question.title;
@@ -17,10 +21,6 @@ namespace TestSystem.Models
         public int Number
         {
             get => question.number;
-        }
-        public string QuestionType
-        {
-            get => question.QuestionTypes.title;
         }
         public TimeSpan? ResponseTime
         {
