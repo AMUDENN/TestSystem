@@ -177,7 +177,9 @@ namespace TestSystem.ViewModels
             columlHeaderRange.Font.Bold = true;
             startRowIndex++;
 
-            foreach (var result in DisplayResults)
+            var results = DisplayResults is null ? new List<ResultModel>() : DisplayResults;
+
+            foreach (var result in results)
             {
 
                 worksheet.Cells[1][startRowIndex] = result.StudentFullName;
@@ -204,7 +206,8 @@ namespace TestSystem.ViewModels
             worksheet.Cells[6][startRowIndex].Formula = $"=AVERAGE(F{2}:F{startRowIndex - 1})";
             (worksheet.Cells[6][startRowIndex] as Excel.Range).NumberFormat = "0.00";
             sumRange.Font.Bold = worksheet.Cells[4][startRowIndex].Font.Bold = true;
-
+            sumRange.Font.Bold = worksheet.Cells[5][startRowIndex].Font.Bold = true; 
+            sumRange.Font.Bold = worksheet.Cells[6][startRowIndex].Font.Bold = true;
 
             Excel.Range rangeBorders = worksheet.Range[worksheet.Cells[1][1], worksheet.Cells[6][startRowIndex - 1]];
             rangeBorders.Borders[Excel.XlBordersIndex.xlEdgeBottom].LineStyle =
@@ -239,7 +242,7 @@ namespace TestSystem.ViewModels
             Word.Paragraph testParagraph = document.Paragraphs.Add();
             Word.Range titleRange = testParagraph.Range;
             titleRange.Text = testModel.Title;
-            testParagraph.set_Style("Заголовок");
+            titleRange.Font.Bold = 1;
             titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
             titleRange.InsertParagraphAfter();
 
@@ -251,14 +254,18 @@ namespace TestSystem.ViewModels
 
                 Word.Paragraph questionTitleParagraph = document.Paragraphs.Add();
                 Word.Range questionTitleRange = questionTitleParagraph.Range;
+               
                 questionTitleRange.Text = $"{questionNumber}. {question.Title}";
-                questionTitleRange.InsertParagraphAfter();
+                questionTitleRange.InsertParagraphAfter(); 
+                questionTitleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
 
                 Word.Paragraph questionDescriptionParagraph = document.Paragraphs.Add();
                 Word.Range questionDescriptionRange = questionDescriptionParagraph.Range;
+               
                 questionDescriptionRange.Text = question.Description;
-                questionDescriptionRange.InsertParagraphAfter();
+                questionDescriptionRange.InsertParagraphAfter(); 
+                questionDescriptionRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
 
                 questionNumber++;
             }
